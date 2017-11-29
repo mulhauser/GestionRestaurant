@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/services/people/index.ts"],"names":[],"mappings":";;;;;AAAA,sCAAiC","sourcesContent":["export * from './people.service';\r\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/routes/people/index.ts"],"names":[],"mappings":";;;;;AAAA,2BAAsB;AACtB,4BAAuB;AACvB,2BAAsB;AACtB,8BAAyB","sourcesContent":["export * from './get';\r\nexport * from './post';\r\nexport * from './put';\r\nexport * from './delete';\r\n"]}

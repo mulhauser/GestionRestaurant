@@ -1,0 +1,16 @@
+# Installation
+> `npm install --save @types/hapi`
+
+# Summary
+This package contains type definitions for hapi (https://github.com/hapijs/hapi).
+
+# Details
+Files were exported from https://www.github.com/DefinitelyTyped/DefinitelyTyped/tree/master/types/hapi
+
+Additional Details
+ * Last updated: Thu, 09 Nov 2017 08:43:07 GMT
+ * Dependencies: events, stream, http, https, url, zlib, domain, boom, joi, catbox, mimos, podium, shot, node
+ * Global values: none
+
+# Credits
+These definitions were written by Jason Swearingen <https://github.com/jasonswearingen>, AJP <https://github.com/AJamesPhillips>.
