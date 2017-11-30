@@ -25,8 +25,9 @@ export class HomeComponent implements OnInit {
     return this._name;
   }
 
+  /**
+   * OnInit implementation
+   */
   ngOnInit() {
-
   }
-
 }

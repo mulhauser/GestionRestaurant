@@ -2,16 +2,19 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 // MATERIAL DESIGN MODULES
-import { MatToolbarModule, MatCardModule } from '@angular/material';
+import { MatCardModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './home/home.component';
+import {MatButtonModule} from '@angular/material/button';
+import { RoomComponent } from './room/room.component';
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, HomeComponent, RoomComponent],
   imports: [
     BrowserModule,
-    MatToolbarModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
