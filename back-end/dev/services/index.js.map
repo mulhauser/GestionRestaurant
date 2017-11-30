@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/services/index.ts"],"names":[],"mappings":";;;;;AAAA,8BAAyB;AACzB,uCAAkC","sourcesContent":["export * from './people';\r\nexport * from './people-document';\r\n"]}

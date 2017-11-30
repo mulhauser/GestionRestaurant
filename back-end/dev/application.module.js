@@ -11,15 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@hapiness/core");
 const logger_1 = require("@hapiness/logger");
-const swag_1 = require("@hapiness/swag");
-const config_1 = require("@hapiness/config");
-const mongo_1 = require("@hapiness/mongo");
-const routes_1 = require("./routes");
-const services_1 = require("./services");
-const models_1 = require("./models");
-// factory to declare dependency between PeopleDocumentService and MongoClientService
-// we use it to be sure that MongoClientService will be loaded before PeopleDocumentService
-const peopleDocumentFactory = (mongoClientService) => new services_1.PeopleDocumentService(mongoClientService);
 let ApplicationModule = class ApplicationModule {
     /**
      * Class constructor
@@ -55,18 +46,11 @@ ApplicationModule = __decorate([
     core_1.HapinessModule({
         version: '1.0.0',
         imports: [
-            logger_1.LoggerModule,
-            swag_1.SwagModule.setConfig(config_1.Config.get('swag')),
-            mongo_1.MongoModule
+            logger_1.LoggerModule
         ],
-        declarations: [
-            routes_1.GetHelloWorldRoute, routes_1.GetAllPeopleRoute, routes_1.GetOnePeopleRoute, routes_1.PostCreatePeopleRoute, routes_1.PutUpdatePeopleRoute, routes_1.DeleteOnePeopleRoute,
-            models_1.PeopleModel
-        ],
+        declarations: [],
         providers: [
-            core_1.HttpServerService,
-            services_1.PeopleService,
-            { provide: services_1.PeopleDocumentService, useFactory: peopleDocumentFactory, deps: [mongo_1.MongoClientService] }
+            core_1.HttpServerService
         ]
     }),
     __metadata("design:paramtypes", [core_1.HttpServerService, logger_1.LoggerService])

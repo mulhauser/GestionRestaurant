@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/routes/hello/index.ts"],"names":[],"mappings":";;;;;AAAA,2BAAsB","sourcesContent":["export * from './get';\r\n"]}
