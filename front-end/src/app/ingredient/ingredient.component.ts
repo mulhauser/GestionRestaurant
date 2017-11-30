@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef} from "@angular/material";
 import {DialogComponent} from "../shared/dialog/dialog.component";
+import {MatDialog, MatDialogRef} from "@angular/material";
 
 @Component({
-  selector: 'nwt-room',
-  templateUrl: './room.component.html',
-  styleUrls: ['./room.component.css']
+  selector: 'nwt-ingredient',
+  templateUrl: './ingredient.component.html',
+  styleUrls: ['./ingredient.component.css']
 })
-export class RoomComponent implements OnInit {
+export class IngredientComponent implements OnInit {
   // private property to store people value
   // private _room: any[];
   // private property to store dialogStatus value
