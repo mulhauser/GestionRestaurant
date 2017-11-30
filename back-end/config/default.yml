@@ -1,0 +1,10 @@
+server:
+  host: 0.0.0.0
+  port: 4443
+swag:
+  info:
+    title: Restaurant
+mongodb:
+  host: 0.0.0.0
+  port: 27017
+  db: restaurant

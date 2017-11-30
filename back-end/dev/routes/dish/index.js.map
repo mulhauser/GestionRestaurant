@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/routes/dish/index.ts"],"names":[],"mappings":";;;;;AAGA,2BAAsB","sourcesContent":["export * from './delete';\nexport * from './put';\nexport * from './post';\nexport * from './get';\n"]}
