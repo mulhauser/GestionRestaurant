@@ -1,2 +1,1 @@
-// export * from './dish-document';
-
+export * from './dish-document.service';

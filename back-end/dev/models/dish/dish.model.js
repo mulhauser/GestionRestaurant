@@ -11,7 +11,6 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongo_1 = require("@hapiness/mongo");
 const config_1 = require("@hapiness/config");
-const ingredient_model_1 = require("../ingredient/ingredient.model");
 let DishModel = DishModel_1 = class DishModel extends mongo_1.Model {
     /**
      * Class constructor
@@ -24,12 +23,26 @@ let DishModel = DishModel_1 = class DishModel extends mongo_1.Model {
         this._mongoClientService = _mongoClientService;
         // get dao
         const dao = this._mongoClientService.getDao(this.connectionOptions);
+        this.childSchema = new dao.Schema({
+            refIngredient: { type: String, required: true },
+            quantityUse: { type: Number, required: true }
+        }, {
+            versionKey: false
+        });
+        this.childSchema.set('toJSON', {
+            virtuals: true,
+            transform: function (doc, ret) {
+                delete ret._id;
+                delete ret.id;
+                return ret;
+            }
+        });
         // create schema
         this.schema = new dao.Schema({
             name: { type: String, required: true },
             price: { type: Number, required: true },
             ingredients: [
-                { type: ingredient_model_1.IngredientModel }
+                { type: this.childSchema, required: true }
             ]
         }, {
             versionKey: false
