@@ -1,0 +1,1 @@
+{"version":3,"file":"dish.js","sourceRoot":"","sources":["../../src/interfaces/dish.ts"],"names":[],"mappings":"","sourcesContent":["export interface Dish {\n    id?: string;\n    name: string;\n    price: number;\n    idIngredients: string[];\n}\n"]}

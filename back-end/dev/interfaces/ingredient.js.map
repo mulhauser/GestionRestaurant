@@ -1,0 +1,1 @@
+{"version":3,"file":"ingredient.js","sourceRoot":"","sources":["../../src/interfaces/ingredient.ts"],"names":[],"mappings":"","sourcesContent":["export interface Ingredient {\n    id?: string;\n    name: string;\n    quantity: number;\n}\n"]}

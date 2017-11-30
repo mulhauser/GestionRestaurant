@@ -1,0 +1,1 @@
+{"version":3,"file":"order.js","sourceRoot":"","sources":["../../src/interfaces/order.ts"],"names":[],"mappings":"","sourcesContent":["export interface Order {\n    id?: string;\n    idTable: string;\n    isServed: boolean;\n    isPayed: boolean;\n    idDishes: string[];\n    orderDate: Date;\n    serveDate: Date;\n}\n"]}

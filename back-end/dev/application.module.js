@@ -11,6 +11,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@hapiness/core");
 const logger_1 = require("@hapiness/logger");
+const swag_1 = require("@hapiness/swag");
+const config_1 = require("@hapiness/config");
+const mongo_1 = require("@hapiness/mongo");
+const room_model_1 = require("./models/room/room.model");
+const all_route_1 = require("./routes/room/get/all.route");
+const one_route_1 = require("./routes/room/get/one.route");
+const create_route_1 = require("./routes/room/post/create.route");
+const one_route_2 = require("./routes/room/delete/one.route");
+const update_route_1 = require("./routes/room/put/update.route");
+const room_document_service_1 = require("./services/room-document/room-document.service");
+const room_service_1 = require("./services/room/room.service");
+const all_route_2 = require("./routes/ingredient/get/all.route");
+const one_route_3 = require("./routes/ingredient/get/one.route");
+const create_route_2 = require("./routes/ingredient/post/create.route");
+const one_route_4 = require("./routes/ingredient/delete/one.route");
+const update_route_2 = require("./routes/ingredient/put/update.route");
+const ingredient_model_1 = require("./models/ingredient/ingredient.model");
+const ingredient_service_1 = require("./services/ingredient/ingredient.service");
+const ingredient_document_service_1 = require("./services/ingredient-document/ingredient-document.service");
+const roomDocumentFactory = (mongoClientService) => new room_document_service_1.RoomDocumentService(mongoClientService);
+const ingredientDocumentFactory = (mongoClientService) => new ingredient_document_service_1.IngredientDocumentService(mongoClientService);
 let ApplicationModule = class ApplicationModule {
     /**
      * Class constructor
@@ -46,11 +67,21 @@ ApplicationModule = __decorate([
     core_1.HapinessModule({
         version: '1.0.0',
         imports: [
-            logger_1.LoggerModule
+            logger_1.LoggerModule,
+            swag_1.SwagModule.setConfig(config_1.Config.get('swag')),
+            mongo_1.MongoModule
         ],
-        declarations: [],
+        declarations: [
+            room_model_1.RoomModel, all_route_1.GetAllRoomRoute, one_route_1.GetOneRoomRoute, create_route_1.PostCreateRoomRoute, one_route_2.DeleteOneRoomRoute, update_route_1.PutUpdateRoomRoute,
+            ingredient_model_1.IngredientModel, all_route_2.GetAllIngredientRoute, one_route_3.GetOneIngredientRoute, create_route_2.PostCreateIngredientRoute, one_route_4.DeleteOneIngredientRoute,
+            update_route_2.PutUpdateIngredientRoute
+        ],
         providers: [
-            core_1.HttpServerService
+            core_1.HttpServerService,
+            room_service_1.RoomService,
+            { provide: room_document_service_1.RoomDocumentService, useFactory: roomDocumentFactory, deps: [mongo_1.MongoClientService] },
+            ingredient_service_1.IngredientService,
+            { provide: ingredient_document_service_1.IngredientDocumentService, useFactory: ingredientDocumentFactory, deps: [mongo_1.MongoClientService] },
         ]
     }),
     __metadata("design:paramtypes", [core_1.HttpServerService, logger_1.LoggerService])

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/routes/table/index.ts"],"names":[],"mappings":";;;;;AAAA,8BAAyB;AAGzB,2BAAsB","sourcesContent":["export * from './delete';\nexport * from './put';\nexport * from './post';\nexport * from './get';\n"]}

@@ -1,0 +1,1 @@
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/interfaces/index.ts"],"names":[],"mappings":"","sourcesContent":["export * from './dish';\nexport * from './order';\nexport * from './room';\nexport * from './table';\nexport * from './ingredient';\n"]}
