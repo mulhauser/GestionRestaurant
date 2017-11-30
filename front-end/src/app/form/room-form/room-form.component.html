@@ -20,43 +20,6 @@
       </tr>
     </table>
 
-    <p>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Email *" ngModel name="email"/>
-      </mat-form-field>
-    </p>
-
-    <p ngModelGroup="address">
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Address" ngModel name="street"/>
-      </mat-form-field>
-    </p>
-
-    <table class="full-width" cellspacing="0" ngModelGroup="address">
-      <tr>
-        <td>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="City" ngModel name="city"/>
-          </mat-form-field>
-        </td>
-        <td>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Postal Code" ngModel name="postalCode"/>
-          </mat-form-field>
-        </td>
-      </tr>
-    </table>
-
-    <p>
-      <mat-form-field class="full-width">
-        <input matInput placeholder="Phone * (ex: 0612345678)" ngModel name="phone"/>
-      </mat-form-field>
-    </p>
-
-    <p>
-      <mat-checkbox [(ngModel)]="isManager" name="isManager">Manager</mat-checkbox>
-    </p>
-
   </form>
 </mat-dialog-content>
 

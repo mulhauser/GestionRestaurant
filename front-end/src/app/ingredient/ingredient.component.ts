@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import {DialogComponent} from "../shared/dialog/dialog.component";
-import {MatDialog, MatDialogRef} from "@angular/material";
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/defaultIfEmpty';
+import 'rxjs/add/operator/filter';
+
+import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'nwt-ingredient',
@@ -8,53 +12,45 @@ import {MatDialog, MatDialogRef} from "@angular/material";
   styleUrls: ['./ingredient.component.css']
 })
 export class IngredientComponent implements OnInit {
-  // private property to store people value
-  // private _room: any[];
-  // private property to store dialogStatus value
-  private _dialogStatus: string;
-  // private property to store dialog reference
-  private _roomDialog: MatDialogRef<DialogComponent>;
+  // private property to store _ingredient value
+  private _ingredient: any;
+  // private property to store all backend URLs
+  private _backendURL: any;
 
-  constructor(private _dialog: MatDialog) {
-    this._dialogStatus = 'inactive';
-  }
+  /**
+   * Component constructor
+   */
+  constructor(private _http: HttpClient) {
+    this._ingredient = {};
+    this._backendURL = {};
 
-  get dialogStatus(): string {
-    return this._dialogStatus;
-  }
+    // build backend base url
+    let baseUrl = `${environment.backend.protocol}://${environment.backend.host}`;
+    if (environment.backend.port) {
+      baseUrl += `:${environment.backend.port}`;
+    }
 
-  ngOnInit() {
-    // this._getAll().subscribe((room: any[]) => this._room = room);
+    // build all backend urls
+    Object.keys(environment.backend.endpoints).forEach(k => this._backendURL[k] = `${baseUrl}${environment.backend.endpoints[k]}`);
   }
 
   /**
-   * Function to display modal
+   * Returns private property _ingredient
+   *
+   * @returns {any}
    */
-  showDialog() {
-    // set dialog status
-    this._dialogStatus = 'active';
-
-    // open modal
-    this._roomDialog = this._dialog.open(DialogComponent, {
-      width: '500px',
-      disableClose: true
-    });
-
-    // // subscribe to afterClosed observable to set dialog status and do process
-    // this._roomDialog.afterClosed()
-    //   .filter(_ => !!_)
-    //   .flatMap(_ => this._add(_))
-    //   .subscribe(
-    //     (people: any[]) => this._room = people,
-    //     _ => this._dialogStatus = 'inactive',
-    //     () => this._dialogStatus = 'inactive'
-    //   );
+  get ingredient(): any {
+    return this._ingredient;
   }
 
-  // private _getAll(): Observable<any[]> {
-  //   return this._http.get(this._backendURL.allPeople)
-  //     .filter(_ => !!_)
-  //     .defaultIfEmpty([]);
-  // }
+  /**
+   * OnInit implementation
+   */
+  ngOnInit() {
+    this._http.get(this._backendURL.oneStock)
+      .filter(_ => !!_)
+      .defaultIfEmpty({})
+      .subscribe((ingredients: any) => this._ingredient = ingredients);
+  }
 
 }

@@ -1,0 +1,7 @@
+<section>
+  <nwt-card [ingredient]="ingredient" (ingredientDelete)="delete($event)" *ngFor="let ing of ingredient"></nwt-card>
+</section>
+
+<button (click)="showDialog()" *ngIf="dialogStatus === 'inactive'" mat-fab color="accent">
+  <i class="material-icons">add</i>
+</button>
