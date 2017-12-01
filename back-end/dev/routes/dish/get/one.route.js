@@ -33,6 +33,7 @@ GetOneDishRoute = __decorate([
         path: '/api/dish/{id}',
         method: 'GET',
         config: {
+            cors: true,
             validate: {
                 params: {
                     id: Joi.string().required()
@@ -45,7 +46,7 @@ GetOneDishRoute = __decorate([
                         name: Joi.string().required(),
                         price: Joi.number().required(),
                         ingredients: Joi.array().items(Joi.object().keys({
-                            refIngredient: Joi.string(),
+                            ref: Joi.string().required(),
                             quantityUse: Joi.number()
                         }))
                     })

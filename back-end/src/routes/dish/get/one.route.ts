@@ -10,6 +10,7 @@ import {Dish} from '../../../interfaces/dish';
     path: '/api/dish/{id}',
     method: 'GET',
     config: {
+        cors: true,
         validate: {
             params: {
                 id: Joi.string().required()
@@ -23,7 +24,7 @@ import {Dish} from '../../../interfaces/dish';
                     price: Joi.number().required(),
                     ingredients: Joi.array().items(
                         Joi.object().keys({
-                            refIngredient: Joi.string(),
+                            ref: Joi.string().required(),
                             quantityUse: Joi.number()
                         })
                     )

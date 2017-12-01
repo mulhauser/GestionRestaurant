@@ -33,12 +33,13 @@ PostCreateDishRoute = __decorate([
         path: '/api/dish',
         method: 'POST',
         config: {
+            cors: true,
             validate: {
                 payload: Joi.object().keys({
                     name: Joi.string().required(),
                     price: Joi.number().required(),
                     ingredients: Joi.array().items(Joi.object().keys({
-                        refIngredient: Joi.string().required(),
+                        ref: Joi.string().required(),
                         quantityUse: Joi.number().required()
                     }))
                 })
@@ -55,7 +56,7 @@ PostCreateDishRoute = __decorate([
                         name: Joi.string().required(),
                         price: Joi.number().required(),
                         ingredients: Joi.array().items(Joi.object().keys({
-                            refIngredient: Joi.string(),
+                            ref: Joi.string().required(),
                             quantityUse: Joi.number()
                         }))
                     })

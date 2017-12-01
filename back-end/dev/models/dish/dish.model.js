@@ -24,7 +24,7 @@ let DishModel = DishModel_1 = class DishModel extends mongo_1.Model {
         // get dao
         const dao = this._mongoClientService.getDao(this.connectionOptions);
         this.childSchema = new dao.Schema({
-            refIngredient: { type: String, required: true },
+            ref: { type: String, required: true },
             quantityUse: { type: Number, required: true }
         }, {
             versionKey: false

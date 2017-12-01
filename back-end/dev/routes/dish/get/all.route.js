@@ -33,6 +33,7 @@ GetAllDishRoute = __decorate([
         path: '/api/dish',
         method: 'GET',
         config: {
+            cors: true,
             response: {
                 status: {
                     200: Joi.array().items(Joi.object().keys({
@@ -40,7 +41,7 @@ GetAllDishRoute = __decorate([
                         name: Joi.string().required(),
                         price: Joi.number().required(),
                         ingredients: Joi.array().items(Joi.object().keys({
-                            refIngredient: Joi.string(),
+                            ref: Joi.string().required(),
                             quantityUse: Joi.number()
                         }))
                     })).unique().min(1)

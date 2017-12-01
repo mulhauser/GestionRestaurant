@@ -33,6 +33,7 @@ PutUpdateDishRoute = __decorate([
         path: '/api/dish/{id}',
         method: 'PUT',
         config: {
+            cors: true,
             validate: {
                 params: {
                     id: Joi.string().required()
@@ -41,7 +42,7 @@ PutUpdateDishRoute = __decorate([
                     name: Joi.string().required(),
                     price: Joi.number().required(),
                     ingredients: Joi.array().items(Joi.object().keys({
-                        refIngredient: Joi.string(),
+                        ref: Joi.string().required(),
                         quantityUse: Joi.number()
                     }))
                 })
@@ -58,7 +59,7 @@ PutUpdateDishRoute = __decorate([
                         name: Joi.string().required(),
                         price: Joi.number().required(),
                         ingredients: Joi.array().items(Joi.object().keys({
-                            refIngredient: Joi.string().required(),
+                            ref: Joi.string().required(),
                             quantityUse: Joi.number().required()
                         }))
                     })

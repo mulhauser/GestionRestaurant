@@ -33,6 +33,7 @@ DeleteOneIngredientRoute = __decorate([
         path: '/api/ingredient/{id}',
         method: 'DELETE',
         config: {
+            cors: true,
             validate: {
                 params: {
                     id: Joi.string().required()
