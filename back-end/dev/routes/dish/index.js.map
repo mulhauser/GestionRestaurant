@@ -1,1 +1,5 @@
+<<<<<<< HEAD
 {"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/routes/dish/index.ts"],"names":[],"mappings":";;;;;AAAA,8BAAyB;AACzB,2BAAsB;AACtB,4BAAuB;AACvB,2BAAsB","sourcesContent":["export * from './delete';\r\nexport * from './put';\r\nexport * from './post';\r\nexport * from './get';\r\n"]}
+=======
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/routes/dish/index.ts"],"names":[],"mappings":";;;;;AAAA,8BAAyB;AACzB,2BAAsB;AACtB,4BAAuB;AACvB,2BAAsB","sourcesContent":["export * from './delete';\nexport * from './put';\nexport * from './post';\nexport * from './get';\n"]}
+>>>>>>> f80cfbdc7a28c2093b76456f8394e2100993ed95
