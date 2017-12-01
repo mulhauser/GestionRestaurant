@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/models/ingredient/index.ts"],"names":[],"mappings":";;;;;AAAA,wCAAmC","sourcesContent":["export * from './ingredient.model';\n"]}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/models/ingredient/index.ts"],"names":[],"mappings":";;;;;AAAA,wCAAmC","sourcesContent":["export * from './ingredient.model';\r\n"]}

@@ -1,4 +1,4 @@
-import { Hapiness, HttpServerExt } from '@hapiness/core';
+import { HapiConfig, Hapiness, HttpServerExt } from '@hapiness/core';
 import { LoggerExt } from '@hapiness/logger';
 
 import { ApplicationModule } from './application.module';
@@ -8,7 +8,7 @@ import {Config} from '@hapiness/config';
 // bootstrap application
 Hapiness.bootstrap(ApplicationModule, [
     LoggerExt,
-    HttpServerExt.setConfig({ host: '0.0.0.0', port: 4443 }),
+    HttpServerExt.setConfig(Config.get<HapiConfig>('server')),
     MongoClientExt.setConfig({
         load: [
             {

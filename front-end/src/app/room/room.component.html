@@ -4,6 +4,6 @@
   <button mat-raised-button color="primary">Salle 1</button>
 </section>
 
-<button mat-fab color="accent">
+<button (click)="showDialog()" *ngIf="dialogStatus === 'inactive'" mat-fab color="accent">
   <i class="material-icons">add</i>
 </button>

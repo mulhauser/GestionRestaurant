@@ -1,1 +1,5 @@
+<<<<<<< HEAD
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/models/index.ts"],"names":[],"mappings":";;;;;AAAA,4BAAuB;AACvB,kCAA6B;AAC7B,2BAA2B;AAC3B,4BAAuB;AACvB,6BAAwB","sourcesContent":["export * from './dish';\r\nexport * from './ingredient';\r\n// export * from './order';\r\nexport * from './room';\r\nexport * from './table';\r\n"]}
+=======
 {"version":3,"file":"index.js","sourceRoot":"","sources":["../../src/models/index.ts"],"names":[],"mappings":";;;;;AAAA,4BAAuB;AACvB,kCAA6B;AAC7B,2BAA2B;AAC3B,4BAAuB;AACvB,6BAAwB","sourcesContent":["export * from './dish';\nexport * from './ingredient';\n// export * from './order';\nexport * from './room';\nexport * from './table';\n"]}
+>>>>>>> f80cfbdc7a28c2093b76456f8394e2100993ed95

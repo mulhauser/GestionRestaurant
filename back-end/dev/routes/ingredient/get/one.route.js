@@ -11,7 +11,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const core_1 = require("@hapiness/core");
 const Joi = require("joi");
-const ingredient_service_1 = require("../../../services/ingredient/ingredient.service");
+const services_1 = require("../../../services");
 let GetOneIngredientRoute = class GetOneIngredientRoute {
     /**
      * Class constructor
@@ -53,7 +53,7 @@ GetOneIngredientRoute = __decorate([
             tags: ['api', 'ingredient']
         }
     }),
-    __metadata("design:paramtypes", [ingredient_service_1.IngredientService])
+    __metadata("design:paramtypes", [services_1.IngredientService])
 ], GetOneIngredientRoute);
 exports.GetOneIngredientRoute = GetOneIngredientRoute;
 //# sourceMappingURL=one.route.js.map
