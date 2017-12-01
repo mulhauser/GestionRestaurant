@@ -25,7 +25,7 @@ export class IngredientModel extends Model {
         // create schema
         this.schema = new dao.Schema({
             name: { type: String, required: true },
-            quantity: { type: Number, required: true },
+            quantity: { type: Number, required: true }
 
         }, {
             versionKey: false

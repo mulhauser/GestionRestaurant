@@ -2,7 +2,7 @@ import { OnGet, Route, Request } from '@hapiness/core';
 import { Observable } from 'rxjs/Observable';
 
 import * as Joi from 'joi';
-import {IngredientService} from '../../../services/ingredient/ingredient.service';
+import {IngredientService} from '../../../services';
 import {Ingredient} from '../../../interfaces/ingredient';
 
 @Route({

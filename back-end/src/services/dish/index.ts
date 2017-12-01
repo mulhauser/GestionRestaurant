@@ -1,1 +1,1 @@
-// export * from './dish.service';
+export * from './dish.service';

@@ -7,7 +7,7 @@ import { of } from 'rxjs/observable/of';
 import { _throw } from 'rxjs/observable/throw';
 import { flatMap, map, catchError } from 'rxjs/operators';
 import {Ingredient} from '../../interfaces/ingredient';
-import {IngredientDocumentService} from '../ingredient-document/ingredient-document.service';
+import {IngredientDocumentService} from '../ingredient-document';
 
 @Injectable()
 export class IngredientService {
