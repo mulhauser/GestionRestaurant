@@ -14,7 +14,7 @@ const biim_1 = require("@hapiness/biim");
 const of_1 = require("rxjs/observable/of");
 const throw_1 = require("rxjs/observable/throw");
 const operators_1 = require("rxjs/operators");
-const ingredient_document_service_1 = require("../ingredient-document/ingredient-document.service");
+const ingredient_document_1 = require("../ingredient-document");
 let IngredientService = class IngredientService {
     /**
      * Class constructor
@@ -84,7 +84,7 @@ let IngredientService = class IngredientService {
 };
 IngredientService = __decorate([
     core_1.Injectable(),
-    __metadata("design:paramtypes", [ingredient_document_service_1.IngredientDocumentService])
+    __metadata("design:paramtypes", [ingredient_document_1.IngredientDocumentService])
 ], IngredientService);
 exports.IngredientService = IngredientService;
 //# sourceMappingURL=ingredient.service.js.map

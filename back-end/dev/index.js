@@ -8,7 +8,7 @@ const config_1 = require("@hapiness/config");
 // bootstrap application
 core_1.Hapiness.bootstrap(application_module_1.ApplicationModule, [
     logger_1.LoggerExt,
-    core_1.HttpServerExt.setConfig({ host: '0.0.0.0', port: 4443 }),
+    core_1.HttpServerExt.setConfig(config_1.Config.get('server')),
     mongo_1.MongoClientExt.setConfig({
         load: [
             {

@@ -30,8 +30,17 @@ const update_route_2 = require("./routes/ingredient/put/update.route");
 const ingredient_model_1 = require("./models/ingredient/ingredient.model");
 const ingredient_service_1 = require("./services/ingredient/ingredient.service");
 const ingredient_document_service_1 = require("./services/ingredient-document/ingredient-document.service");
+const dish_document_service_1 = require("./services/dish-document/dish-document.service");
+const all_route_3 = require("./routes/dish/get/all.route");
+const one_route_5 = require("./routes/dish/get/one.route");
+const create_route_3 = require("./routes/dish/post/create.route");
+const one_route_6 = require("./routes/dish/delete/one.route");
+const update_route_3 = require("./routes/dish/put/update.route");
+const dish_model_1 = require("./models/dish/dish.model");
+const dish_service_1 = require("./services/dish/dish.service");
 const roomDocumentFactory = (mongoClientService) => new room_document_service_1.RoomDocumentService(mongoClientService);
 const ingredientDocumentFactory = (mongoClientService) => new ingredient_document_service_1.IngredientDocumentService(mongoClientService);
+const dishDocumentFactory = (mongoClientService) => new dish_document_service_1.DishDocumentService(mongoClientService);
 let ApplicationModule = class ApplicationModule {
     /**
      * Class constructor
@@ -74,7 +83,8 @@ ApplicationModule = __decorate([
         declarations: [
             room_model_1.RoomModel, all_route_1.GetAllRoomRoute, one_route_1.GetOneRoomRoute, create_route_1.PostCreateRoomRoute, one_route_2.DeleteOneRoomRoute, update_route_1.PutUpdateRoomRoute,
             ingredient_model_1.IngredientModel, all_route_2.GetAllIngredientRoute, one_route_3.GetOneIngredientRoute, create_route_2.PostCreateIngredientRoute, one_route_4.DeleteOneIngredientRoute,
-            update_route_2.PutUpdateIngredientRoute
+            update_route_2.PutUpdateIngredientRoute,
+            dish_model_1.DishModel, all_route_3.GetAllDishRoute, one_route_5.GetOneDishRoute, create_route_3.PostCreateDishRoute, one_route_6.DeleteOneDishRoute, update_route_3.PutUpdateDishRoute
         ],
         providers: [
             core_1.HttpServerService,
@@ -82,6 +92,8 @@ ApplicationModule = __decorate([
             { provide: room_document_service_1.RoomDocumentService, useFactory: roomDocumentFactory, deps: [mongo_1.MongoClientService] },
             ingredient_service_1.IngredientService,
             { provide: ingredient_document_service_1.IngredientDocumentService, useFactory: ingredientDocumentFactory, deps: [mongo_1.MongoClientService] },
+            dish_service_1.DishService,
+            { provide: dish_document_service_1.DishDocumentService, useFactory: dishDocumentFactory, deps: [mongo_1.MongoClientService] },
         ]
     }),
     __metadata("design:paramtypes", [core_1.HttpServerService, logger_1.LoggerService])

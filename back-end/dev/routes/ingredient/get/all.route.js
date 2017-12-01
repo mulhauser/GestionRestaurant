@@ -33,6 +33,7 @@ GetAllIngredientRoute = __decorate([
         path: '/api/ingredient',
         method: 'GET',
         config: {
+            cors: true,
             response: {
                 status: {
                     200: Joi.array().items(Joi.object().keys({
