@@ -33,6 +33,7 @@ DeleteOneDishRoute = __decorate([
         path: '/api/dish/{id}',
         method: 'DELETE',
         config: {
+            cors: true,
             validate: {
                 params: {
                     id: Joi.string().required()
@@ -40,7 +41,7 @@ DeleteOneDishRoute = __decorate([
             },
             description: 'Delete dish',
             notes: 'Delete one dish for the given id in path parameter',
-            tags: ['api', 'dish']
+            tags: ['api', 'dish'],
         }
     }),
     __metadata("design:paramtypes", [dish_service_1.DishService])

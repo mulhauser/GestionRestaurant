@@ -10,6 +10,7 @@ import {Ingredient} from '../../../interfaces/ingredient';
     path: '/api/ingredient/{id}',
     method: 'PUT',
     config: {
+        cors: true,
         validate: {
             params: {
                 id: Joi.string().required()

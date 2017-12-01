@@ -33,6 +33,7 @@ GetOneIngredientRoute = __decorate([
         path: '/api/ingredient/{id}',
         method: 'GET',
         config: {
+            cors: true,
             validate: {
                 params: {
                     id: Joi.string().required()

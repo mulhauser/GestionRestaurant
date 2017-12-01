@@ -5,17 +5,20 @@ import { Observable } from 'rxjs/Observable';
 import { fromPromise } from 'rxjs/observable/fromPromise';
 import { of } from 'rxjs/observable/of';
 import { _throw } from 'rxjs/observable/throw';
-import { flatMap, filter, map } from 'rxjs/operators';
+import {flatMap, filter, map, catchError} from 'rxjs/operators';
 import { mergeStatic } from 'rxjs/operators/merge';
 
 import { Config } from '@hapiness/config';
 import {Dish} from '../../interfaces/dish';
 import {DishModel} from '../../models/dish/dish.model';
+import {IngredientDocumentService} from '../ingredient-document/ingredient-document.service';
+import {Biim} from '@hapiness/biim';
 
 @Injectable()
 export class DishDocumentService {
     // private property to store document instance
     private _document: any;
+    private _documentIngredient: any;
 
     /**
      * Class constructor
@@ -27,6 +30,7 @@ export class DishDocumentService {
             adapter: 'mongoose',
             options: Config.get('mongodb')
         }, DishModel);
+        this._documentIngredient = new IngredientDocumentService(_mongoClientService);
     }
 
     /**
@@ -83,7 +87,31 @@ export class DishDocumentService {
      * @return {Observable<Room>}
      */
     create(dish: Dish): Observable<Dish> {
-        return fromPromise(this._document.findOne({
+        let obs;
+        for (let ingredient of dish.ingredients) {
+            obs = fromPromise(this._documentIngredient.findById(ingredient.ref));
+        }
+        return obs.pipe(
+            catchError(e => _throw(Biim.preconditionFailed(e.message))),
+            flatMap(_ =>
+                !!_ ?
+                    fromPromise(this._document.findOne({
+                        name: { $regex: new RegExp(dish.name, 'i') },
+                    }))
+                        .pipe(
+                            flatMap(_ => !!_ ?
+                                _throw(
+                                    new Error(`Dish with name '${dish.name}' already exists`)
+                                ) :
+                                fromPromise(this._document.create(dish))
+                            ),
+                            map((doc: MongooseDocument) => doc.toJSON() as Dish)
+                        ) :
+                    _throw(Biim)
+            )
+        );
+        // return fromPromise(this._documentIngredient.findById())
+        /*return fromPromise(this._document.findOne({
             name: { $regex: new RegExp(dish.name, 'i') },
         }))
             .pipe(
@@ -94,7 +122,7 @@ export class DishDocumentService {
                     fromPromise(this._document.create(dish))
                 ),
                 map((doc: MongooseDocument) => doc.toJSON() as Dish)
-            );
+            );*/
     }
 
     /**

@@ -1,10 +1,11 @@
+
 export interface Dish {
     id?: string;
     name: string;
     price: number;
     ingredients: [
         {
-            refIngredient: string;
+            ref: string;
             quantityUse: number;
         }
         ];

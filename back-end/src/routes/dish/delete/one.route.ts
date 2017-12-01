@@ -8,6 +8,7 @@ import {DishService} from '../../../services/dish/dish.service';
     path: '/api/dish/{id}',
     method: 'DELETE',
     config: {
+        cors: true,
         validate: {
             params: {
                 id: Joi.string().required()
@@ -15,7 +16,7 @@ import {DishService} from '../../../services/dish/dish.service';
         },
         description: 'Delete dish',
         notes: 'Delete one dish for the given id in path parameter',
-        tags: ['api', 'dish']
+        tags: ['api', 'dish'],
     }
 })
 export class DeleteOneDishRoute implements OnDelete {
