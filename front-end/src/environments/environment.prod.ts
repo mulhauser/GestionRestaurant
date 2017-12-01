@@ -6,8 +6,8 @@ export const environment = {
     port: '4443',
     endpoints: {
       allRoom: '/api/room',
-      allStock: '/api/stock',
-      oneStock: '/api/stock/:id'
+      allStock: '/api/ingredient',
+      oneStock: '/api/ingredient/:id'
     }
   }
 };

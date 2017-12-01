@@ -1,4 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import 'rxjs/add/observable/of';
 
 @Component({
   selector: 'nwt-card',
@@ -43,7 +44,8 @@ export class CardComponent implements OnInit {
    *
    * @returns {EventEmitter<any>}
    */
-  @Output('ingredientDelete') get delete$(): EventEmitter<any> {
+  @Output('ingredientDelete')
+  get delete$(): EventEmitter<any> {
     return this._delete$;
   }
 

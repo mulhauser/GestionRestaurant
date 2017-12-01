@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/defaultIfEmpty';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/do';
 
-import {HttpClient} from "@angular/common/http";
-import {environment} from "../../environments/environment";
+import {StockService} from "../shared/stock-service/stock.service";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'nwt-ingredient',
@@ -14,24 +16,12 @@ import {environment} from "../../environments/environment";
 export class IngredientComponent implements OnInit {
   // private property to store _ingredient value
   private _ingredient: any;
-  // private property to store all backend URLs
-  private _backendURL: any;
 
   /**
    * Component constructor
    */
-  constructor(private _http: HttpClient) {
+  constructor(private _stockService: StockService, private _route: ActivatedRoute) {
     this._ingredient = {};
-    this._backendURL = {};
-
-    // build backend base url
-    let baseUrl = `${environment.backend.protocol}://${environment.backend.host}`;
-    if (environment.backend.port) {
-      baseUrl += `:${environment.backend.port}`;
-    }
-
-    // build all backend urls
-    Object.keys(environment.backend.endpoints).forEach(k => this._backendURL[k] = `${baseUrl}${environment.backend.endpoints[k]}`);
   }
 
   /**
@@ -47,10 +37,25 @@ export class IngredientComponent implements OnInit {
    * OnInit implementation
    */
   ngOnInit() {
-    this._http.get(this._backendURL.oneStock)
-      .filter(_ => !!_)
-      .defaultIfEmpty({})
-      .subscribe((ingredients: any) => this._ingredient = ingredients);
+    Observable
+      .merge(
+        this._route.params
+          .filter(params => !!params['id'])
+          .flatMap(params => this._stockService.fetchOne(params['id'])),
+        this._route.params
+          .filter(params => !params['id'])
+          .flatMap(_ => this._stockService.fetchRandom())
+      )
+      .subscribe((ingredient: any) => this._ingredient = ingredient);
+  }
+
+  /**
+   * Returns random stock
+   */
+  random() {
+    this._stockService
+      .fetchRandom()
+      .subscribe((ingredient: any) => this._ingredient = ingredient);
   }
 
 }

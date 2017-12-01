@@ -20,6 +20,7 @@ import { DialogComponent } from './shared/dialog/dialog.component';
 import { IngredientComponent } from './ingredient/ingredient.component';
 import { StockComponent } from './stock/stock.component';
 import {CardComponent} from "./shared/card/card.component";
+import {StockService} from "./shared/stock-service/stock.service";
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, RoomComponent, RoomFormComponent, CardComponent, DialogComponent, IngredientComponent, StockComponent],
@@ -38,7 +39,7 @@ import {CardComponent} from "./shared/card/card.component";
     MatCardModule,
     APP_ROUTES
   ],
-  providers: [],
+  providers: [StockService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

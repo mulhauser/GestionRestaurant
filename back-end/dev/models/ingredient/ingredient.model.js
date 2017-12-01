@@ -26,7 +26,7 @@ let IngredientModel = IngredientModel_1 = class IngredientModel extends mongo_1.
         // create schema
         this.schema = new dao.Schema({
             name: { type: String, required: true },
-            quantity: { type: Number, required: true },
+            quantity: { type: Number, required: true }
         }, {
             versionKey: false
         });
