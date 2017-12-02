@@ -53,6 +53,7 @@ export class FormComponent implements OnInit, OnChanges {
    * @returns {FormGroup}
    */
   get form(): FormGroup {
+    //console.log(this._form.value);
     return this._form;
   }
 
@@ -102,7 +103,7 @@ export class FormComponent implements OnInit, OnChanges {
       this._isUpdateMode = true;
       this._form.patchValue(this._model);
     } else {
-      this._model = {};
+      this._model = { };
       this._isUpdateMode = false;
     }
   }
@@ -130,7 +131,7 @@ export class FormComponent implements OnInit, OnChanges {
    */
   private _buildForm(): FormGroup {
     return new FormGroup({
-      id: new FormControl(''),
+      // id: new FormControl(''), //https://www.google.fr/search?q=bananes&tbs=itp:clipart,ic:gray&tbm=isch
       name: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(2)
       ])),
