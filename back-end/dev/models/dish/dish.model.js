@@ -25,29 +25,41 @@ let DishModel = DishModel_1 = class DishModel extends mongo_1.Model {
         const dao = this._mongoClientService.getDao(this.connectionOptions);
         this.childSchema = new dao.Schema({
             ref: { type: String, required: true },
+            name: { type: String, required: true },
             quantityUse: { type: Number, required: true }
-        }, {
-            versionKey: false
-        });
-        this.childSchema.set('toJSON', {
-            virtuals: true,
-            transform: function (doc, ret) {
-                delete ret._id;
-                delete ret.id;
-                return ret;
-            }
-        });
+        }, { versionKey: false });
         // create schema
         this.schema = new dao.Schema({
             name: { type: String, required: true },
             price: { type: Number, required: true },
             ingredients: [
-                { type: this.childSchema, required: true }
+                {
+                    type: new dao.Schema({
+                        ref: { type: String, required: true },
+                        name: { type: String, required: true },
+                        quantityUse: { type: Number, required: true }
+                    }, { versionKey: false }).set('toJSON', {
+                        virtuals: true,
+                        transform: function (doc, ret) {
+                            delete ret._id;
+                            delete ret.id;
+                            return ret;
+                        }
+                    }),
+                    required: true
+                }
             ]
         }, {
             versionKey: false
         });
         // implement virtual method toJSON to delete _id field
+        this.childSchema.set('toJSON', {
+            virtuals: true,
+            transform: function (doc, ret) {
+                delete ret._id;
+                return ret;
+            }
+        });
         this.schema.set('toJSON', {
             virtuals: true,
             transform: function (doc, ret) {

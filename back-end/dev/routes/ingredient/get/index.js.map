@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../src/routes/ingredient/get/index.ts"],"names":[],"mappings":";;;;;AAAA,iCAA4B;AAC5B,iCAA4B","sourcesContent":["export * from './all.route';\r\nexport * from './one.route';\r\n"]}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../src/routes/ingredient/get/index.ts"],"names":[],"mappings":";;;;;AAAA,iCAA4B;AAC5B,iCAA4B","sourcesContent":["export * from './all.route';\nexport * from './one.route';\n"]}

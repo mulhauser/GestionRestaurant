@@ -1,13 +1,1 @@
-<<<<<<< HEAD
-{"version":3,"file":"dish.js","sourceRoot":"","sources":["../../src/interfaces/dish.ts"],"names":[],"mappings":"","sourcesContent":["export interface Dish {\r\n    id?: string;\r\n    name: string;\r\n    price: number;\r\n    ingredients: [\r\n        {\r\n            refIngredient: string;\r\n            quantityUse: number;\r\n        }\r\n        ];\r\n}\r\n"]}
-=======
-<<<<<<< HEAD
-{"version":3,"file":"dish.js","sourceRoot":"","sources":["../../src/interfaces/dish.ts"],"names":[],"mappings":"","sourcesContent":["\nexport interface Dish {\n    id?: string;\n    name: string;\n    price: number;\n    ingredients: [\n        {\n            ref: string;\n            quantityUse: number;\n        }\n        ];\n}\n"]}
-=======
-<<<<<<< HEAD
-{"version":3,"file":"dish.js","sourceRoot":"","sources":["../../src/interfaces/dish.ts"],"names":[],"mappings":"","sourcesContent":["export interface Dish {\r\n    id?: string;\r\n    name: string;\r\n    price: number;\r\n    ingredients: [\r\n        {\r\n            refIngredient: string;\r\n            quantityUse: number;\r\n        }\r\n        ];\r\n}\r\n"]}
-=======
-{"version":3,"file":"dish.js","sourceRoot":"","sources":["../../src/interfaces/dish.ts"],"names":[],"mappings":"","sourcesContent":["export interface Dish {\n    id?: string;\n    name: string;\n    price: number;\n    ingredients: [\n        {\n            refIngredient: string;\n            quantityUse: number;\n        }\n        ];\n}\n"]}
->>>>>>> f80cfbdc7a28c2093b76456f8394e2100993ed95
->>>>>>> 09e9ec49eabd2b305b2a604e089513754035e4fb
->>>>>>> e21bab2682f648d9283cb5e5ad4f5eef85d6545d
+{"version":3,"file":"dish.js","sourceRoot":"","sources":["../../src/interfaces/dish.ts"],"names":[],"mappings":"","sourcesContent":["export interface Dish {\n    id?: string;\n    name: string;\n    price: number;\n    ingredients: [\n        {\n            ref: string;\n            name: string;\n            quantityUse: number;\n        }\n        ];\n}\n"]}

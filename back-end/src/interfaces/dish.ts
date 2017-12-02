@@ -1,4 +1,3 @@
-
 export interface Dish {
     id?: string;
     name: string;
@@ -6,6 +5,7 @@ export interface Dish {
     ingredients: [
         {
             ref: string;
+            name: string;
             quantityUse: number;
         }
         ];
