@@ -5,8 +5,8 @@ export const environment = {
     host: '127.0.0.1',
     port: '4443',
     endpoints: {
-      allRoom: '/api/room',
       allStock: '/api/ingredient',
+      randomStock: '/api/stock/random',
       oneStock: '/api/ingredient/:id'
     }
   }

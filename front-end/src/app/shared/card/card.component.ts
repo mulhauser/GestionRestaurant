@@ -63,5 +63,4 @@ export class CardComponent implements OnInit {
   delete(ingredient: any) {
     this._delete$.emit(ingredient);
   }
-
 }

@@ -136,8 +136,7 @@ export class FormComponent implements OnInit, OnChanges {
       ])),
       quantity: new FormControl('', Validators.compose([
         Validators.required, CustomValidators.quantityValue
-      ])),
-      photo: new FormControl('https://randomuser.me/api/portraits/lego/6.jpg')
+      ]))
     });
   }
 }

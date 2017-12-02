@@ -16,12 +16,24 @@ import {ActivatedRoute} from "@angular/router";
 export class IngredientComponent implements OnInit {
   // private property to store _ingredient value
   private _ingredient: any;
+  // private property to store flag to know if it's an ingredient
+  private _isIngredient: boolean;
 
   /**
    * Component constructor
    */
   constructor(private _stockService: StockService, private _route: ActivatedRoute) {
     this._ingredient = {};
+    this._isIngredient = false;
+  }
+
+  /**
+   * Returns flag to know if we are on a profile or on HP
+   *
+   * @returns {boolean}
+   */
+  get isIngredient(): boolean {
+    return this._isIngredient;
   }
 
   /**
@@ -41,10 +53,12 @@ export class IngredientComponent implements OnInit {
       .merge(
         this._route.params
           .filter(params => !!params['id'])
-          .flatMap(params => this._stockService.fetchOne(params['id'])),
+          .flatMap(params => this._stockService.fetchOne(params['id']))
+          .do(_ => this._isIngredient = true),
         this._route.params
           .filter(params => !params['id'])
           .flatMap(_ => this._stockService.fetchRandom())
+          .do(_ => this._isIngredient = false)
       )
       .subscribe((ingredient: any) => this._ingredient = ingredient);
   }
