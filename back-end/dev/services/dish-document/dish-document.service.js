@@ -18,8 +18,6 @@ const operators_1 = require("rxjs/operators");
 const merge_1 = require("rxjs/operators/merge");
 const config_1 = require("@hapiness/config");
 const dish_model_1 = require("../../models/dish/dish.model");
-const ingredient_document_service_1 = require("../ingredient-document/ingredient-document.service");
-const biim_1 = require("@hapiness/biim");
 let DishDocumentService = class DishDocumentService {
     /**
      * Class constructor
@@ -32,7 +30,6 @@ let DishDocumentService = class DishDocumentService {
             adapter: 'mongoose',
             options: config_1.Config.get('mongodb')
         }, dish_model_1.DishModel);
-        this._documentIngredient = new ingredient_document_service_1.IngredientDocumentService(_mongoClientService);
     }
     /**
      * Call mongoose method, call toJSON on each result and returns People[] or undefined
@@ -65,26 +62,36 @@ let DishDocumentService = class DishDocumentService {
      * @return {Observable<Room>}
      */
     create(dish) {
-        let obs;
+        /*let obs;
         for (let ingredient of dish.ingredients) {
-            obs = fromPromise_1.fromPromise(this._documentIngredient.findById(ingredient.ref));
+            obs = fromPromise(this._documentIngredient.findById(ingredient.ref));
         }
-        return obs.pipe(operators_1.catchError(e => throw_1._throw(biim_1.Biim.preconditionFailed(e.message))), operators_1.flatMap(_ => !!_ ?
-            of_1.of(_) :
-            throw_1._throw(biim_1.Biim)));
+        return obs.pipe(
+            catchError(e => _throw(Biim.preconditionFailed(e.message))),
+            flatMap(_ =>
+                !!_ ?
+                    fromPromise(this._document.findOne({
+                        name: { $regex: new RegExp(dish.name, 'i') },
+                    }))
+                        .pipe(
+                            flatMap(_ => !!_ ?
+                                _throw(
+                                    new Error(`Dish with name '${dish.name}' already exists`)
+                                ) :
+                                fromPromise(this._document.create(dish))
+                            ),
+                            map((doc: MongooseDocument) => doc.toJSON() as Dish)
+                        ) :
+                    _throw(Biim)
+            )
+        );*/
         // return fromPromise(this._documentIngredient.findById())
-        /*return fromPromise(this._document.findOne({
+        return fromPromise_1.fromPromise(this._document.findOne({
             name: { $regex: new RegExp(dish.name, 'i') },
         }))
-            .pipe(
-                flatMap(_ => !!_ ?
-                    _throw(
-                        new Error(`Dish with name '${dish.name}' already exists`)
-                    ) :
-                    fromPromise(this._document.create(dish))
-                ),
-                map((doc: MongooseDocument) => doc.toJSON() as Dish)
-            );*/
+            .pipe(operators_1.flatMap(_ => !!_ ?
+            throw_1._throw(new Error(`Dish with name '${dish.name}' already exists`)) :
+            fromPromise_1.fromPromise(this._document.create(dish))), operators_1.map((doc) => doc.toJSON()));
     }
     /**
      * Update a person in people list

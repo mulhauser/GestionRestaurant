@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/routes/order/index.ts"],"names":[],"mappings":";;;;;AAGA,2BAAsB","sourcesContent":["export * from './delete';\r\nexport * from './put';\r\nexport * from './post';\r\nexport * from './get';\r\n"]}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/routes/order/index.ts"],"names":[],"mappings":";;;;;AAGA,2BAAsB","sourcesContent":["export * from './delete';\nexport * from './put';\nexport * from './post';\nexport * from './get';\n"]}

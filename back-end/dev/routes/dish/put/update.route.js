@@ -43,6 +43,7 @@ PutUpdateDishRoute = __decorate([
                     price: Joi.number().required(),
                     ingredients: Joi.array().items(Joi.object().keys({
                         ref: Joi.string().required(),
+                        name: Joi.string().required(),
                         quantityUse: Joi.number()
                     }))
                 })
@@ -60,6 +61,7 @@ PutUpdateDishRoute = __decorate([
                         price: Joi.number().required(),
                         ingredients: Joi.array().items(Joi.object().keys({
                             ref: Joi.string().required(),
+                            name: Joi.string().required(),
                             quantityUse: Joi.number().required()
                         }))
                     })

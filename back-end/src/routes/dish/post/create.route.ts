@@ -18,6 +18,7 @@ import {Dish} from '../../../interfaces/dish';
                 ingredients: Joi.array().items(
                     Joi.object().keys({
                         ref: Joi.string().required(),
+                        name: Joi.string().required(),
                         quantityUse: Joi.number().required()
                     })
                 )
@@ -37,6 +38,7 @@ import {Dish} from '../../../interfaces/dish';
                     ingredients: Joi.array().items(
                         Joi.object().keys({
                             ref: Joi.string().required(),
+                            name: Joi.string().required(),
                             quantityUse: Joi.number()
                         })
                     )

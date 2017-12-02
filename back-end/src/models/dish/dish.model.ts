@@ -25,18 +25,10 @@ export class DishModel extends Model {
 
         this.childSchema = new dao.Schema({
             ref: { type: String, required: true },
+            name: { type: String, required: true },
             quantityUse: { type: Number, required: true }
-        }, {
-            versionKey: false
-        });
-        this.childSchema.set('toJSON', {
-                virtuals: true,
-                transform: function (doc, ret) {
-                    delete ret._id;
-                    delete ret.id;
-                    return ret;
-                }
-            }
+        },
+            { versionKey: false }
         );
 
         // create schema
@@ -44,14 +36,38 @@ export class DishModel extends Model {
             name: { type: String, required: true },
             price: { type: Number, required: true },
             ingredients: [
-                { type: this.childSchema, required: true }
-            ]
+                {
+                    type: new dao.Schema({
+                        ref: { type: String, required: true },
+                        name: { type: String, required: true },
+                        quantityUse: { type: Number, required: true }
+                    },
+                    { versionKey: false }
+                ).set('toJSON', {
+                            virtuals: true,
+                            transform: function (doc, ret) {
+                                delete ret._id;
+                                delete ret.id;
+                                return ret;
+                            }
+                        }
+                    )
+                , required: true }]
         }, {
             versionKey: false
         });
 
 
         // implement virtual method toJSON to delete _id field
+        this.childSchema.set('toJSON', {
+                virtuals: true,
+                transform: function (doc, ret) {
+                    delete ret._id;
+                    return ret;
+                }
+            }
+        );
+
         this.schema.set('toJSON', {
                 virtuals: true,
                 transform: function (doc, ret) {
