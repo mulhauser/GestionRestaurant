@@ -74,7 +74,8 @@ let DishDocumentService = class DishDocumentService {
                         name: { $regex: new RegExp(dish.name, 'i') },
                     }))
                         .pipe(
-                            flatMap(_ => !!_ ?
+                            flatMap(_ =>
+                                !!_ ?
                                 _throw(
                                     new Error(`Dish with name '${dish.name}' already exists`)
                                 ) :

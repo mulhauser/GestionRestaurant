@@ -1,0 +1,48 @@
+<h2 mat-dialog-title *ngIf="isUpdateMode">Update {{ form.get('name').value }} </h2>
+<h2 mat-dialog-title *ngIf="!isUpdateMode">Add new ingredient</h2>
+
+<mat-dialog-content>
+  <form novalidate [formGroup]="form">
+
+    <p *ngIf="isUpdateMode">
+      <span style="width:100%">ID (disabled)</span><br/>
+      <span style="width:100%">{{model.id}}</span>
+    </p>
+
+    <table class="full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="full-width" [class.mgb15]="form.get('name').dirty && form.get('name').invalid">
+            <input matInput placeholder="Name " formControlName="name" minlength="2" required name="name"/>
+            <mat-error *ngIf="form.get('name').dirty && form.get('name').hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="form.get('name').dirty && form.get('name').hasError('minlength')">
+              Name is <strong>2 chars min</strong>
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Quantity " formControlName="quantity" required name="quantity"/>
+            <mat-error *ngIf="form.get('quantity').dirty && form.get('quantity').hasError('required')">
+              Quantity is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="form.get('quantity').dirty && !form.get('quantity').hasError('required') && form.get('quantity').hasError('quantityValue')">
+              Invalid quantity <strong>(ex: 42)</strong>
+            </mat-error>
+          </mat-form-field>
+        </td>
+        <td class="align-right">
+          <img width="100" src="{{ form.get('photo').value }}"/>
+          <input type="hidden" formControlName="photo" name="photo">
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" type="submit" (click)="submit(form.value)" [disabled]="form.invalid">Save</button>
+</mat-dialog-actions>

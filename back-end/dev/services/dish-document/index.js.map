@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/services/dish-document/index.ts"],"names":[],"mappings":";;;;;AAAA,6CAAwC","sourcesContent":["export * from './dish-document.service';\n"]}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/services/dish-document/index.ts"],"names":[],"mappings":";;;;;AAAA,6CAAwC","sourcesContent":["export * from './dish-document.service';\r\n"]}

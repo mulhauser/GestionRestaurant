@@ -115,5 +115,4 @@ export class StockComponent implements OnInit {
       .create(ingredient)
       .flatMap(_ => this._stockService.fetch());
   }
-
 }

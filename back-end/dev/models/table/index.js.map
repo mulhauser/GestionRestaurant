@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/models/table/index.ts"],"names":[],"mappings":";;;;;AAAA,mCAA8B","sourcesContent":["export * from './table.model';\n"]}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/models/table/index.ts"],"names":[],"mappings":";;;;;AAAA,mCAA8B","sourcesContent":["export * from './table.model';\r\n"]}

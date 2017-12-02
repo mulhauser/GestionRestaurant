@@ -5,4 +5,13 @@
       <div>{{ ingredient.name }} {{ ingredient.quantity }}</div>
     </mat-card-title>
   </mat-card-title-group>
+
+  <mat-card-content>
+    <a mat-button title="Edit" [routerLink]="['/edit', ingredient.id]">
+      <i class="material-icons">mode edit</i>
+    </a>
+    <button mat-button title="Delete" (click)="delete(ingredient)">
+      <i class="material-icons">delete</i>
+    </button>
+  </mat-card-content>
 </mat-card>
