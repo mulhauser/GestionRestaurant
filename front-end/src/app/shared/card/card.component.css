@@ -11,7 +11,7 @@ mat-list-item {
   color: rgba(0,0,0,0.87);
   background-color: white;
   margin: 10px;
-  width: 360px;
+  width: 250px;
 }
 
 mat-card:hover {
@@ -124,10 +124,9 @@ a.truncate {
 }
 
 img {
-  border-radius: 50%;
   margin-right: 18px;
-  width: 128px;
-  height: 128px;
+  width: 50px;
+  height: 50px;
 }
 
 @media (max-width: 412px) {
