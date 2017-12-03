@@ -26,7 +26,6 @@ export class CardComponent implements OnInit {
    * @returns {any}
    */
   get ingredient(): any {
-    console.log(this._ingredient.photo);
     return this._ingredient;
   }
 
