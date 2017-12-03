@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/services/room/index.ts"],"names":[],"mappings":";;;;;AAAA,oCAA+B","sourcesContent":["export * from './room.service';\r\n"]}

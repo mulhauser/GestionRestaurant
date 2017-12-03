@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/models/order/index.ts"],"names":[],"mappings":";;;;;AAAA,mCAA8B","sourcesContent":["export * from './order.model';\r\n"]}

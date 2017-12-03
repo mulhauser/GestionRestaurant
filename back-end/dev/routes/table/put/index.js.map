@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../src/routes/table/put/index.ts"],"names":[],"mappings":";;;;;AAAA,oCAA+B","sourcesContent":["export * from './update.route';\r\n"]}

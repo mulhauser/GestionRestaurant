@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/models/dish/index.ts"],"names":[],"mappings":";;;;;AAAA,kCAA6B","sourcesContent":["export * from './dish.model';\r\n"]}

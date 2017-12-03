@@ -1,1 +1,0 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../src/services/table/index.ts"],"names":[],"mappings":";;;;;AAAA,qCAAgC","sourcesContent":["export * from './table.service';\r\n"]}

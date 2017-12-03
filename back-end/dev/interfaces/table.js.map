@@ -1,1 +1,0 @@
-{"version":3,"file":"table.js","sourceRoot":"","sources":["../../src/interfaces/table.ts"],"names":[],"mappings":"","sourcesContent":["export interface Table {\r\n    id?: string;\r\n    name: string;\r\n    seatingCapacity: number;\r\n    idOrders: string[];\r\n    idSalle: string;\r\n}\r\n"]}
