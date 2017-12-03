@@ -20,7 +20,8 @@ import {Ingredient} from '../../../interfaces/ingredient';
                 200: Joi.object().keys({
                     id: Joi.string().required(),
                     name: Joi.string().required(),
-                    quantity: Joi.number().required()
+                    quantity: Joi.number().required(),
+                    photo: Joi.string().required()
                 })
             }
         },

@@ -2,10 +2,10 @@ server:
   host: 0.0.0.0
   port: 4443
   options:
-  connections:
-    routes:
-      cors:
-        origin: ['http://0.0.0.0:4242', 'http://localhost:4242', 'http://127.0.0.1:4242']
+    connections:
+      routes:
+        cors:
+          origin: ['http://0.0.0.0:4242', 'http://localhost:4242', 'http://127.0.0.1:4242']
 swag:
   info:
     title: Restaurant
