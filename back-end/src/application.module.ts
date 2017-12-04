@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import {SwagModule} from '@hapiness/swag';
 import {Config} from '@hapiness/config';
 import {MongoClientService, MongoModule} from '@hapiness/mongo';
+
 import {RoomModel} from './models/room/room.model';
 import {GetAllRoomRoute} from './routes/room/get/all.route';
 import {GetOneRoomRoute} from './routes/room/get/one.route';
@@ -12,6 +13,7 @@ import {DeleteOneRoomRoute} from './routes/room/delete/one.route';
 import {PutUpdateRoomRoute} from './routes/room/put/update.route';
 import {RoomDocumentService} from './services/room-document/room-document.service';
 import {RoomService} from './services/room/room.service';
+
 import {GetAllIngredientRoute} from './routes/ingredient/get/all.route';
 import {GetOneIngredientRoute} from './routes/ingredient/get/one.route';
 import {PostCreateIngredientRoute} from './routes/ingredient/post/create.route';
@@ -20,6 +22,7 @@ import {PutUpdateIngredientRoute} from './routes/ingredient/put/update.route';
 import {IngredientModel} from './models/ingredient/ingredient.model';
 import {IngredientService} from './services/ingredient/ingredient.service';
 import {IngredientDocumentService} from './services/ingredient-document/ingredient-document.service';
+
 import {DishDocumentService} from './services/dish-document/dish-document.service';
 import {GetAllDishRoute} from './routes/dish/get/all.route';
 import {GetOneDishRoute} from './routes/dish/get/one.route';
@@ -29,9 +32,29 @@ import {PutUpdateDishRoute} from './routes/dish/put/update.route';
 import {DishModel} from './models/dish/dish.model';
 import {DishService} from './services/dish/dish.service';
 
+import {OrderDocumentService} from './services/order-document/order-document.service';
+import {GetAllOrderRoute} from './routes/order/get/all.route';
+import {GetOneOrderRoute} from './routes/order/get/one.route';
+import {PostCreateOrderRoute} from './routes/order/post/create.route';
+import {DeleteOneOrderRoute} from './routes/order/delete/one.route';
+import {PutUpdateOrderRoute} from './routes/order/put/update.route';
+import {OrderModel} from './models/order/order.model';
+import {OrderService} from './services/order/order.service';
+
+import {TableDocumentService} from './services/table-document/table-document.service';
+import {GetAllTableRoute} from './routes/table/get/all.route';
+import {GetOneTableRoute} from './routes/table/get/one.route';
+import {PostCreateTableRoute} from './routes/table/post/create.route';
+import {DeleteOneTableRoute} from './routes/table/delete/one.route';
+import {PutUpdateTableRoute} from './routes/table/put/update.route';
+import {TableModel} from './models/table/table.model';
+import {TableService} from './services/table/table.service';
+
 const roomDocumentFactory = (mongoClientService: MongoClientService) => new RoomDocumentService(mongoClientService);
 const ingredientDocumentFactory = (mongoClientService: MongoClientService) => new IngredientDocumentService(mongoClientService);
 const dishDocumentFactory = (mongoClientService: MongoClientService) => new DishDocumentService(mongoClientService);
+const orderDocumentFactory = (mongoClientService: MongoClientService) => new OrderDocumentService(mongoClientService);
+const tableDocumentFactory = (mongoClientService: MongoClientService) => new TableDocumentService(mongoClientService);
 
 @HapinessModule({
     version: '1.0.0',
@@ -44,7 +67,9 @@ const dishDocumentFactory = (mongoClientService: MongoClientService) => new Dish
         RoomModel, GetAllRoomRoute, GetOneRoomRoute, PostCreateRoomRoute, DeleteOneRoomRoute, PutUpdateRoomRoute,
         IngredientModel, GetAllIngredientRoute, GetOneIngredientRoute, PostCreateIngredientRoute, DeleteOneIngredientRoute,
         PutUpdateIngredientRoute,
-        DishModel, GetAllDishRoute, GetOneDishRoute, PostCreateDishRoute, DeleteOneDishRoute, PutUpdateDishRoute
+        DishModel, GetAllDishRoute, GetOneDishRoute, PostCreateDishRoute, DeleteOneDishRoute, PutUpdateDishRoute,
+        OrderModel, GetAllOrderRoute, GetOneOrderRoute, PostCreateOrderRoute, DeleteOneOrderRoute, PutUpdateOrderRoute,
+        TableModel, GetAllTableRoute, GetOneTableRoute, PostCreateTableRoute, DeleteOneTableRoute, PutUpdateTableRoute
     ],
     providers: [
         HttpServerService,
@@ -54,6 +79,10 @@ const dishDocumentFactory = (mongoClientService: MongoClientService) => new Dish
         { provide: IngredientDocumentService, useFactory: ingredientDocumentFactory, deps: [MongoClientService] },
         DishService,
         { provide: DishDocumentService, useFactory: dishDocumentFactory, deps: [MongoClientService] },
+        OrderService,
+        { provide: OrderDocumentService, useFactory: orderDocumentFactory, deps: [MongoClientService] },
+        TableService,
+        { provide: TableDocumentService, useFactory: tableDocumentFactory, deps: [MongoClientService] },
     ]
 })
 export class ApplicationModule implements OnStart, OnError {

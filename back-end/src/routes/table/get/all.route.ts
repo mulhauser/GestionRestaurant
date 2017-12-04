@@ -18,7 +18,7 @@ import {Table} from '../../../interfaces/table';
                         name: Joi.string().required(),
                         seatingCapacity: Joi.number().required(),
                         idOrders: Joi.array().items(
-                            Joi.string()
+                            Joi.string().required()
                         ),
                         idSalle: Joi.string().required()
                     })
@@ -33,7 +33,7 @@ import {Table} from '../../../interfaces/table';
 export class GetAllTableRoute implements OnGet {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _tableService
      */
     constructor(private _tableService: TableService) {
     }
