@@ -28,6 +28,7 @@ import {DeleteOneDishRoute} from './routes/dish/delete/one.route';
 import {PutUpdateDishRoute} from './routes/dish/put/update.route';
 import {DishModel} from './models/dish/dish.model';
 import {DishService} from './services/dish/dish.service';
+import {GetOneByNameIngredientRoute} from './routes/ingredient/get/one-by-name.route';
 
 const roomDocumentFactory = (mongoClientService: MongoClientService) => new RoomDocumentService(mongoClientService);
 const ingredientDocumentFactory = (mongoClientService: MongoClientService) => new IngredientDocumentService(mongoClientService);
@@ -43,7 +44,7 @@ const dishDocumentFactory = (mongoClientService: MongoClientService) => new Dish
     declarations: [
         RoomModel, GetAllRoomRoute, GetOneRoomRoute, PostCreateRoomRoute, DeleteOneRoomRoute, PutUpdateRoomRoute,
         IngredientModel, GetAllIngredientRoute, GetOneIngredientRoute, PostCreateIngredientRoute, DeleteOneIngredientRoute,
-        PutUpdateIngredientRoute,
+        PutUpdateIngredientRoute, GetOneByNameIngredientRoute,
         DishModel, GetAllDishRoute, GetOneDishRoute, PostCreateDishRoute, DeleteOneDishRoute, PutUpdateDishRoute
     ],
     providers: [

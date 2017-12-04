@@ -44,6 +44,18 @@ export class IngredientService {
             );
     }
 
+    oneByName(name: string): Observable<Ingredient> {
+        return this._ingredientDocumentService.findByName(name)
+            .pipe(
+                catchError(e => _throw(Biim.preconditionFailed(e.message))),
+                flatMap(_ =>
+                    !!_ ?
+                        of(_) :
+                        _throw(Biim.notFound(`Ingredient with name '${name}' not found`))
+                )
+            );
+    }
+
     /**
      * Check if person already exists and add it in people list
      *

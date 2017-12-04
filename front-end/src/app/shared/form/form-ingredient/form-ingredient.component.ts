@@ -1,5 +1,7 @@
+///<reference path="../../../../../node_modules/@angular/forms/src/validators.d.ts"/>
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {CustomValidators} from '../custom-validators';
 
 @Component({
   selector: 'nwt-form-ingredient',
@@ -130,8 +132,12 @@ export class FormIngredientComponent implements OnInit, OnChanges {
   private _buildForm(): FormGroup {
     return new FormGroup({
       id: new FormControl(''),
-      name: new FormControl(''),
-      quantity: new FormControl('')
+      name: new FormControl('', Validators.compose([
+        Validators.required, Validators.minLength(2)
+      ])),
+      quantity: new FormControl('', Validators.compose([
+        Validators.required, CustomValidators.isNumber
+      ]))
     });
   }
 }

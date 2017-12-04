@@ -56,7 +56,6 @@ export class PlatService {
   create(plat): Observable<any> {
     let pl;
     pl = {'name': plat.name, 'price': plat.price };
-    console.log(pl);
     return this._http.post(this._backendURL.allPlats, pl, this._options());
   }
 

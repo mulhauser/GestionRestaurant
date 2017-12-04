@@ -14,11 +14,18 @@
         <td>
           <mat-form-field class="full-width" [class.mgb15]="form.get('name').dirty">
             <input matInput placeholder="Name" formControlName="name" minlength="2" required name="name" />
-
+            <mat-error *ngIf="form.get('name').dirty && form.get('name').hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
             <input matInput placeholder="Quantity" formControlName="quantity" minlength="2" required name="quantity" />
-
+            <mat-error *ngIf="form.get('quantity').dirty && form.get('quantity').hasError('required')">
+              Quantity is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="form.get('quantity').dirty && !form.get('quantity').hasError('required') && form.get('quantity').hasError('isNumber')">
+              Only <strong>number (ex: 10)</strong> accepted
+            </mat-error>
           </mat-form-field>
         </td>
       </tr>
@@ -30,5 +37,5 @@
 
 <mat-dialog-actions align="end">
   <button mat-button type="button" (click)="cancel()">Cancel</button>
-  <button mat-button color="primary" type="submit" (click)="submit(form.value)">Save</button>
+  <button mat-button color="primary" type="submit" (click)="submit(form.value)" [disabled]="form.invalid">Save</button>
 </mat-dialog-actions>

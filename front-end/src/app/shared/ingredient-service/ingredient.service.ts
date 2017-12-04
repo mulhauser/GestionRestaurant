@@ -46,6 +46,10 @@ export class IngredientService {
     return this._http.get(this._backendURL.oneIngredient.replace(':id', id), this._options());
   }
 
+  findByName(name: string): Observable<any> {
+    return this._http.get(this._backendURL.oneIngredientByName.replace(':name', name), this._options());
+  }
+
   /**
    * Function to create a new ingredient
    *
@@ -84,6 +88,8 @@ export class IngredientService {
       .filter(_ => !!_)
       .defaultIfEmpty([]);
   }
+
+
 
   /**
    * Function to return request options

@@ -75,6 +75,17 @@ export class IngredientDocumentService {
             )
     }
 
+    findByName(name: string): Observable<Ingredient | void> {
+        return fromPromise(this._document.findOne({name: name}))
+            .pipe(
+                flatMap((doc: MongooseDocument) =>
+                    !!doc ?
+                        of(doc.toJSON() as Ingredient) :
+                        of(undefined)
+                )
+            )
+    }
+
     /**
      * Check if person already exists and add it in people list
      *
@@ -133,4 +144,6 @@ export class IngredientDocumentService {
                 )
             )
     }
+
+
 }

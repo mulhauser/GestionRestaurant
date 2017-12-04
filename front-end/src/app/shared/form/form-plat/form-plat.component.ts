@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators} from '@angular/forms';
+import {IngredientService} from '../../ingredient-service/ingredient.service';
+import {CustomValidators} from '../custom-validators';
 
 @Component({
   selector: 'nwt-form-plat',
@@ -18,10 +20,16 @@ export class FormPlatComponent implements OnInit, OnChanges {
   // private property to store form value
   private _form: FormGroup;
 
+  private _ingredients: any[];
+  stores = this._ingredientService
+    .fetch()
+    .subscribe((ingredients: any[]) => this._ingredients = ingredients);
+
   /**
    * Component constructor
    */
-  constructor() {
+  constructor(private _ingredientService: IngredientService) {
+
     this._submit$ = new EventEmitter();
     this._cancel$ = new EventEmitter();
     this._form = this._buildForm();
@@ -44,6 +52,10 @@ export class FormPlatComponent implements OnInit, OnChanges {
    */
   get model(): any {
     return this._model;
+  }
+
+  get ingredients(): any[] {
+    return this._ingredients;
   }
 
   /**
@@ -117,7 +129,14 @@ export class FormPlatComponent implements OnInit, OnChanges {
    * Function to emit event to submit form and ingredient
    */
   submit(plat: any) {
-    this._submit$.emit(plat);
+    const plt = {'name': plat.name, 'price': Number.parseInt(plat.price), 'ingredients': []};
+    for (const ingredient of plat.ingredients) {
+      this._ingredientService
+        .findByName(ingredient)
+        .subscribe((ing: any) => plt.ingredients.push({'ref': ing.id, 'name': ing.name, 'quantityUse': 0}));
+    }
+    console.log(plt);
+    this._submit$.emit(plt);
   }
 
   /**
@@ -130,9 +149,23 @@ export class FormPlatComponent implements OnInit, OnChanges {
   private _buildForm(): FormGroup {
     return new FormGroup({
       id: new FormControl(''),
+      name: new FormControl('', Validators.compose([
+        Validators.required, Validators.minLength(2)
+      ])),
+      price: new FormControl('', Validators.compose([
+        Validators.required, CustomValidators.isNumber
+      ])),
+      ingredients: new FormControl([], Validators.compose([
+          Validators.required
+        ]))
+    });
+    /*return new FormGroup({
+      id: new FormControl(''),
       name: new FormControl(''),
       price: new FormControl(''),
       ingredients: new FormControl('')
-    });
+    });*/
   }
+
+
 }

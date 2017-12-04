@@ -7,6 +7,7 @@ export const environment = {
     endpoints: {
       allIngredients: '/api/ingredient',
       oneIngredient: '/api/ingredient/:id',
+      oneIngredientByName: '/api/indredient/name/:name',
       allPlats: '/api/dish',
       onePlat: '/api/dish/:id'
     }

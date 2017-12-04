@@ -4,6 +4,9 @@
       <a [routerLink]="['/plat', plat.id]">
         <span>{{ plat.name }} {{ plat.price }}€</span>
       </a>
+      <ul class="mdc-list">
+        <li class="mdc-list-item" *ngFor="let ingredient of plat.ingredients">{{ ingredient.name }}</li>
+      </ul>
     </mat-card-title>
 
   </mat-card-title-group>

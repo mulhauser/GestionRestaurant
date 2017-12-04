@@ -13,13 +13,19 @@
       <tr>
         <td>
           <mat-form-field class="full-width" [class.mgb15]="form.get('name').dirty">
-            <input matInput placeholder="Name" formControlName="name" minlength="2" required name="name" />
+            <input matInput placeholder="Name" formControlName="name" minlength="2" required name="name"/>
 
           </mat-form-field>
           <mat-form-field class="full-width">
-            <input matInput placeholder="Quantity" formControlName="price" minlength="2" required name="price" />
+            <input matInput placeholder="Price" formControlName="price" minlength="2" required name="price"/>
 
           </mat-form-field>
+
+          <select class="form-control" multiple size="6" placeHolder="Ingredients" formControlName="ingredients">
+            <option *ngFor="let ingredient of ingredients">
+              {{ ingredient.name }}
+            </option>
+          </select>
         </td>
       </tr>
     </table>
