@@ -2,19 +2,20 @@
   <mat-card-title-group>
     <img mat-card-mat-image src="{{ ingredient.photo }}">
     <mat-card-title>
-      <span>{{ ingredient.name }}</span>
+      <a [routerLink]="['/person', ingredient.id]">
+        <span>{{ ingredient.name }} {{ ingredient.quantity }}</span>
+      </a>
     </mat-card-title>
-    <mat-card-subtitle>
-      <span>{{ ingredient.quantity }}</span>
-    </mat-card-subtitle>
-  </mat-card-title-group>
 
+  </mat-card-title-group>
   <mat-card-content>
-    <a mat-button title="Edit" [routerLink]="['/edit', ingredient.id]">
-      <i class="material-icons">mode edit</i>
-    </a>
-    <button mat-button title="Delete" (click)="delete(ingredient)">
-      <i class="material-icons">delete</i>
-    </button>
+    <div class="buttons-info">
+      <a mat-button title="Edit" [routerLink]="['/edit', ingredient.id]">
+        <mat-icon svgIcon="icon-edit"></mat-icon>
+      </a>
+      <button mat-button title="Delete" (click)="delete(ingredient)">
+        <mat-icon svgIcon="icon-delete"></mat-icon>
+      </button>
+    </div>
   </mat-card-content>
 </mat-card>

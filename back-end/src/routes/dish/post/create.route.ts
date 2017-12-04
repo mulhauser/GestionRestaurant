@@ -10,7 +10,6 @@ import {Dish} from '../../../interfaces/dish';
     path: '/api/dish',
     method: 'POST',
     config: {
-        cors: true,
         validate: {
             payload: Joi.object().keys({
                 name: Joi.string().required(),

@@ -1,30 +1,38 @@
 // CORE MODULES
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgModule } from '@angular/core';
+import { HttpModule } from '@angular/http';
+import { HttpClientModule } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 // MATERIAL DESIGN MODULES
 import {
-  MatCardModule, MatCheckboxModule, MatDialogModule, MatIconModule, MatInputModule, MatListModule, MatToolbarModule,
+  MatToolbarModule,
+  MatCardModule,
+  MatButtonModule,
+  MatListModule,
+  MatIconModule,
+  MatCheckboxModule,
+  MatDialogModule,
+  MatInputModule
 } from '@angular/material';
+
+import { APP_ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import {MatButtonModule} from '@angular/material/button';
-import {APP_ROUTES} from "./app.routes";
-import {HttpClientModule} from "@angular/common/http";
-import {HttpModule} from "@angular/http";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {IngredientComponent } from './person/ingredient.component';
+import {IngredientsComponent } from './people/ingredients.component';
+import { CardComponent } from './shared/card/card.component';
 import { DialogComponent } from './shared/dialog/dialog.component';
-import { IngredientComponent } from './ingredient/ingredient.component';
-import { StockComponent } from './stock/stock.component';
-import {CardComponent} from "./shared/card/card.component";
-import {StockService} from "./shared/stock-service/stock.service";
-import { FormComponent } from './shared/form/form.component';
+import { FormIngredientComponent} from './shared/form/form-ingredient.component';
 import { UpdateComponent } from './update/update.component';
-import {ReactiveFormsModule} from "@angular/forms";
+import { NaPipe } from './shared/na-pipe/na.pipe';
+import {IngredientService} from './shared/ingredient-service/ingredient.service';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, CardComponent,
-    DialogComponent, IngredientComponent, StockComponent, FormComponent, UpdateComponent],
+  declarations: [AppComponent, HomeComponent, IngredientComponent, IngredientsComponent, CardComponent,
+    DialogComponent, FormIngredientComponent, UpdateComponent, NaPipe ],
   entryComponents: [DialogComponent],
   imports: [
     BrowserModule,
@@ -33,8 +41,8 @@ import {ReactiveFormsModule} from "@angular/forms";
     HttpClientModule,
     ReactiveFormsModule,
     MatToolbarModule,
-    MatButtonModule,
     MatCardModule,
+    MatButtonModule,
     MatListModule,
     MatIconModule,
     MatCheckboxModule,
@@ -42,7 +50,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     MatInputModule,
     APP_ROUTES
   ],
-  providers: [StockService],
+  providers: [IngredientService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

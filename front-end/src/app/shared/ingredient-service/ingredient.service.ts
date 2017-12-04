@@ -25,69 +25,73 @@ export class IngredientService {
   }
 
   /**
-   * Function to return list of stock
+   * Function to return list of people
    *
    * @returns {Observable<any[]>}
    */
   fetch(): Observable<any[]> {
-    return this._http.get(this._backendURL.allStock, this._options())
+    return this._http.get(this._backendURL.allIngredients, this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
   }
 
   /**
-   * Function to return one random ingredient from stock list
+   * Function to return one random person from people list
    *
    * @returns {Observable<any>}
    */
   fetchRandom(): Observable<any> {
-    return this._http.get(this._backendURL.randomStock, this._options())
+    return this._http.get(this._backendURL.randomIngredient, this._options())
       .filter(_ => !!_)
       .defaultIfEmpty({});
   }
 
   /**
-   * Function to return one ingredient for current id
+   * Function to return one person for current id
    *
    * @param id
    *
    * @returns {Observable<any>}
    */
   fetchOne(id: string): Observable<any> {
-    return this._http.get(this._backendURL.oneStock.replace(':id', id), this._options());
+    return this._http.get(this._backendURL.oneIngredient.replace(':id', id), this._options());
   }
 
   /**
-   * Function to create a new ingredient
+   * Function to create a new person
    *
    * @param person
    *
    * @returns {Observable<any>}
    */
-  create(person): Observable<any> {
-    return this._http.post(this._backendURL.allStock, person, this._options());
+  create(ingredient): Observable<any> {
+    let ing;
+    ing = {'name': ingredient.name, 'quantity': ingredient.quantity };
+    return this._http.post(this._backendURL.allIngredients, ing, this._options());
   }
 
   /**
-   * Function to update one ingredient
+   * Function to update one person
    *
    * @param person
    *
    * @returns {Observable<any>}
    */
-  update(person: any): Observable<any> {
-    return this._http.put(this._backendURL.oneStock.replace(':id', person.id), person, this._options());
+  update(ingredient: any): Observable<any> {
+    let ing;
+    ing = {'name': ingredient.name, 'quantity': ingredient.quantity };
+    return this._http.put(this._backendURL.oneIngredient.replace(':id', ingredient.id), ing, this._options());
   }
 
   /**
-   * Function to delete one ingredient for current id
+   * Function to delete one person for current id
    *
    * @param id
    *
    * @returns {Observable<any[]>}
    */
   delete(id: string): Observable<any[]> {
-    return this._http.delete(this._backendURL.oneStock.replace(':id', id), this._options())
+    return this._http.delete(this._backendURL.oneIngredient.replace(':id', id), this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
   }

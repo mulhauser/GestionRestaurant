@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import {IngredientService} from '../shared/ingredient-service/ingredient.service';
+
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/merge';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/do';
-
-import {StockService} from "../shared/stock-service/stock.service";
-import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'nwt-ingredient',
@@ -14,17 +14,26 @@ import {ActivatedRoute} from "@angular/router";
   styleUrls: ['./ingredient.component.css']
 })
 export class IngredientComponent implements OnInit {
-  // private property to store _ingredient value
+  // private property to store person value
   private _ingredient: any;
-  // private property to store flag to know if it's an ingredient
+  // private property to store flag to know if it's a person
   private _isIngredient: boolean;
 
   /**
    * Component constructor
    */
-  constructor(private _stockService: StockService, private _route: ActivatedRoute) {
+  constructor(private _ingredientService: IngredientService, private _route: ActivatedRoute) {
     this._ingredient = {};
     this._isIngredient = false;
+  }
+
+  /**
+   * Returns private property _person
+   *
+   * @returns {any}
+   */
+  get ingredient(): any {
+    return this._ingredient;
   }
 
   /**
@@ -37,15 +46,6 @@ export class IngredientComponent implements OnInit {
   }
 
   /**
-   * Returns private property _ingredient
-   *
-   * @returns {any}
-   */
-  get ingredient(): any {
-    return this._ingredient;
-  }
-
-  /**
    * OnInit implementation
    */
   ngOnInit() {
@@ -53,23 +53,22 @@ export class IngredientComponent implements OnInit {
       .merge(
         this._route.params
           .filter(params => !!params['id'])
-          .flatMap(params => this._stockService.fetchOne(params['id']))
+          .flatMap(params => this._ingredientService.fetchOne(params['id']))
           .do(_ => this._isIngredient = true),
         this._route.params
           .filter(params => !params['id'])
-          .flatMap(_ => this._stockService.fetchRandom())
+          .flatMap(_ => this._ingredientService.fetchRandom())
           .do(_ => this._isIngredient = false)
       )
       .subscribe((ingredient: any) => this._ingredient = ingredient);
   }
 
   /**
-   * Returns random stock
+   * Returns random people
    */
   random() {
-    this._stockService
+    this._ingredientService
       .fetchRandom()
       .subscribe((ingredient: any) => this._ingredient = ingredient);
   }
-
 }

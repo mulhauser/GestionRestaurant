@@ -8,7 +8,6 @@ import {IngredientService} from '../../../services/ingredient/ingredient.service
     path: '/api/ingredient/{id}',
     method: 'DELETE',
     config: {
-        cors: true,
         validate: {
             params: {
                 id: Joi.string().required()

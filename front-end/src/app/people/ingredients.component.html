@@ -1,0 +1,24 @@
+<section [ngSwitch]="view">
+  <section *ngSwitchCase="'card'">
+    <nwt-card [ingredient]="ingredient" (ingredientDelete)="delete($event)" *ngFor="let ingredient of ingredients"></nwt-card>
+  </section>
+
+  <section *ngSwitchCase="'list'">
+    <mat-list>
+      <mat-list-item (click)="navigate(ingredient)" *ngFor="let ingredient of ingredients" class="mat-whiteframe-2dp mat-card">
+        <img mat-list-avatar src="{{ ingredient.photo }}">
+        <h3 matLine> {{ingredient.name}} {{ingredient.quantity}}</h3>
+      </mat-list-item>
+    </mat-list>
+  </section>
+</section>
+
+<section class="buttons-fab" *ngIf="dialogStatus === 'inactive'">
+  <button (click)="showDialog()" mat-fab color="accent" class="button-add">
+    <i class="material-icons">add</i>
+  </button>
+  <button (click)="switchView()" mat-fab color="warn">
+    <i class="material-icons" *ngIf="view === 'card'" >list</i>
+    <i class="material-icons" *ngIf="view === 'list'" >view_stream</i>
+  </button>
+</section>

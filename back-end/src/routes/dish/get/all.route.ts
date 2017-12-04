@@ -9,7 +9,6 @@ import {Dish} from '../../../interfaces/dish';
     path: '/api/dish',
     method: 'GET',
     config: {
-        cors: true,
         response: {
             status: {
                 200: Joi.array().items(

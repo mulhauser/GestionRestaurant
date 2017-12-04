@@ -1,4 +1,5 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+
 import 'rxjs/add/observable/of';
 
 @Component({
@@ -7,7 +8,7 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./card.component.css']
 })
 export class CardComponent implements OnInit {
-  // private property to store ingredient value
+  // private property to store person value
   private _ingredient: any;
   // private property to store delete$ value
   private _delete$: EventEmitter<any>;
@@ -21,7 +22,7 @@ export class CardComponent implements OnInit {
   }
 
   /**
-   * Returns private property _ingredient
+   * Returns private property _person
    *
    * @returns {any}
    */
@@ -30,9 +31,9 @@ export class CardComponent implements OnInit {
   }
 
   /**
-   * Sets private property _ingredient
+   * Sets private property _person
    *
-   * @param ingredient
+   * @param person
    */
   @Input()
   set ingredient(ingredient: any) {
@@ -56,11 +57,12 @@ export class CardComponent implements OnInit {
   }
 
   /**
-   * Function to emit event to delete current ingredient
+   * Function to emit event to delete current person
    *
-   * @param ingredient
+   * @param person
    */
   delete(ingredient: any) {
     this._delete$.emit(ingredient);
   }
+
 }

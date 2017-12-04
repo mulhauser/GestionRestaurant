@@ -1,13 +1,12 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output } from '@angular/core';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-import {CustomValidators} from "./custom-validators";
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
-  selector: 'nwt-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.css']
+  selector: 'nwt-form-ingredient',
+  templateUrl: './form-ingredient.component.html',
+  styleUrls: ['./form-ingredient.component.css']
 })
-export class FormComponent implements OnInit, OnChanges {
+export class FormIngredientComponent implements OnInit, OnChanges {
   // private property to store update mode flag
   private _isUpdateMode: boolean;
   // private property to store model value
@@ -53,7 +52,6 @@ export class FormComponent implements OnInit, OnChanges {
    * @returns {FormGroup}
    */
   get form(): FormGroup {
-    //console.log(this._form.value);
     return this._form;
   }
 
@@ -98,7 +96,7 @@ export class FormComponent implements OnInit, OnChanges {
    * @param record
    */
   ngOnChanges(record) {
-    if (record.model && record.model.currentValue) {
+    if (record.model && record.model.currentValue ) {
       this._model = record.model.currentValue;
       this._isUpdateMode = true;
       this._form.patchValue(this._model);
@@ -116,7 +114,7 @@ export class FormComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Function to emit event to submit form and ingredient
+   * Function to emit event to submit form and person
    */
   submit(ingredient: any) {
     this._submit$.emit(ingredient);
@@ -131,13 +129,9 @@ export class FormComponent implements OnInit, OnChanges {
    */
   private _buildForm(): FormGroup {
     return new FormGroup({
-      // id: new FormControl(''), //https://www.google.fr/search?q=bananes&tbs=itp:clipart,ic:gray&tbm=isch
-      name: new FormControl('', Validators.compose([
-        Validators.required, Validators.minLength(2)
-      ])),
-      quantity: new FormControl('', Validators.compose([
-        Validators.required, CustomValidators.quantityValue
-      ]))
+      id: new FormControl(''),
+      name: new FormControl(''),
+      quantity: new FormControl('')
     });
   }
 }

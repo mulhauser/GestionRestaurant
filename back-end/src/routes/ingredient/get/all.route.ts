@@ -10,7 +10,6 @@ import {Ingredient} from '../../../interfaces/ingredient';
     path: '/api/ingredient',
     method: 'GET',
     config: {
-        cors: true,
         response: {
             status: {
                 200: Joi.array().items(

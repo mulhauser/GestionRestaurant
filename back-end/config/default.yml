@@ -5,7 +5,7 @@ server:
     connections:
       routes:
         cors:
-          origin: ['http://0.0.0.0:4242', 'http://localhost:4242', 'http://127.0.0.1:4242']
+          origin: ['http://0.0.0.0:4200', 'http://localhost:4200', 'http://127.0.0.1:4200']
 swag:
   info:
     title: Restaurant

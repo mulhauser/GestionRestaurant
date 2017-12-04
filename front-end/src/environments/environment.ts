@@ -10,9 +10,9 @@ export const environment = {
     host: '127.0.0.1',
     port: '4443',
     endpoints: {
-      allStock: '/api/ingredient',
-      randomStock: '/api/stock/random',
-      oneStock: '/api/ingredient/:id'
+      allIngredients: '/api/ingredient',
+      randomIngredient: '/api/ingredient/random',
+      oneIngredient: '/api/ingredient/:id'
     }
   }
 };
