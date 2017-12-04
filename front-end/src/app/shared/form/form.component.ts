@@ -66,6 +66,11 @@ export class FormComponent implements OnInit, OnChanges {
     return this._isUpdateMode;
   }
 
+  @Input()
+  set isUpdateMode(isUpdate: boolean) {
+    this.isUpdateMode = isUpdate;
+  }
+
   /**
    * Returns private property _cancel$
    *
@@ -131,7 +136,7 @@ export class FormComponent implements OnInit, OnChanges {
    */
   private _buildForm(): FormGroup {
     return new FormGroup({
-      // id: new FormControl(''), //https://www.google.fr/search?q=bananes&tbs=itp:clipart,ic:gray&tbm=isch
+      id: new FormControl(''), //https://www.google.fr/search?q=bananes&tbs=itp:clipart,ic:gray&tbm=isch
       name: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(2)
       ])),

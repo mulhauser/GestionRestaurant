@@ -74,7 +74,7 @@ export class StockService {
    *
    * @returns {Observable<any[]>}
    */
-  delete(id: string): Observable<any[]> {
+  delete(id: string): Observable<any[]|ArrayBuffer> {
     return this._http.delete(this._backendURL.oneStock.replace(':id', id), this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
@@ -88,7 +88,7 @@ export class StockService {
    * @returns {Observable<any>}
    */
   create(ingredient): Observable<any> {
-    return this._http.post(this._backendURL.allStock, ingredient, this._options());
+    return this._http.post(this._backendURL.allStock, this._condensedVersion(ingredient), this._options());
   }
 
   /**
@@ -99,7 +99,15 @@ export class StockService {
    * @returns {Observable<any>}
    */
   update(ingredient: any): Observable<any> {
-    return this._http.put(this._backendURL.oneStock.replace(':id', ingredient.id), ingredient, this._options());
+    return this._http.put(this._backendURL.oneStock.replace(':id', ingredient.id), this._condensedVersion(ingredient), this._options());
   }
 
+
+  private _condensedVersion(ingredient: any): any {
+    let ing: any = {};
+    ing.name = ingredient.name;
+    ing.quantity = ingredient.quantity;
+
+    return ing;
+  }
 }
