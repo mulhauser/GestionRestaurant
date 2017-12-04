@@ -38,7 +38,7 @@ import {Dish} from '../../../interfaces/dish';
                         Joi.object().keys({
                             ref: Joi.string().required(),
                             name: Joi.string().required(),
-                            quantityUse: Joi.number()
+                            quantityUse: Joi.number().required()
                         })
                     )
                 })
