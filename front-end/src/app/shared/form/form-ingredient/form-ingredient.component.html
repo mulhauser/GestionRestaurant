@@ -1,0 +1,34 @@
+<h2 mat-dialog-title *ngIf="isUpdateMode">Update {{ form.get('name').value }}</h2>
+<h2 mat-dialog-title *ngIf="!isUpdateMode">Create new ingredient</h2>
+
+<mat-dialog-content>
+  <form novalidate [formGroup]="form">
+
+    <p *ngIf="isUpdateMode">
+      <span style="width:100%">ID (disabled)</span><br/>
+      <span style="width:100%">{{model.id}}</span>
+    </p>
+
+    <table class="full-width" cellspacing="0">
+      <tr>
+        <td>
+          <mat-form-field class="full-width" [class.mgb15]="form.get('name').dirty">
+            <input matInput placeholder="Name" formControlName="name" minlength="2" required name="name" />
+
+          </mat-form-field>
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Quantity" formControlName="quantity" minlength="2" required name="quantity" />
+
+          </mat-form-field>
+        </td>
+      </tr>
+    </table>
+
+  </form>
+</mat-dialog-content>
+
+
+<mat-dialog-actions align="end">
+  <button mat-button type="button" (click)="cancel()">Cancel</button>
+  <button mat-button color="primary" type="submit" (click)="submit(form.value)">Save</button>
+</mat-dialog-actions>

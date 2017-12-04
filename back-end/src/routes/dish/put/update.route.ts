@@ -10,7 +10,6 @@ import {Dish} from '../../../interfaces/dish';
     path: '/api/dish/{id}',
     method: 'PUT',
     config: {
-        cors: true,
         validate: {
             params: {
                 id: Joi.string().required()

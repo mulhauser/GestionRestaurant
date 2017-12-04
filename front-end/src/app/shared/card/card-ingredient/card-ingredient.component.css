@@ -11,7 +11,7 @@ mat-list-item {
   color: rgba(0,0,0,0.87);
   background-color: white;
   margin: 10px;
-  width: 250px;
+  width: 360px;
 }
 
 mat-card:hover {
@@ -58,12 +58,13 @@ mat-card-title-group {
 
 .buttons-info {
   float: right;
-  margin-top: -50px;
+  margin-top: 50px;
 }
 
 @media (max-width: 412px) {
   .buttons-info {
-    margin-top: -34px;
+    margin-top: -
+    34px;
   }
 }
 
@@ -125,8 +126,8 @@ a.truncate {
 
 img {
   margin-right: 18px;
-  width: 50px;
-  height: 50px;
+  width: 128px;
+  height: 128px;
 }
 
 @media (max-width: 412px) {
@@ -139,4 +140,8 @@ img {
   img {
     margin-right: 5px;
   }
+}
+
+.managerLink:hover {
+  cursor: pointer;
 }

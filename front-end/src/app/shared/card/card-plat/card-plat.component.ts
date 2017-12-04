@@ -1,14 +1,15 @@
 import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+
 import 'rxjs/add/observable/of';
 
 @Component({
-  selector: 'nwt-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'nwt-card-plat',
+  templateUrl: './card-plat.component.html',
+  styleUrls: ['./card-plat.component.css']
 })
-export class CardComponent implements OnInit {
+export class CardPlatComponent implements OnInit {
   // private property to store ingredient value
-  private _ingredient: any;
+  private _plat: any;
   // private property to store delete$ value
   private _delete$: EventEmitter<any>;
 
@@ -16,27 +17,27 @@ export class CardComponent implements OnInit {
    * Component constructor
    */
   constructor() {
-    this._ingredient = {};
+    this._plat = {};
     this._delete$ = new EventEmitter();
   }
 
   /**
-   * Returns private property _ingredient
+   * Returns private property _person
    *
    * @returns {any}
    */
-  get ingredient(): any {
-    return this._ingredient;
+  get plat(): any {
+    return this._plat;
   }
 
   /**
-   * Sets private property _ingredient
+   * Sets private property _person
    *
-   * @param ingredient
+   * @param person
    */
   @Input()
-  set ingredient(ingredient: any) {
-    this._ingredient = ingredient;
+  set plat(plat: any) {
+    this._plat = plat;
   }
 
   /**
@@ -44,7 +45,7 @@ export class CardComponent implements OnInit {
    *
    * @returns {EventEmitter<any>}
    */
-  @Output('ingredientDelete')
+  @Output('platDelete')
   get delete$(): EventEmitter<any> {
     return this._delete$;
   }
@@ -56,11 +57,12 @@ export class CardComponent implements OnInit {
   }
 
   /**
-   * Function to emit event to delete current ingredient
+   * Function to emit event to delete current plat
    *
-   * @param ingredient
+   * @param plat
    */
-  delete(ingredient: any) {
-    this._delete$.emit(ingredient);
+  delete(plat: any) {
+    this._delete$.emit(plat);
   }
+
 }
