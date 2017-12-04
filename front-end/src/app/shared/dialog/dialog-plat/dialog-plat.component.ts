@@ -2,11 +2,11 @@ import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 
 @Component({
-  selector: 'nwt-add-dialog',
-  templateUrl: './dialog.component.html',
-  styleUrls: ['./dialog.component.css']
+  selector: 'nwt-add-dialog-plat',
+  templateUrl: './dialog-plat.component.html',
+  styleUrls: ['./dialog-plat.component.css']
 })
-export class DialogComponent implements OnInit {
+export class DialogPlatComponent implements OnInit {
 
   /**
    * Component constructor
@@ -14,7 +14,7 @@ export class DialogComponent implements OnInit {
    * @param {MatDialogRef<DialogComponent>} _dialogRef
    * @param _data
    */
-  constructor(private _dialogRef: MatDialogRef<DialogComponent>, @Inject(MAT_DIALOG_DATA) private _data: any) {
+  constructor(private _dialogRef: MatDialogRef<DialogPlatComponent>, @Inject(MAT_DIALOG_DATA) private _data: any) {
   }
 
   /**
@@ -40,11 +40,11 @@ export class DialogComponent implements OnInit {
   }
 
   /**
-   * Function to close the modal and send person to parent
+   * Function to close the modal and send ingredient to parent
    *
-   * @param person
+   * @param ingredient
    */
-  onSave(ingredient: any) {
-    this._dialogRef.close(ingredient);
+  onSave(plat: any) {
+    this._dialogRef.close(plat);
   }
 }

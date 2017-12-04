@@ -6,8 +6,9 @@ export const environment = {
     port: '4443',
     endpoints: {
       allIngredients: '/api/ingredient',
-      randomIngredient: '/api/ingredient/random',
-      oneIngredient: '/api/ingredient/:id'
+      oneIngredient: '/api/ingredient/:id',
+      allPlats: '/api/dish',
+      onePlat: '/api/dish/:id'
     }
   }
 };

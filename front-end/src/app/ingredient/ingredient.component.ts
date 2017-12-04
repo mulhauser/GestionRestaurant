@@ -14,9 +14,9 @@ import 'rxjs/add/operator/do';
   styleUrls: ['./ingredient.component.css']
 })
 export class IngredientComponent implements OnInit {
-  // private property to store person value
+  // private property to store ingredient value
   private _ingredient: any;
-  // private property to store flag to know if it's a person
+  // private property to store flag to know if it's a ingredient
   private _isIngredient: boolean;
 
   /**
@@ -57,18 +57,18 @@ export class IngredientComponent implements OnInit {
           .do(_ => this._isIngredient = true),
         this._route.params
           .filter(params => !params['id'])
-          .flatMap(_ => this._ingredientService.fetchRandom())
+          .flatMap(_ => this._ingredientService.fetch())
           .do(_ => this._isIngredient = false)
       )
-      .subscribe((ingredient: any) => this._ingredient = ingredient);
+      .subscribe((ingredient: any[]) => this._ingredient = ingredient.shift());
   }
 
   /**
-   * Returns random people
+   * Returns random ingredients
    */
-  random() {
+  /*random() {
     this._ingredientService
       .fetchRandom()
       .subscribe((ingredient: any) => this._ingredient = ingredient);
-  }
+  }*/
 }

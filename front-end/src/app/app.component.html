@@ -8,7 +8,17 @@
   <span class="flex"></span>
 
   <span>
-    <a [routerLink]="['/ingredients']">List</a>
+    <div class="mdc-simple-menu" tabindex="-1">
+      <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
+        <li class="mdc-list-item" role="menuitem" tabindex="0">
+          <a [routerLink]="['/ingredients']">Ingredients</a>
+        </li>
+        <li class="mdc-list-item" role="menuitem" tabindex="0">
+          <a [routerLink]="['/plats']">Plats</a>
+        </li>
+      </ul>
+    </div>
+
   </span>
 </mat-toolbar>
 

@@ -2,21 +2,23 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { DialogComponent } from '../shared/dialog/dialog.component';
-import {IngredientService } from '../shared/ingredient-service/ingredient.service';
+import {
+  DialogIngredientComponent
+} from '../../shared/dialog/dialog-ingredient/dialog-ingredient.component';
+import {IngredientService } from '../../shared/ingredient-service/ingredient.service';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/filter';
 
 @Component({
-  selector: 'nwt-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.css']
+  selector: 'nwt-update-ingredient',
+  templateUrl: './update-ingredient.component.html',
+  styleUrls: ['./update-ingredient.component.css']
 })
-export class UpdateComponent implements OnInit {
+export class UpdateIngredientComponent implements OnInit {
   // private property to store dialog reference
-  private _peopleDialog: MatDialogRef<DialogComponent>;
+  private _peopleDialog: MatDialogRef<DialogIngredientComponent>;
 
   /**
    * Component constructor
@@ -32,7 +34,7 @@ export class UpdateComponent implements OnInit {
       .map((params: any) => params.id)
       .flatMap((id: string) => this._ingredientService.fetchOne(id))
       .subscribe((ingredient: any) => {
-        this._peopleDialog = this._dialog.open(DialogComponent, {
+        this._peopleDialog = this._dialog.open(DialogIngredientComponent, {
           width: '500px',
           disableClose: true,
           data: ingredient

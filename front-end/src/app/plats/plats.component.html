@@ -1,0 +1,10 @@
+  <section >
+    <nwt-card-plat [plat]="plat" (platDelete)="delete($event)" *ngFor="let plat of plats"></nwt-card-plat>
+  </section>
+
+
+
+  <button (click)="showDialog()" mat-fab color="accent" class="button-add">
+    <i class="material-icons">add</i>
+  </button>
+

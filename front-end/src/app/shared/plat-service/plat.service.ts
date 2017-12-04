@@ -7,7 +7,7 @@ import 'rxjs/add/operator/defaultIfEmpty';
 import 'rxjs/add/operator/filter';
 
 @Injectable()
-export class IngredientService {
+export class PlatService {
   // private property to store all backend URLs
   private _backendURL: any;
 
@@ -30,7 +30,7 @@ export class IngredientService {
    * @returns {Observable<any[]>}
    */
   fetch(): Observable<any[]> {
-    return this._http.get(this._backendURL.allIngredients, this._options())
+    return this._http.get(this._backendURL.allPlats, this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
   }
@@ -43,7 +43,7 @@ export class IngredientService {
    * @returns {Observable<any>}
    */
   fetchOne(id: string): Observable<any> {
-    return this._http.get(this._backendURL.oneIngredient.replace(':id', id), this._options());
+    return this._http.get(this._backendURL.onePlat.replace(':id', id), this._options());
   }
 
   /**
@@ -53,10 +53,11 @@ export class IngredientService {
    *
    * @returns {Observable<any>}
    */
-  create(ingredient): Observable<any> {
-    let ing;
-    ing = {'name': ingredient.name, 'quantity': ingredient.quantity };
-    return this._http.post(this._backendURL.allIngredients, ing, this._options());
+  create(plat): Observable<any> {
+    let pl;
+    pl = {'name': plat.name, 'price': plat.price };
+    console.log(pl);
+    return this._http.post(this._backendURL.allPlats, pl, this._options());
   }
 
   /**
@@ -66,10 +67,10 @@ export class IngredientService {
    *
    * @returns {Observable<any>}
    */
-  update(ingredient: any): Observable<any> {
-    let ing;
-    ing = {'name': ingredient.name, 'quantity': ingredient.quantity };
-    return this._http.put(this._backendURL.oneIngredient.replace(':id', ingredient.id), ing, this._options());
+  update(plat: any): Observable<any> {
+    let pl;
+    pl = {'name': plat.name, 'price': plat.price, 'ingredients': plat.ingredients };
+    return this._http.put(this._backendURL.onePlat.replace(':id', plat.id), pl, this._options());
   }
 
   /**
@@ -80,7 +81,7 @@ export class IngredientService {
    * @returns {Observable<any[]>}
    */
   delete(id: string): Observable<any[]> {
-    return this._http.delete(this._backendURL.oneIngredient.replace(':id', id), this._options())
+    return this._http.delete(this._backendURL.onePlat.replace(':id', id), this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
   }

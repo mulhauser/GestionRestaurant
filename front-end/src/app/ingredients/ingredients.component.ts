@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 import { MatDialog, MatDialogRef } from '@angular/material';
-import { DialogComponent } from '../shared/dialog/dialog.component';
+import { DialogIngredientComponent } from '../shared/dialog/dialog-ingredient/dialog-ingredient.component';
 import {IngredientService} from '../shared/ingredient-service/ingredient.service';
 
 import { Observable } from 'rxjs/Observable';
@@ -15,12 +15,12 @@ import 'rxjs/add/operator/filter';
   styleUrls: ['./ingredients.component.css']
 })
 export class IngredientsComponent implements OnInit {
-  // private property to store people value
+  // private property to store ingredients value
   private _ingredients: any[];
   // private property to store dialogStatus value
   private _dialogStatus: string;
   // private property to store dialog reference
-  private _ingredientDialog: MatDialogRef<DialogComponent>;
+  private _ingredientDialog: MatDialogRef<DialogIngredientComponent>;
   // private property to store view value
   private _view: string;
 
@@ -70,9 +70,9 @@ export class IngredientsComponent implements OnInit {
   }
 
   /**
-   * Function to delete one person
+   * Function to delete one ingredient
    *
-   * @param person
+   * @param ingredient
    */
   delete(ingredient: any) {
     this._ingredientService
@@ -91,7 +91,7 @@ export class IngredientsComponent implements OnInit {
     this._dialogStatus = 'active';
 
     // open modal
-    this._ingredientDialog = this._dialog.open(DialogComponent, {
+    this._ingredientDialog = this._dialog.open(DialogIngredientComponent, {
       width: '500px',
       disableClose: true
     });
@@ -115,18 +115,18 @@ export class IngredientsComponent implements OnInit {
   }
 
   /**
-   * Function to navigate to current person
+   * Function to navigate to current ingredient
    *
-   * @param person
+   * @param ingredient
    */
   navigate(ingredient) {
     this._router.navigate(['/ingredient', ingredient.id]);
   }
 
   /**
-   * Add new person and fetch all people to refresh the list
+   * Add new ingredient and fetch all ingredients to refresh the list
    *
-   * @param person to add
+   * @param ingredient to add
    *
    * @returns {Observable<any[]>}
    *

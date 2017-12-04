@@ -1,0 +1,20 @@
+<mat-card class="mat-whiteframe-2dp">
+  <mat-card-title-group>
+    <mat-card-title>
+      <a [routerLink]="['/plat', plat.id]">
+        <span>{{ plat.name }} {{ plat.price }}€</span>
+      </a>
+    </mat-card-title>
+
+  </mat-card-title-group>
+  <mat-card-content>
+    <div class="buttons-info">
+      <a mat-button title="Edit" [routerLink]="['/editPlat', plat.id]">
+        <mat-icon svgIcon="icon-edit"></mat-icon>
+      </a>
+      <button mat-button title="Delete" (click)="delete(plat)">
+        <mat-icon svgIcon="icon-delete"></mat-icon>
+      </button>
+    </div>
+  </mat-card-content>
+</mat-card>

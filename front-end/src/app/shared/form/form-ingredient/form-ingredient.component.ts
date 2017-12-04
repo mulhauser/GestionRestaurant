@@ -114,7 +114,7 @@ export class FormIngredientComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Function to emit event to submit form and person
+   * Function to emit event to submit form and ingredient
    */
   submit(ingredient: any) {
     this._submit$.emit(ingredient);

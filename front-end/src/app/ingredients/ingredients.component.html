@@ -1,6 +1,6 @@
 <section [ngSwitch]="view">
   <section *ngSwitchCase="'card'">
-    <nwt-card [ingredient]="ingredient" (ingredientDelete)="delete($event)" *ngFor="let ingredient of ingredients"></nwt-card>
+    <nwt-card-ingredient [ingredient]="ingredient" (ingredientDelete)="delete($event)" *ngFor="let ingredient of ingredients"></nwt-card-ingredient>
   </section>
 
   <section *ngSwitchCase="'list'">

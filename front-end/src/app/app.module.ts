@@ -21,19 +21,26 @@ import { APP_ROUTES } from './app.routes';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
-import {IngredientComponent } from './person/ingredient.component';
-import {IngredientsComponent } from './people/ingredients.component';
-import { CardComponent } from './shared/card/card.component';
-import { DialogComponent } from './shared/dialog/dialog.component';
-import { FormIngredientComponent} from './shared/form/form-ingredient.component';
-import { UpdateComponent } from './update/update.component';
-import { NaPipe } from './shared/na-pipe/na.pipe';
+import {IngredientComponent } from './ingredient/ingredient.component';
+import {IngredientsComponent } from './ingredients/ingredients.component';
+import { CardIngredientComponent } from './shared/card/card-ingredient/card-ingredient.component';
+import { DialogIngredientComponent } from './shared/dialog/dialog-ingredient/dialog-ingredient.component';
+import { FormIngredientComponent} from './shared/form/form-ingredient/form-ingredient.component';
+import { UpdateIngredientComponent } from './update/update-ingredient/update-ingredient.component';
 import {IngredientService} from './shared/ingredient-service/ingredient.service';
+import { PlatsComponent } from './plats/plats.component';
+import { PlatComponent } from './plat/plat.component';
+import {DialogPlatComponent} from './shared/dialog/dialog-plat/dialog-plat.component';
+import {UpdatePlatComponent} from './update/update-plat/update-plat.component';
+import {CardPlatComponent} from './shared/card/card-plat/card-plat.component';
+import {FormPlatComponent} from './shared/form/form-plat/form-plat.component';
+import {PlatService} from './shared/plat-service/plat.service';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, IngredientComponent, IngredientsComponent, CardComponent,
-    DialogComponent, FormIngredientComponent, UpdateComponent, NaPipe ],
-  entryComponents: [DialogComponent],
+  declarations: [AppComponent, HomeComponent, IngredientComponent, IngredientsComponent, CardIngredientComponent,
+    DialogIngredientComponent, FormIngredientComponent, UpdateIngredientComponent,
+    PlatsComponent, PlatComponent, DialogPlatComponent, UpdatePlatComponent, CardPlatComponent, FormPlatComponent],
+  entryComponents: [DialogIngredientComponent, DialogPlatComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -50,7 +57,7 @@ import {IngredientService} from './shared/ingredient-service/ingredient.service'
     MatInputModule,
     APP_ROUTES
   ],
-  providers: [IngredientService],
+  providers: [IngredientService, PlatService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
