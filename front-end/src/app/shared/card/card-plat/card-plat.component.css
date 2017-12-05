@@ -37,34 +37,19 @@ mat-card-title span {
   line-height: 32px;
 }
 
-mat-card-subtitle.contact-info {
-  margin-top: -7px;
-  height: 20px;
-}
+
 
 mat-card-title-group {
   margin-bottom: 20px;
 }
 
-.contact-info mat-icon + a {
-  top: -8px;
-  position: relative;
-  height: 18px;
-}
-
-.contact-info a:hover {
-  text-decoration: underline;
-}
-
 .buttons-info {
   float: right;
-  margin-top: 50px;
 }
 
 @media (max-width: 412px) {
   .buttons-info {
-    margin-top: -
-    34px;
+
   }
 }
 
@@ -140,8 +125,4 @@ img {
   img {
     margin-right: 5px;
   }
-}
-
-.managerLink:hover {
-  cursor: pointer;
 }

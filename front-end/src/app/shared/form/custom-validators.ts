@@ -9,18 +9,10 @@ export class CustomValidators {
    *
    * @returns {{googleEmail: boolean}}
    */
-  static googleEmail(control: FormControl) {
-    // email regex
-    const regex = /^\w+\.\w+@gmail\.com$/;
 
-    // returns control
-    return regex.test(control.value) ? null : {
-      googleEmail: true
-    };
-  }
 
   static isNumber(control: FormControl) {
-    const regex = /^[0-9]*$/;
+    const regex = /^\d+$/;
 
     return regex.test(control.value) ? null : {
       isNumber: true

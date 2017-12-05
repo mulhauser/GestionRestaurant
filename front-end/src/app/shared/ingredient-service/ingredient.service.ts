@@ -60,6 +60,7 @@ export class IngredientService {
   create(ingredient): Observable<any> {
     let ing;
     ing = {'name': ingredient.name, 'quantity': ingredient.quantity };
+    console.log(ing);
     return this._http.post(this._backendURL.allIngredients, ing, this._options());
   }
 

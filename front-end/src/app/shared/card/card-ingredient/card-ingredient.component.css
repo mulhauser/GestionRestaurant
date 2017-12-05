@@ -63,8 +63,7 @@ mat-card-title-group {
 
 @media (max-width: 412px) {
   .buttons-info {
-    margin-top: -
-    34px;
+    margin-top: -34px;
   }
 }
 
@@ -140,8 +139,4 @@ img {
   img {
     margin-right: 5px;
   }
-}
-
-.managerLink:hover {
-  cursor: pointer;
 }
