@@ -78,10 +78,8 @@ export class OrdersComponent implements OnInit {
   delete(order: any) {
     this._orderService
       .delete(order.id)
+      .flatMap(_ => this._orderService.fetch())
       .subscribe((orders: any[]) => this._orders = orders);
-    /*this._ingredientService
-      .fetch()
-      .subscribe((ingredients: any[]) => this._ingredients = ingredients);*/
   }
 
   /**
@@ -117,7 +115,7 @@ export class OrdersComponent implements OnInit {
    *
    * @private
    */
-  private _add(order: any): Observable<any[]> {
+  private _add(order: any): Observable<any[]|ArrayBuffer> {
     return this._orderService
       .create(order)
       .flatMap(_ => this._orderService.fetch());

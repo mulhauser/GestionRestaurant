@@ -4,22 +4,26 @@
       <a [routerLink]="['/order', order.id]">
         <span>{{ order.name }}</span>
       </a>
-      <br>
-      <span *ngIf="order.isServed">Servi</span>
-      <ul class="mdc-list">
-        <li class="mdc-list-item" *ngFor="let plat of order.dishes">{{ plat.name }}</li>
-      </ul>
     </mat-card-title>
-    <div class="buttons-info">
-      <a mat-button title="Edit" [routerLink]="['/editOrder', order.id]">
-        <mat-icon svgIcon="icon-edit"></mat-icon>
-      </a>
-      <button mat-button title="Delete" (click)="delete(order)">
-        <mat-icon svgIcon="icon-delete"></mat-icon>
-      </button>
-    </div>
-
+    <mat-card-subtitle>
+      <span *ngIf="order.isServed">Servi</span>
+      <div>
+        <ul class="mdc-list">
+          <li class="mdc-list-item" *ngFor="let plat of order.dishes">
+            <a [routerLink]="['/plats']">
+              {{ plat.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="buttons-info">
+        <a mat-button title="Edit" [routerLink]="['/editOrder', order.id]">
+          <mat-icon svgIcon="icon-edit"></mat-icon>
+        </a>
+        <button mat-button title="Delete" (click)="delete(order)">
+          <mat-icon svgIcon="icon-delete"></mat-icon>
+        </button>
+      </div>
+    </mat-card-subtitle>
   </mat-card-title-group>
-  <mat-card-content>
-  </mat-card-content>
 </mat-card>

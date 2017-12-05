@@ -28,7 +28,7 @@ mat-list-item {
 }
 
 mat-card-title {
-  margin-bottom: 0;
+  margin-bottom: 20px;
 }
 
 mat-card-title span {

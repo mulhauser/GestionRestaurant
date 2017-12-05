@@ -77,10 +77,8 @@ export class IngredientsComponent implements OnInit {
   delete(ingredient: any) {
     this._ingredientService
       .delete(ingredient.id)
+      .flatMap(_ => this._ingredientService.fetch())
       .subscribe((ingredients: any[]) => this._ingredients = ingredients);
-    /*this._ingredientService
-      .fetch()
-      .subscribe((ingredients: any[]) => this._ingredients = ingredients);*/
   }
 
   /**
@@ -132,7 +130,7 @@ export class IngredientsComponent implements OnInit {
    *
    * @private
    */
-  private _add(ingredient: any): Observable<any[]> {
+  private _add(ingredient: any): Observable<any[]|ArrayBuffer> {
     return this._ingredientService
       .create(ingredient)
       .flatMap(_ => this._ingredientService.fetch());

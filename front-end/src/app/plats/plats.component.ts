@@ -73,10 +73,8 @@ export class PlatsComponent implements OnInit {
   delete(plat: any) {
     this._platService
       .delete(plat.id)
+      .flatMap(_ => this._platService.fetch())
       .subscribe((plats: any[]) => this._plats = plats);
-    /*this._ingredientService
-      .fetch()
-      .subscribe((ingredients: any[]) => this._ingredients = ingredients);*/
   }
 
   /**
@@ -113,7 +111,7 @@ export class PlatsComponent implements OnInit {
    *
    * @private
    */
-  private _add(plat: any): Observable<any[]> {
+  private _add(plat: any): Observable<any[]|ArrayBuffer> {
     return this._platService
       .create(plat)
       .flatMap(_ => this._platService.fetch());
