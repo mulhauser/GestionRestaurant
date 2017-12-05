@@ -54,7 +54,6 @@ export class OrderService {
    * @returns {Observable<any>}
    */
   create(order): Observable<any> {
-    console.log(order);
     return this._http.post(this._backendURL.allOrders, order, this._options());
   }
 

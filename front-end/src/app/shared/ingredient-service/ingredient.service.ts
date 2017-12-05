@@ -71,7 +71,6 @@ export class IngredientService {
    * @returns {Observable<any>}
    */
   update(ingredient: any): Observable<any> {
-    console.log(ingredient);
     let ing;
     ing = {'name': ingredient.name, 'quantity': ingredient.quantity };
     return this._http.put(this._backendURL.oneIngredient.replace(':id', ingredient.id), ing, this._options());
