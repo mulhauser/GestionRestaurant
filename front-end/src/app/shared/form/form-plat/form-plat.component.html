@@ -14,17 +14,27 @@
         <td>
           <mat-form-field class="full-width" [class.mgb15]="form.get('name').dirty">
             <input matInput placeholder="Name" formControlName="name" minlength="2" required name="name"/>
-
+            <mat-error *ngIf="form.get('name').dirty && form.get('name').hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="form.get('name').dirty && form.get('name').hasError('minlength')">
+              Name is <strong>2 chars min</strong>
+            </mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
             <input matInput placeholder="Price" formControlName="price" required name="price"/>
-
+            <mat-error *ngIf="form.get('price').dirty && form.get('price').hasError('required')">
+              Price is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="form.get('price').dirty && !form.get('price').hasError('required') && form.get('price').hasError('isNumber')">
+              Only <strong>number (ex: 10)</strong> accepted
+            </mat-error>
           </mat-form-field>
 
           <mat-select class="form-control" multiple size="6" placeHolder="Ingredients" formControlName="ingredients">
-            <option *ngFor="let ingredient of ingredients">
+            <mat-option *ngFor="let ingredient of ingredients">
               {{ ingredient.name }}
-            </option>
+            </mat-option>
           </mat-select>
         </td>
       </tr>
