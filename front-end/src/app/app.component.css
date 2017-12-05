@@ -1,7 +1,5 @@
 mat-toolbar.extend-toolbar {
-  background-color: #0168AB;
-  background-image: url('/assets/images/bg_right.png');
-  background-repeat: no-repeat;
+  background-color: #abab79;
   background-position: right;
   top: 0px;
   box-shadow: 0 2px 5px 0 rgba(0,0,0,.26);
@@ -31,8 +29,8 @@ mat-toolbar a:not(.active):hover {
 }
 
 mat-toolbar a img {
-  height: 100%;
-  margin-left: -60px;
+  height: 86px;
+  margin-left: 0px;
 }
 
 mat-toolbar-row:nth-child(1) {
@@ -43,4 +41,8 @@ mat-toolbar-row:nth-child(2) {
   text-align: center;
   height: 56px;
   margin-top: 56px;
+}
+
+a.lien {
+
 }

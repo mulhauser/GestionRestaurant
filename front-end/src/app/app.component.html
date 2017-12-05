@@ -1,7 +1,7 @@
 <mat-toolbar class="extend-toolbar">
   <span>
     <a [routerLink]="['/']">
-      <img src="assets/images/logo.svg" aria-label="nwt" alt="NWT">
+      <img src="assets/images/logo.png" height="28" aria-label="nwt" alt="NWT">
     </a>
   </span>
 
@@ -11,10 +11,10 @@
     <div class="mdc-simple-menu" tabindex="-1">
       <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
         <li class="mdc-list-item" role="menuitem" tabindex="0">
-          <a [routerLink]="['/ingredients']">Ingredients</a>
+          <a class="lien" [routerLink]="['/ingredients']">Ingredients</a>
         </li>
         <li class="mdc-list-item" role="menuitem" tabindex="0">
-          <a [routerLink]="['/plats']">Plats</a>
+          <a class="lien" [routerLink]="['/plats']">Plats</a>
         </li>
       </ul>
     </div>
