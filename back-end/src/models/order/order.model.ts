@@ -1,13 +1,14 @@
 import { Model, MongoClientService, MongoModel } from '@hapiness/mongo';
 import { Config } from '@hapiness/config';
-import {TableModel} from '../table/table.model';
-import {DishModel} from '../dish/dish.model';
+import { TableModel } from '../index';
+import { DishModel } from '../dish/dish.model';
 
 @MongoModel({
     adapter: 'mongoose',
     collection: 'orders',
     options: Config.get('mongodb')
 })
+
 export class OrderModel extends Model {
     // property to store schema
     readonly schema: any;
@@ -26,14 +27,12 @@ export class OrderModel extends Model {
 
         // create schema
         this.schema = new dao.Schema({
-            table: { type: TableModel, required: true },
+            table: [{ type: Object, ref: TableModel, required: true }],
             isServed: { type: Boolean, required: true },
             isPayed: { type: Boolean, required: true },
             orderDate: { type: Date, required: true },
             serveDate: Date,
-            dishes: [
-                { type: DishModel }
-            ]
+            dishes: [{ type: Object, ref: DishModel }]
         }, {
             versionKey: false
         });

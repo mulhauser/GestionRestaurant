@@ -29,7 +29,7 @@ export class PlatService {
    *
    * @returns {Observable<any[]>}
    */
-  fetch(): Observable<any[]> {
+  fetch(): Observable<any[]|ArrayBuffer> {
     return this._http.get(this._backendURL.allPlats, this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
@@ -79,7 +79,7 @@ export class PlatService {
    *
    * @returns {Observable<any[]>}
    */
-  delete(id: string): Observable<any[]> {
+  delete(id: string): Observable<any[]|ArrayBuffer> {
     return this._http.delete(this._backendURL.onePlat.replace(':id', id), this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
