@@ -4,24 +4,27 @@
       <a [routerLink]="['/plat', plat.id]">
         <span>{{ plat.name }}</span>
       </a>
-      <br>
-      <a>
-        <span>{{ plat.price }}€</span>
-      </a>
-      <ul class="mdc-list">
-        <li class="mdc-list-item" *ngFor="let ingredient of plat.ingredients">{{ ingredient.name }}</li>
-      </ul>
     </mat-card-title>
-    <div class="buttons-info">
-      <a mat-button title="Edit" [routerLink]="['/editPlat', plat.id]">
-        <mat-icon svgIcon="icon-edit"></mat-icon>
-      </a>
-      <button mat-button title="Delete" (click)="delete(plat)">
-        <mat-icon svgIcon="icon-delete"></mat-icon>
-      </button>
-    </div>
 
+    <mat-card-subtitle>
+      <span>Prix : {{ plat.price }}€</span>
+      <div>
+        <ul class="mdc-list">
+          <li class="mdc-list-item" *ngFor="let ingredient of plat.ingredients">
+            <a [routerLink]="['/ingredient', ingredient.ref]">
+              {{ ingredient.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+      <div class="buttons-info">
+        <a mat-button title="Edit" [routerLink]="['/editPlat', plat.id]">
+          <mat-icon svgIcon="icon-edit"></mat-icon>
+        </a>
+        <button mat-button title="Delete" (click)="delete(plat)">
+          <mat-icon svgIcon="icon-delete"></mat-icon>
+        </button>
+      </div>
+    </mat-card-subtitle>
   </mat-card-title-group>
-  <mat-card-content>
-  </mat-card-content>
 </mat-card>

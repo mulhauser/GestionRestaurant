@@ -1,8 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+
 import {MatDialog, MatDialogRef} from '@angular/material';
-import {Observable} from 'rxjs/Observable';
 import {DialogOrderComponent} from '../shared/dialog/dialog-order/dialog-order.component';
 import {OrderService} from '../shared/order-service/order.service';
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/filter';
+
 
 @Component({
   selector: 'nwt-orders',
@@ -117,5 +122,4 @@ export class OrdersComponent implements OnInit {
       .create(order)
       .flatMap(_ => this._orderService.fetch());
   }
-
 }

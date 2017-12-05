@@ -3,7 +3,7 @@ var db = connect('127.0.0.1:27017/restaurant'),
     allRestaurant = null;
 
 //create the names collection and add documents to it
-db.names.insert([
+db.ingredient.insert([
 {
   "name": "pomme",
   "quantity": 0,
@@ -281,7 +281,7 @@ db.names.insert([
 }]);
 
 //set a reference to all documents in the database
-allRestaurant = db.names.find();
+allRestaurant = db.ingredient.find();
 
 //iterate the names collection and output each document
 while (allRestaurant.hasNext()) {

@@ -2,12 +2,13 @@
   <mat-card-title-group>
     <mat-card-title>
       <a [routerLink]="['/ingredient', ingredient.id]">
-        <span>{{ ingredient.name }} {{ ingredient.quantity }}</span>
+        <span>{{ ingredient.name }}</span>
       </a>
     </mat-card-title>
 
     <img mat-card-mat-image src="{{ ingredient.photo }}">
     <mat-card-subtitle>
+      <span>Quantité : {{ ingredient.quantity }}</span>
       <div class="buttons-info">
         <a mat-button title="Edit" [routerLink]="['/editIngredient', ingredient.id]">
           <mat-icon svgIcon="icon-edit"></mat-icon>
