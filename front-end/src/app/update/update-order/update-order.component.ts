@@ -42,7 +42,9 @@ export class UpdateOrderComponent implements OnInit {
         this._orderDialog.afterClosed()
           .filter(_ => !!_)
           .flatMap(_ => this._orderService.update(_))
-          .subscribe(null, null, () => this._router.navigate(['/orders']));
+          .subscribe(null, null, () => {
+            this._router.navigate(['/orders']);
+          });
       });
   }
 }

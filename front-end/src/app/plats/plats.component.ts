@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 import {MatDialog, MatDialogRef} from '@angular/material';
 import {DialogPlatComponent} from '../shared/dialog/dialog-plat/dialog-plat.component';
 import {PlatService} from '../shared/plat-service/plat.service';
@@ -24,7 +23,7 @@ export class PlatsComponent implements OnInit {
   /**
    * Component constructor
    */
-  constructor(private _router: Router, private _platService: PlatService, private _dialog: MatDialog) {
+  constructor(private _platService: PlatService, private _dialog: MatDialog) {
     this._plats = [];
     this._dialogStatus = 'inactive';
     this._view = 'card';
@@ -104,21 +103,6 @@ export class PlatsComponent implements OnInit {
       );
   }
 
-  /**
-   * Function to switch view
-   */
-  switchView() {
-    this._view = (this._view === 'card') ? 'list' : 'card';
-  }
-
-  /**
-   * Function to navigate to current ingredient
-   *
-   * @param ingredient
-   */
-  navigate(plat) {
-    this._router.navigate(['/plat', plat.id]);
-  }
 
   /**
    * Add new ingredient and fetch all ingredients to refresh the list

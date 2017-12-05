@@ -54,7 +54,6 @@ export class OrderService {
    * @returns {Observable<any>}
    */
   create(order): Observable<any> {
-    console.log(order);
     return this._http.post(this._backendURL.allOrders, order, this._options());
   }
 
@@ -79,7 +78,7 @@ export class OrderService {
    *
    * @returns {Observable<any[]>}
    */
-  delete(id: string): Observable<any[]|ArrayBuffer> {
+  delete(id: string): Observable<any[]> {
     return this._http.delete(this._backendURL.oneOrder.replace(':id', id), this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);

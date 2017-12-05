@@ -69,9 +69,10 @@ export class PlatService {
    * @returns {Observable<any>}
    */
   update(plat: any): Observable<any> {
-    let pl;
-    pl = {'name': plat.name, 'price': plat.price, 'ingredients': plat.ingredients };
-    return this._http.put(this._backendURL.onePlat.replace(':id', plat.id), pl, this._options());
+    const id = plat.id;
+    delete plat.id;
+    // pl = {'name': plat.name, 'price': plat.price, 'ingredients': plat.ingredients };
+    return this._http.put(this._backendURL.onePlat.replace(':id', id), plat, this._options());
   }
 
   /**
@@ -81,7 +82,7 @@ export class PlatService {
    *
    * @returns {Observable<any[]>}
    */
-  delete(id: string): Observable<any[]|ArrayBuffer> {
+  delete(id: string): Observable<any[]> {
     return this._http.delete(this._backendURL.onePlat.replace(':id', id), this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);

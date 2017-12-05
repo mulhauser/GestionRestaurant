@@ -5,11 +5,9 @@
         <span>{{ order.name }}</span>
       </a>
       <br>
-      <a>
-        <span *ngIf="order.isServed">Servi</span>
-      </a>
+      <span *ngIf="order.isServed">Servi</span>
       <ul class="mdc-list">
-        <li class="mdc-list-item" *ngFor="let plat of order.plats">{{ plat.name }}</li>
+        <li class="mdc-list-item" *ngFor="let plat of order.dishes">{{ plat.name }}</li>
       </ul>
     </mat-card-title>
     <div class="buttons-info">

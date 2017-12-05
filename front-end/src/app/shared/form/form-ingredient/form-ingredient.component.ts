@@ -119,7 +119,13 @@ export class FormIngredientComponent implements OnInit, OnChanges {
    * Function to emit event to submit form and ingredient
    */
   submit(ingredient: any) {
-    this._submit$.emit(ingredient);
+    let ing = null;
+    if (this._isUpdateMode) {
+      ing = {'id': ingredient.id, 'name': ingredient.name, 'quantity': Number.parseInt(ingredient.quantity)};
+    } else {
+      ing = {'name': ingredient.name, 'quantity': Number.parseInt(ingredient.quantity)};
+    }
+    this._submit$.emit(ing);
   }
 
   /**
