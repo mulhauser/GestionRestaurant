@@ -2,7 +2,7 @@
 Application de gestion des stocks d'un restaurant et de la prise de commandes.
 
 # Installations préalables
-Robo3T
+Robo3T\n
 MongoDB
 Angular 4
 
