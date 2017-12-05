@@ -16,8 +16,31 @@ import {Order} from '../../../interfaces/order';
                     Joi.object().keys({
                         id: Joi.string().required(),
                         name: Joi.string().required(),
-                        quantity: Joi.number().required(),
-                        photo: Joi.string().required()
+                        table: Joi.object().keys({
+                            id: Joi.string().required(),
+                            name: Joi.string().required(),
+                            seatingCapacity: Joi.number().required(),
+                            idSalle: Joi.string().required()
+                        }),
+                        isServed: Joi.boolean().required(),
+                        isPayed: Joi.boolean().required(),
+                        dishes: Joi.array().items(
+                            Joi.object().keys({
+                                id: Joi.string().required(),
+                                name: Joi.string().required(),
+                                price: Joi.number().required(),
+                                ingredients: Joi.array().items(
+                                    Joi.object().keys({
+                                        ref: Joi.string().required(),
+                                        name: Joi.string().required(),
+                                        quantityUse: Joi.number().required()
+                                    })
+                                )
+                            })
+                        ),
+                        orderDate: Joi.date().required(),
+                        serveDate: Joi.date().optional()
+
                     })
                 ).unique().min(1)
             }

@@ -7,6 +7,7 @@ mat-toolbar.extend-toolbar {
   z-index: 1;
   color: white;
   margin-bottom: 10px;
+  height: 95px;
 }
 
 mat-toolbar .flex {
@@ -31,9 +32,11 @@ mat-toolbar a:not(.active):hover {
 mat-toolbar a img {
   height: 86px;
   margin-left: 0px;
+  margin-top: 35px;
 }
 
 mat-toolbar-row:nth-child(1) {
+  height: 95px;
   margin-bottom: 66px;
 }
 mat-toolbar-row:nth-child(2) {
@@ -41,8 +44,4 @@ mat-toolbar-row:nth-child(2) {
   text-align: center;
   height: 56px;
   margin-top: 56px;
-}
-
-a.lien {
-
 }

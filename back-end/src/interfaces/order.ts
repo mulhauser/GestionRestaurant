@@ -1,9 +1,15 @@
 export interface Order {
     id?: string;
-    idTable: string;
+    name: string;
+    tableId: string;
     isServed: boolean;
     isPayed: boolean;
-    idDishes: string[];
+    dishes: [
+        {
+            ref: string;
+            name: string;
+        }
+        ];
     orderDate: Date;
     serveDate: Date;
 }

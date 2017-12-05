@@ -15,12 +15,31 @@ import {Order} from '../../../interfaces/order';
                 id: Joi.string().required()
             },
             payload: Joi.object().keys({
-                idTable: Joi.string().required(),
+                name: Joi.string().required(),
+                table: Joi.object().keys({
+                    id: Joi.string().required(),
+                    name: Joi.string().required(),
+                    seatingCapacity: Joi.number().required(),
+                    idSalle: Joi.string().required()
+                }),
                 isServed: Joi.boolean().required(),
                 isPayed: Joi.boolean().required(),
-                idDishes: Joi.array().items((Joi.string().required())),
+                dishes: Joi.array().items(
+                    Joi.object().keys({
+                        id: Joi.string().required(),
+                        name: Joi.string().required(),
+                        price: Joi.number().required(),
+                        ingredients: Joi.array().items(
+                            Joi.object().keys({
+                                ref: Joi.string().required(),
+                                name: Joi.string().required(),
+                                quantityUse: Joi.number().required()
+                            })
+                        )
+                    })
+                ),
                 orderDate: Joi.date().required(),
-                serveDate: Joi.date().required()
+                serveDate: Joi.date().optional()
             })
         },
         payload: {
@@ -32,12 +51,31 @@ import {Order} from '../../../interfaces/order';
             status: {
                 200: Joi.object().keys({
                     id: Joi.string().required(),
-                    idTable: Joi.string().required(),
+                    name: Joi.string().required(),
+                    table: Joi.object().keys({
+                        id: Joi.string().required(),
+                        name: Joi.string().required(),
+                        seatingCapacity: Joi.number().required(),
+                        idSalle: Joi.string().required()
+                    }),
                     isServed: Joi.boolean().required(),
                     isPayed: Joi.boolean().required(),
-                    idDishes: Joi.array().items((Joi.string().required())),
+                    dishes: Joi.array().items(
+                        Joi.object().keys({
+                            id: Joi.string().required(),
+                            name: Joi.string().required(),
+                            price: Joi.number().required(),
+                            ingredients: Joi.array().items(
+                                Joi.object().keys({
+                                    ref: Joi.string().required(),
+                                    name: Joi.string().required(),
+                                    quantityUse: Joi.number().required()
+                                })
+                            )
+                        })
+                    ),
                     orderDate: Joi.date().required(),
-                    serveDate: Joi.date().required()
+                    serveDate: Joi.date().optional()
                 })
             }
         },

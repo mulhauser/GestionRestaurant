@@ -52,7 +52,8 @@ export class DishModel extends Model {
                             }
                         }
                     )
-                , required: true }]
+                , required: true }
+                ]
         }, {
             versionKey: false
         });

@@ -138,7 +138,7 @@ export class FormPlatComponent implements OnInit, OnChanges {
     for (const ingredient of plat.ingredients) {
       this._ingredientService
         .findByName(ingredient)
-        .subscribe((ing: any) => plt['ingredients'].push({'ref': ing.id, 'name': ing.name, 'quantityUse': 0}));
+        .subscribe((ing: any) => plt['ingredients'].push({'ref': ing.id, 'name': ing.name, 'quantityUse': 1}));
     }
     this._submit$.emit(plt);
   }

@@ -26,9 +26,6 @@ export class TableModel extends Model {
         this.schema = new dao.Schema({
             name: { type: String, required: true },
             seatingCapacity: { type: Number, required: true },
-            idOrders: [
-                { type: String }
-            ],
             idSalle: { type: String, required: true }
         }, {
             versionKey: false
