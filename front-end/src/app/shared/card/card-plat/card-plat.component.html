@@ -5,9 +5,7 @@
         <span>{{ plat.name }}</span>
       </a>
       <br>
-      <a>
-        <span>{{ plat.price }}€</span>
-      </a>
+      <span>{{ plat.price }}€</span>
       <ul class="mdc-list">
         <li class="mdc-list-item" *ngFor="let ingredient of plat.ingredients">{{ ingredient.name }}</li>
       </ul>

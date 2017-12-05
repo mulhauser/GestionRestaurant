@@ -134,14 +134,14 @@ export class FormOrderComponent implements OnInit, OnChanges {
       ord = {
         'id': order.id,
         'name': order.name,
-        'isServed': order.isServed,
-        'isPayed': order.isPayed,
+        'isServed': order.isServed.value,
+        'isPayed': order.isPayed.value,
         'dishes': [],
         'orderDate': Date.now()};
     } else if (order.isServed.value === undefined) {
       ord = {'name': order.name, 'isServed': false, 'isPayed': false, 'dishes': [], 'orderDate': new Date().toISOString()};
     } else {
-      ord = {'name': order.name, 'isServed': order.isServed, 'isPayed': false, 'dishes': [], 'orderDate': new Date().toISOString()};
+      ord = {'name': order.name, 'isServed': order.isServed.value, 'isPayed': false, 'dishes': [], 'orderDate': new Date().toISOString()};
     }
     for (const plat of order.plats) {
       this._platService
