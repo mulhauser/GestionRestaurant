@@ -5,31 +5,15 @@
     </a>
   </span>
 
+  <span><h2 style="padding-top: 40px;padding-left: 10px;">What The Food</h2></span>
   <span class="flex"></span>
 
   <span>
-    <div class="mdc-simple-menu" tabindex="-1">
-      <ul class="mdc-simple-menu__items mdc-list" role="menu" aria-hidden="true">
-        <li class="mdc-list-item" role="menuitem" tabindex="0">
-          <a class="lien" [routerLink]="['/ingredients']">Ingredients</a>
-        </li>
-        <li class="mdc-list-item" role="menuitem" tabindex="0">
-          <a class="lien" [routerLink]="['/plats']">Plats</a>
-        </li>
-        <li class="mdc-list-item" role="menuitem" tabindex="0">
-          <a class="lien" [routerLink]="['/orders']">Commandes</a>
-        </li>
-      </ul>
-    </div>
-
-  </span>
-  <span>
-    <mat-toolbar-row>
-    <span>Third Line</span>
-    <span class="example-spacer"></span>
-    <mat-icon class="example-icon">favorite</mat-icon>
-    <mat-icon class="example-icon">delete</mat-icon>
-  </mat-toolbar-row>
+    <mat-toolbar-row style="padding-top: 25px;">
+      <a class="lien" [routerLink]="['/plats']">Plats</a>
+      <a class="lien" [routerLink]="['/ingredients']">Ingredients</a>
+      <a class="lien" [routerLink]="['/orders']">Commandes</a>
+    </mat-toolbar-row>
   </span>
 </mat-toolbar>
 
