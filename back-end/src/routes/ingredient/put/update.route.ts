@@ -5,6 +5,7 @@ import { Observable } from 'rxjs/Observable';
 import * as Joi from 'joi';
 import {IngredientService} from '../../../services/ingredient/ingredient.service';
 import {Ingredient} from '../../../interfaces/ingredient';
+import {DishService} from '../../../services/dish/dish.service';
 
 @Route({
     path: '/api/ingredient/{id}',
@@ -44,7 +45,7 @@ export class PutUpdateIngredientRoute implements OnPut {
      * Class constructor
      * @param _peopleService
      */
-    constructor(private _ingredientService: IngredientService) {
+    constructor(private _ingredientService: IngredientService, private _dishService: DishService) {
     }
 
     /**
@@ -52,6 +53,8 @@ export class PutUpdateIngredientRoute implements OnPut {
      * @param request
      */
     onPut(request: Request): Observable<Ingredient> {
-        return this._ingredientService.update(request.params.id, request.payload);
+        const res = this._ingredientService.update(request.params.id, request.payload);
+        this._dishService.updateByIngredient(request.params.id, request.payload.name)
+        return res;
     }
 }

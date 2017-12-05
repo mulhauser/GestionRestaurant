@@ -32,7 +32,7 @@
           </mat-form-field>
 
           <mat-select class="form-control" multiple size="6" placeHolder="Ingredients" formControlName="ingredients">
-            <mat-option *ngFor="let ingredient of ingredients">
+            <mat-option *ngFor="let ingredient of ingredients" [value]="ingredient.name">
               {{ ingredient.name }}
             </mat-option>
           </mat-select>

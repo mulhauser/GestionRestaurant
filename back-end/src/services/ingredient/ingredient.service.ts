@@ -87,7 +87,7 @@ export class IngredientService {
                     !!_ ?
                         of(_) :
                         _throw(Biim.notFound(`Ingredient with id '${id}' not found`))
-                )
+                ),
             );
     }
 

@@ -60,7 +60,7 @@ export class IngredientComponent implements OnInit {
           .flatMap(_ => this._ingredientService.fetch())
           .do(_ => this._isIngredient = false)
       )
-      .subscribe((ingredient: any[]) => this._ingredient = ingredient.shift());
+      .subscribe((ingredient: any[]) => this._ingredient = ingredient.shift);
   }
 
   /**
