@@ -129,13 +129,17 @@ export class FormPlatComponent implements OnInit, OnChanges {
    * Function to emit event to submit form and ingredient
    */
   submit(plat: any) {
-    const plt = {'name': plat.name, 'price': Number.parseInt(plat.price), 'ingredients': []};
+    let plt = null;
+    if (this._isUpdateMode) {
+      plt = {'id': plat.id, 'name': plat.name, 'price': Number.parseInt(plat.price), 'ingredients': []};
+    } else {
+      plt = {'name': plat.name, 'price': Number.parseInt(plat.price), 'ingredients': []};
+    }
     for (const ingredient of plat.ingredients) {
       this._ingredientService
         .findByName(ingredient)
-        .subscribe((ing: any) => plt.ingredients.push({'ref': ing.id, 'name': ing.name, 'quantityUse': 0}));
+        .subscribe((ing: any) => plt['ingredients'].push({'ref': ing.id, 'name': ing.name, 'quantityUse': 0}));
     }
-    console.log(plt);
     this._submit$.emit(plt);
   }
 

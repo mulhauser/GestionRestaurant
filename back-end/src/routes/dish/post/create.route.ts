@@ -62,6 +62,7 @@ export class PostCreateDishRoute implements OnPost {
      * @param request
      */
     onPost(request: Request): Observable<HapinessHTTPHandlerResponse> {
+        console.log(request.payload);
         return this._dishService.create(request.payload as Dish);
     }
 }
