@@ -50,6 +50,7 @@ import {DeleteOneTableRoute} from './routes/table/delete/one.route';
 import {PutUpdateTableRoute} from './routes/table/put/update.route';
 import {TableModel} from './models/table/table.model';
 import {TableService} from './services/table/table.service';
+import {GetOneByNameDishRoute} from './routes/dish/get/one-by-name.route';
 
 const roomDocumentFactory = (mongoClientService: MongoClientService) => new RoomDocumentService(mongoClientService);
 const ingredientDocumentFactory = (mongoClientService: MongoClientService) => new IngredientDocumentService(mongoClientService);
@@ -67,7 +68,7 @@ const tableDocumentFactory = (mongoClientService: MongoClientService) => new Tab
     declarations: [
         RoomModel, GetAllRoomRoute, GetOneRoomRoute, PostCreateRoomRoute, DeleteOneRoomRoute, PutUpdateRoomRoute,
         IngredientModel, GetAllIngredientRoute, GetOneIngredientRoute, PostCreateIngredientRoute, DeleteOneIngredientRoute,
-        PutUpdateIngredientRoute, GetOneByNameIngredientRoute,
+        PutUpdateIngredientRoute, GetOneByNameIngredientRoute, GetOneByNameDishRoute,
         DishModel, GetAllDishRoute, GetOneDishRoute, PostCreateDishRoute, DeleteOneDishRoute, PutUpdateDishRoute,
         OrderModel, GetAllOrderRoute, GetOneOrderRoute, PostCreateOrderRoute, DeleteOneOrderRoute, PutUpdateOrderRoute,
         TableModel, GetAllTableRoute, GetOneTableRoute, PostCreateTableRoute, DeleteOneTableRoute, PutUpdateTableRoute

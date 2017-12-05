@@ -1,7 +1,6 @@
 export interface Order {
     id?: string;
     name: string;
-    tableId: string;
     isServed: boolean;
     isPayed: boolean;
     dishes: [
@@ -11,5 +10,5 @@ export interface Order {
         }
         ];
     orderDate: Date;
-    serveDate: Date;
+    serveDate?: Date;
 }

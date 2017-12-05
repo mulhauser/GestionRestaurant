@@ -8,6 +8,8 @@ import {IngredientComponent } from './ingredient/ingredient.component';
 import {PlatsComponent} from './plats/plats.component';
 import {PlatComponent} from './plat/plat.component';
 import {UpdatePlatComponent} from './update/update-plat/update-plat.component';
+import {OrdersComponent} from './orders/orders.component';
+import {OrderComponent} from './order/order.component';
 
 const ROUTES: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,7 +19,10 @@ const ROUTES: Routes = [
   { path: 'ingredient/:id', component: IngredientComponent },
   { path: 'plats', component: PlatsComponent },
   { path: 'plat/:id', component: PlatComponent },
-  { path: 'editPlat/:id', component: UpdatePlatComponent }
+  { path: 'editPlat/:id', component: UpdatePlatComponent },
+  { path: 'orders', component: OrdersComponent },
+  { path: 'order/:id', component: OrderComponent },
+  { path: 'editOrder/:id', component: UpdatePlatComponent }
 ];
 
 export const APP_ROUTES = RouterModule.forRoot(ROUTES, { useHash: true });

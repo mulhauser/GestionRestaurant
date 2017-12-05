@@ -1,0 +1,10 @@
+  <section >
+    <nwt-card-order [order]="order" (platDelete)="delete($event)" *ngFor="let order of orders"></nwt-card-order>
+  </section>
+
+
+
+  <button (click)="showDialog()" mat-fab color="accent" class="button-add">
+    <i class="material-icons">add</i>
+  </button>
+

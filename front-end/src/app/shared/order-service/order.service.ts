@@ -7,7 +7,7 @@ import 'rxjs/add/operator/defaultIfEmpty';
 import 'rxjs/add/operator/filter';
 
 @Injectable()
-export class PlatService {
+export class OrderService {
   // private property to store all backend URLs
   private _backendURL: any;
 
@@ -30,7 +30,7 @@ export class PlatService {
    * @returns {Observable<any[]>}
    */
   fetch(): Observable<any[]|ArrayBuffer> {
-    return this._http.get(this._backendURL.allPlats, this._options())
+    return this._http.get(this._backendURL.allOrders, this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
   }
@@ -43,11 +43,7 @@ export class PlatService {
    * @returns {Observable<any>}
    */
   fetchOne(id: string): Observable<any> {
-    return this._http.get(this._backendURL.onePlat.replace(':id', id), this._options());
-  }
-
-  findByName(name: string): Observable<any> {
-    return this._http.get(this._backendURL.onePlatByName.replace(':name', name), this._options());
+    return this._http.get(this._backendURL.oneOrder.replace(':id', id), this._options());
   }
 
   /**
@@ -57,8 +53,9 @@ export class PlatService {
    *
    * @returns {Observable<any>}
    */
-  create(plat): Observable<any> {
-    return this._http.post(this._backendURL.allPlats, plat, this._options());
+  create(order): Observable<any> {
+    console.log(order);
+    return this._http.post(this._backendURL.allOrders, order, this._options());
   }
 
   /**
@@ -68,10 +65,11 @@ export class PlatService {
    *
    * @returns {Observable<any>}
    */
-  update(plat: any): Observable<any> {
-    let pl;
-    pl = {'name': plat.name, 'price': plat.price, 'ingredients': plat.ingredients };
-    return this._http.put(this._backendURL.onePlat.replace(':id', plat.id), pl, this._options());
+  update(order: any): Observable<any> {
+    const id = order.id;
+    delete order.id;
+    // ord = {'name': order.name, 'isServed': order.isServed, 'isPayed': order.isServed, 'dishes': order.dishes, 'orderDate' };
+    return this._http.put(this._backendURL.oneOrder.replace(':id', id), order, this._options());
   }
 
   /**
@@ -82,7 +80,7 @@ export class PlatService {
    * @returns {Observable<any[]>}
    */
   delete(id: string): Observable<any[]|ArrayBuffer> {
-    return this._http.delete(this._backendURL.onePlat.replace(':id', id), this._options())
+    return this._http.delete(this._backendURL.oneOrder.replace(':id', id), this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
   }

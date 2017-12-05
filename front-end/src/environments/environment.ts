@@ -14,7 +14,10 @@ export const environment = {
       oneIngredient: '/api/ingredient/:id',
       oneIngredientByName: '/api/ingredient/name/:name',
       allPlats: '/api/dish',
-      onePlat: '/api/dish/:id'
+      onePlat: '/api/dish/:id',
+      onePlatByName: '/api/dish/name/:name',
+      allOrders: '/api/order',
+      oneOrder: '/api/order/:id'
     }
   }
 };

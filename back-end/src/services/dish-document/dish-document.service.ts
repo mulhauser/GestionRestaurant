@@ -75,6 +75,17 @@ export class DishDocumentService {
             )
     }
 
+    findByName(name: string): Observable<Dish | void> {
+        return fromPromise(this._document.findOne({name: name}))
+            .pipe(
+                flatMap((doc: MongooseDocument) =>
+                    !!doc ?
+                        of(doc.toJSON() as Dish) :
+                        of(undefined)
+                )
+            )
+    }
+
     /**
      * Check if person already exists and add it in people list
      *

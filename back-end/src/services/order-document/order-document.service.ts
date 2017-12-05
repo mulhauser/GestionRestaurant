@@ -84,12 +84,12 @@ export class OrderDocumentService {
      */
     create(order: Order): Observable<Order> {
         return fromPromise(this._document.findOne({
-            name: { $regex: new RegExp(order.id, 'i') },
+            name: { $regex: new RegExp(order.name, 'i') },
         }))
             .pipe(
                 flatMap(_ => !!_ ?
                     _throw(
-                        new Error(`Order with name '${order.id}' already exists`)
+                        new Error(`Order with name '${order.name}' already exists`)
                     ) :
                     fromPromise(this._document.create(order))
                 ),
