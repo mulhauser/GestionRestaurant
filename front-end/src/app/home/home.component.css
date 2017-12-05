@@ -1,0 +1,10 @@
+.container{
+  text-align:center;
+  width: auto;
+}
+
+.container img{
+  display:inline-block;
+  width: 33%;
+  margin:0 1% 0 1%;
+}
