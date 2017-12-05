@@ -81,7 +81,7 @@ export class PlatService {
    *
    * @returns {Observable<any[]>}
    */
-  delete(id: string): Observable<any[]|ArrayBuffer> {
+  delete(id: string): Observable<any[]> {
     return this._http.delete(this._backendURL.onePlat.replace(':id', id), this._options())
       .filter(_ => !!_)
       .defaultIfEmpty([]);
