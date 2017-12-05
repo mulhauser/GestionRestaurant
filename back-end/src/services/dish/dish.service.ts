@@ -111,4 +111,10 @@ export class DishService {
     }
 
 
+    updateByIngredient(id: string, name: string) {
+        this._dishDocumentService.updateByIngredient(id, name);
+    }
+
+
+
 }

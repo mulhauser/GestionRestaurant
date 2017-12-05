@@ -1,14 +1,14 @@
-import { Injectable } from '@hapiness/core';
-import { MongoClientService } from '@hapiness/mongo';
-import { MongooseDocument } from 'mongoose';
-import { Observable } from 'rxjs/Observable';
-import { fromPromise } from 'rxjs/observable/fromPromise';
-import { of } from 'rxjs/observable/of';
-import { _throw } from 'rxjs/observable/throw';
-import {flatMap, filter, map } from 'rxjs/operators';
-import { mergeStatic } from 'rxjs/operators/merge';
+import {Injectable} from '@hapiness/core';
+import {MongoClientService} from '@hapiness/mongo';
+import {MongooseDocument} from 'mongoose';
+import {Observable} from 'rxjs/Observable';
+import {fromPromise} from 'rxjs/observable/fromPromise';
+import {of} from 'rxjs/observable/of';
+import {_throw} from 'rxjs/observable/throw';
+import {flatMap, filter, map} from 'rxjs/operators';
+import {mergeStatic} from 'rxjs/operators/merge';
 
-import { Config } from '@hapiness/config';
+import {Config} from '@hapiness/config';
 import {Dish} from '../../interfaces/dish';
 import {DishModel} from '../../models/dish/dish.model';
 
@@ -120,7 +120,7 @@ export class DishDocumentService {
         );*/
         // return fromPromise(this._documentIngredient.findById())
         return fromPromise(this._document.findOne({
-            name: { $regex: new RegExp(dish.name, 'i') },
+            name: {$regex: new RegExp(dish.name, 'i')},
         }))
             .pipe(
                 flatMap(_ => !!_ ?
@@ -142,7 +142,7 @@ export class DishDocumentService {
      * @return {Observable<Room>}
      */
     findByIdAndUpdate(id: string, dish: Dish): Observable<Dish> {
-        return fromPromise(this._document.findByIdAndUpdate(id, dish, { new: true }))
+        return fromPromise(this._document.findByIdAndUpdate(id, dish, {new: true}))
             .pipe(
                 flatMap((doc: MongooseDocument) =>
                     !!doc ?
@@ -169,4 +169,26 @@ export class DishDocumentService {
                 )
             )
     }
+
+
+    updateByIngredient(id: string, name: string) {
+        this._document.findAndModify(
+            {ingredients: {$elemMatch: {ref: id}}},
+            {$set: {'events.name$': name}}
+        )
+
+    }
+
+
+    /*findByIdAndUpdateEvent(event: Event, idEvent: string): Observable<People> {
+        return fromPromise(this._document.findOneAndUpdate(
+            {events: {$elemMatch: {_id: idEvent}}},
+            {$set: {'events.$': event}}))
+            .pipe(
+                flatMap((doc: MongooseDocument) =>
+                    !!doc ? of(doc.toJSON() as People) :
+                        of(undefined)
+                )
+            )
+    }*/
 }
