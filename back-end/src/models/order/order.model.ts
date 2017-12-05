@@ -10,7 +10,6 @@ import { Config } from '@hapiness/config';
 export class OrderModel extends Model {
     // property to store schema
     readonly schema: any;
-    readonly childSchema: any;
 
     /**
      * Class constructor
@@ -24,21 +23,14 @@ export class OrderModel extends Model {
         // get dao
         const dao = this._mongoClientService.getDao(this.connectionOptions);
 
-        this.childSchema = new dao.Schema({
-                ref: { type: String, required: true },
-                name: { type: String, required: true },
-            },
-            { versionKey: false }
-        );
 
         // create schema
         this.schema = new dao.Schema({
             name: { type: String, required: true },
-            tableId: { type: String, required: true },
             isServed: { type: Boolean, required: true },
             isPayed: { type: Boolean, required: true },
             orderDate: { type: Date, required: true },
-            serveDate: Date,
+            serveDate: { type: Date, required: false },
             dishes: [
                 {
                     type: new dao.Schema({

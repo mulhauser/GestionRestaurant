@@ -44,6 +44,18 @@ export class DishService {
             );
     }
 
+    oneByName(name: string): Observable<Dish> {
+        return this._dishDocumentService.findByName(name)
+            .pipe(
+                catchError(e => _throw(Biim.preconditionFailed(e.message))),
+                flatMap(_ =>
+                    !!_ ?
+                        of(_) :
+                        _throw(Biim.notFound(`Dish with name '${name}' not found`))
+                )
+            );
+    }
+
     /**
      * Check if person already exists and add it in people list
      *
@@ -97,4 +109,6 @@ export class DishService {
                 )
             );
     }
+
+
 }

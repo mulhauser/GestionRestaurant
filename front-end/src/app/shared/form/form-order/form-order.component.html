@@ -1,5 +1,5 @@
 <h2 mat-dialog-title *ngIf="isUpdateMode">Update {{ form.get('name').value }}</h2>
-<h2 mat-dialog-title *ngIf="!isUpdateMode">Create new plat</h2>
+<h2 mat-dialog-title *ngIf="!isUpdateMode">Create new order</h2>
 
 <mat-dialog-content>
   <form novalidate [formGroup]="form">
@@ -16,16 +16,16 @@
             <input matInput placeholder="Name" formControlName="name" minlength="2" required name="name"/>
 
           </mat-form-field>
-          <mat-form-field class="full-width">
-            <input matInput placeholder="Price" formControlName="price" required name="price"/>
 
-          </mat-form-field>
+            <mat-checkbox class="full-width" formControlName="isServed" required name="isServed">Servi</mat-checkbox>
 
-          <mat-select class="form-control" multiple size="6" placeHolder="Ingredients" formControlName="ingredients">
-            <option *ngFor="let ingredient of ingredients">
-              {{ ingredient.name }}
-            </option>
-          </mat-select>
+            <mat-checkbox class="full-width" formControlName="isPayed" required name="isPayed">Servi</mat-checkbox>
+
+            <mat-select class="full-width" multiple size="6" placeHolder="Plats" formControlName="plats">
+              <mat-option *ngFor="let plat of plats" [value]="plat.name">
+                {{ plat.name }}
+              </mat-option>
+            </mat-select>
         </td>
       </tr>
     </table>

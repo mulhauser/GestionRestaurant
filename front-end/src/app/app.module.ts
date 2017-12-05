@@ -14,7 +14,7 @@ import {
   MatIconModule,
   MatCheckboxModule,
   MatDialogModule,
-  MatInputModule
+  MatInputModule, MatSelectModule
 } from '@angular/material';
 
 import { APP_ROUTES } from './app.routes';
@@ -35,12 +35,22 @@ import {UpdatePlatComponent} from './update/update-plat/update-plat.component';
 import {CardPlatComponent} from './shared/card/card-plat/card-plat.component';
 import {FormPlatComponent} from './shared/form/form-plat/form-plat.component';
 import {PlatService} from './shared/plat-service/plat.service';
+import {DialogOrderComponent} from './shared/dialog/dialog-order/dialog-order.component';
+import {OrdersComponent} from './orders/orders.component';
+import {OrderComponent} from './order/order.component';
+import {CardOrderComponent} from './shared/card/card-order/card-order.component';
+import {FormOrderComponent} from './shared/form/form-order/form-order.component';
+import {UpdateOrderComponent} from './update/update-order/update-order.component';
+import {OrderService} from './shared/order-service/order.service';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, IngredientComponent, IngredientsComponent, CardIngredientComponent,
-    DialogIngredientComponent, FormIngredientComponent, UpdateIngredientComponent,
-    PlatsComponent, PlatComponent, DialogPlatComponent, UpdatePlatComponent, CardPlatComponent, FormPlatComponent],
-  entryComponents: [DialogIngredientComponent, DialogPlatComponent],
+  declarations: [AppComponent, HomeComponent,
+    IngredientComponent, IngredientsComponent, CardIngredientComponent, DialogIngredientComponent, FormIngredientComponent,
+    UpdateIngredientComponent,
+    PlatsComponent, PlatComponent, DialogPlatComponent, UpdatePlatComponent, CardPlatComponent, FormPlatComponent,
+    DialogOrderComponent, OrdersComponent, OrderComponent, CardOrderComponent, FormOrderComponent, UpdateOrderComponent
+  ],
+  entryComponents: [DialogIngredientComponent, DialogPlatComponent, DialogOrderComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -55,9 +65,10 @@ import {PlatService} from './shared/plat-service/plat.service';
     MatCheckboxModule,
     MatDialogModule,
     MatInputModule,
+    MatSelectModule,
     APP_ROUTES
   ],
-  providers: [IngredientService, PlatService],
+  providers: [IngredientService, PlatService, OrderService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
