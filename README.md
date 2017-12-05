@@ -11,16 +11,17 @@ Lancer le scriptMongo.txt dans le shell de Robo3T
 
 ## Commandes principales
 A partir du dossier GestionRestaurant :
+Voici quelques commandes ! :+1:
 ```
-* cd front-end/,
-* yarn install,
-* yarn run start
+cd front-end/
+yarn install
+yarn run start
 ```
 ```
-* cd back-end/,
-* yarn install,
-* yarn run dev:watch
+cd back-end/
+yarn install
+yarn run dev:watch
 ```
 
 ## Aller sur WTF
-[Localhost](http://localhost:4200/#/home)
+[[Localhost]](http://localhost:4200/#/home) pour aller sur le localhost
