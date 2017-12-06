@@ -173,12 +173,8 @@ export class FormOrderComponent implements OnInit, OnChanges {
       name: new FormControl('', Validators.compose([
         Validators.required, Validators.minLength(2)
       ])),
-      isServed: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
-      isPayed: new FormControl('', Validators.compose([
-        Validators.required
-      ])),
+      isServed: new FormControl(''),
+      isPayed: new FormControl(''),
       plats: new FormControl([], Validators.compose([
         Validators.required
       ]))
