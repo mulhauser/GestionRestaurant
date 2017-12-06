@@ -28,3 +28,5 @@ yarn run dev:watch
 
 ## Aller sur WTF
 [[Localhost]](http://localhost:4200/#/home) pour aller sur le localhost
+
+### Nicolas BLIN & Rémy MULHAUSER
