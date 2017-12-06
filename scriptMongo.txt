@@ -1,13 +1,18 @@
 //create the madMen database and connect to it
 var db = connect('127.0.0.1:27017/restaurant'),
     allRestaurant = null;
+    
+db.create('dishes');
+db.create('orders');
+db.create('rooms');
+db.create('tables');
 
 //create the names collection and add documents to it
-db.ingredient.insert([
+db.ingredients.insert([
 {
   "name": "pomme",
   "quantity": 0,
-  "photo": "assets/images/ingredients/apple.png"
+  "photo": "assets/images/ingredients/apple-1.png"
 },
 {
   "name": "asperge",
@@ -232,7 +237,7 @@ db.ingredient.insert([
 {
   "name": "salade",
   "quantity": 0,
-  "photo": "assets/images/ingredients/salad.png"
+  "photo": "assets/images/ingredients/salad-1.png"
 },
 {
   "name": "saumon",
@@ -278,7 +283,58 @@ db.ingredient.insert([
   "name": "pastèque",
   "quantity": 0,
   "photo": "assets/images/ingredients/watermelon.png"
-}]);
+},
+{
+  "name": "moutarde",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/mustard.png"
+},
+{
+  "name": "champignon",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/mushrooms.png"
+},
+{
+  "name": "lait",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/milk.png"
+},
+{
+  "name": "pâtes",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/pasta.png"
+},
+{
+  "name": "bière",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/pint.png"
+},
+{
+  "name": "pomme de terre",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/potatoes-2.png"
+},
+{
+  "name": "vin",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/glass-4.png"
+},
+{
+  "name": "cocktail",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/glass-3.png"
+},
+{
+  "name": "champagne",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/glass-2.png"
+},
+{
+  "name": "eau",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/glass-4.png"
+}
+]);
 
 //set a reference to all documents in the database
 allRestaurant = db.ingredient.find();
@@ -287,4 +343,3 @@ allRestaurant = db.ingredient.find();
 while (allRestaurant.hasNext()) {
    printjson(allRestaurant.next());
 }
-
