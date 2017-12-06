@@ -129,8 +129,6 @@ export class FormOrderComponent implements OnInit, OnChanges {
    */
   submit(order: any) {
     let ord = null;
-    console.log(order.isPayed);
-    console.log(order.isServed);
     if (this._isUpdateMode) {
       ord = {
         'id': order.id,
