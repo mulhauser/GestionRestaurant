@@ -8,7 +8,11 @@
     <img mat-card-mat-image src="assets/images/order/order.png">
 
     <mat-card-subtitle>
-      <span *ngIf="order.isServed">Servi</span>
+      <span *ngIf="order.isServed" style="color: #008744">Servie</span>
+      <span *ngIf="!order.isServed" style="color: #d62d20">Non servie</span>
+      <br>
+      <span *ngIf="order.isPayed" style="color: #008744">Payée</span>
+      <span *ngIf="!order.isPayed" style="color: #d62d20">Non payée</span>
       <div>
         <ul class="mdc-list">
           <li class="mdc-list-item" *ngFor="let plat of order.dishes">
