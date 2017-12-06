@@ -1,14 +1,17 @@
 //create the madMen database and connect to it
 var db = connect('127.0.0.1:27017/restaurant'),
     allRestaurant = null;
-    
-db.create('dishes');
-db.create('orders');
-db.create('rooms');
-db.create('tables');
 
-//create the names collection and add documents to it
+//create dishes and orders collections
+db.createCollection('dishes');
+db.createCollection('orders');
+//create the ingredients collection and add documents to it
 db.ingredients.insert([
+{
+  "name": "johnny",
+  "quantity": 0,
+  "photo": "assets/images/ingredients/johnny.jpg"
+},
 {
   "name": "pomme",
   "quantity": 0,
@@ -335,11 +338,3 @@ db.ingredients.insert([
   "photo": "assets/images/ingredients/glass-4.png"
 }
 ]);
-
-//set a reference to all documents in the database
-allRestaurant = db.ingredient.find();
-
-//iterate the names collection and output each document
-while (allRestaurant.hasNext()) {
-   printjson(allRestaurant.next());
-}
