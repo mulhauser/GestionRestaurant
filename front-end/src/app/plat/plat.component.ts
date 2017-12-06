@@ -56,7 +56,7 @@ export class PlatComponent implements OnInit {
           .flatMap(_ => this._platService.fetch())
           .do(_ => this._isPlat = false)
       )
-      .subscribe((plats: any[]) => this._plat = plats.shift);
+      .subscribe((plats: any[]) => this._plat = plats);
   }
 
 

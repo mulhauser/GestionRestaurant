@@ -56,7 +56,7 @@ export class OrderComponent implements OnInit {
           .flatMap(_ => this._orderService.fetch())
           .do(_ => this._isOrder = false)
       )
-      .subscribe((orders: any[]) => this._order = orders.shift);
+      .subscribe((orders: any[]) => this._order = orders);
   }
 
 
