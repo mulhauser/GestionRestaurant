@@ -31,7 +31,7 @@ import * as Joi from 'joi';
 export class GetAllRoomRoute implements OnGet {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _roomService
      */
     constructor(private _roomService: RoomService) {
     }

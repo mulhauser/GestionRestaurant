@@ -34,7 +34,7 @@ import {Room} from '../../../interfaces/room';
 export class GetOneRoomRoute implements OnGet {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _roomService
      */
     constructor(private _roomService: RoomService) {}
 

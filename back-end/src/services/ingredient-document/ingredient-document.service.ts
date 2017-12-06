@@ -30,9 +30,9 @@ export class IngredientDocumentService {
     }
 
     /**
-     * Call mongoose method, call toJSON on each result and returns People[] or undefined
+     * Call mongoose method, call toJSON on each result and returns Ingredient[] or undefined
      *
-     * @return {Observable<Room[] | void>}
+     * @return {Observable<Ingredient[] | void>}
      */
     find(): Observable<Ingredient[] | void> {
         return fromPromise(this._document.find({}))
@@ -58,11 +58,11 @@ export class IngredientDocumentService {
     }
 
     /**
-     * Returns one people of the list matching id in parameter
+     * Returns one ingredient of the list matching id in parameter
      *
-     * @param {string} id of the people in the db
+     * @param {string} id of the ingredient in the db
      *
-     * @return {Observable<Room | void>}
+     * @return {Observable<Ingredient | void>}
      */
     findById(id: string): Observable<Ingredient | void> {
         return fromPromise(this._document.findById(id))
@@ -87,11 +87,11 @@ export class IngredientDocumentService {
     }
 
     /**
-     * Check if person already exists and add it in people list
+     * Check if ingredient already exists and add it in ingredients list
      *
-     * @param {Room} room to create
+     * @param {Ingredient} ingredient to create
      *
-     * @return {Observable<Room>}
+     * @return {Observable<Ingredient>}
      */
     create(ingredient: Ingredient): Observable<Ingredient> {
         return fromPromise(this._document.findOne({
@@ -109,12 +109,12 @@ export class IngredientDocumentService {
     }
 
     /**
-     * Update a person in people list
+     * Update a ingredient in ingredients list
      *
      * @param {string} id
-     * @param {Room} room
+     * @param {Ingredient} ingredient
      *
-     * @return {Observable<Room>}
+     * @return {Observable<Ingredient>}
      */
     findByIdAndUpdate(id: string, ingredient: Ingredient): Observable<Ingredient> {
         return fromPromise(this._document.findByIdAndUpdate(id, ingredient, { new: true }))

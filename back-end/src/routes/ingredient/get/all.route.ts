@@ -30,7 +30,7 @@ import {Ingredient} from '../../../interfaces/ingredient';
 export class GetAllIngredientRoute implements OnGet {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _ingredientService
      */
     constructor(private _ingredientService: IngredientService) {
     }

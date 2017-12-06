@@ -21,7 +21,7 @@ import {RoomService} from '../../../services/room/room.service';
 export class DeleteOneRoomRoute implements OnDelete {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _roomService
      */
     constructor(private _roomService: RoomService) {
     }

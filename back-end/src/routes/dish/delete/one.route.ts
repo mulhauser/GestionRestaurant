@@ -21,7 +21,7 @@ import {DishService} from '../../../services/dish/dish.service';
 export class DeleteOneDishRoute implements OnDelete {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _dishService
      */
     constructor(private _dishService: DishService) {
     }

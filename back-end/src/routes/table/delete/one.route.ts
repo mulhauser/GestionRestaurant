@@ -21,7 +21,7 @@ import {TableService} from '../../../services/table/table.service';
 export class DeleteOneTableRoute implements OnDelete {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _tableService
      */
     constructor(private _tableService: TableService) {
     }

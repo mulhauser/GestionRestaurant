@@ -58,9 +58,9 @@ export class OrderDocumentService {
     }
 
     /**
-     * Returns one orders of the list matching id in parameter
+     * Returns one order of the list matching id in parameter
      *
-     * @param {string} id of the orders in the db
+     * @param {string} id of the order in the db
      *
      * @return {Observable<Order | void>}
      */
@@ -76,7 +76,7 @@ export class OrderDocumentService {
     }
 
     /**
-     * Check if order already exists and add it in order list
+     * Check if order already exists and add it in orders list
      *
      * @param {Order} order to create
      *

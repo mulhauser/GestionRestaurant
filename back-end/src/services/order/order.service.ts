@@ -19,7 +19,7 @@ export class OrderService {
     /**
      * Returns all existing orders in the list
      *
-     * @returns {Observable<Orders[]>}
+     * @returns {Observable<Order[]>}
      */
     listAll(): Observable<Order[] | void> {
         return this._orderDocumentService.find();
@@ -30,7 +30,7 @@ export class OrderService {
      *
      * @param {string} id of the orders
      *
-     * @returns {Observable<Orders>}
+     * @returns {Observable<Order>}
      */
     one(id: string): Observable<Order> {
         return this._orderDocumentService.findById(id)
@@ -65,7 +65,7 @@ export class OrderService {
      * @param {string} id of the order to update
      * @param order data to update
      *
-     * @returns {Observable<Orders>}
+     * @returns {Observable<Order>}
      */
     update(id: string, order: Order): Observable<Order> {
         return this._orderDocumentService.findByIdAndUpdate(id, order)

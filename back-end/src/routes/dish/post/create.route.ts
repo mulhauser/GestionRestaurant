@@ -52,7 +52,7 @@ import {Dish} from '../../../interfaces/dish';
 export class PostCreateDishRoute implements OnPost {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _dishService
      */
     constructor(private _dishService: DishService) {
     }
