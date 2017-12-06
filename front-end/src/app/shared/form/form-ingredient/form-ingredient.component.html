@@ -17,6 +17,9 @@
             <mat-error *ngIf="form.get('name').dirty && form.get('name').hasError('required')">
               Name is <strong>required</strong>
             </mat-error>
+            <mat-error *ngIf="form.get('name').dirty && !form.get('name').hasError('required') && form.get('name').hasError('minLength')">
+              Name is <strong>2 chars min</strong>
+            </mat-error>
           </mat-form-field>
           <mat-form-field class="full-width">
             <input matInput placeholder="Quantity" formControlName="quantity" required name="quantity" />
