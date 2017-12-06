@@ -129,18 +129,9 @@ export class FormOrderComponent implements OnInit, OnChanges {
    */
   submit(order: any) {
     let ord = null;
-    if (order.isPayed) {
-      console.log('payé');
-    } else {
-      console.log('non paye');
-    }
-    if (order.isServed) {
-      console.log('servi');
-    } else {
-      console.log('non servi');
-    }
+    console.log(order.isPayed);
+    console.log(order.isServed);
     if (this._isUpdateMode) {
-
       ord = {
         'id': order.id,
         'name': order.name,
@@ -150,6 +141,12 @@ export class FormOrderComponent implements OnInit, OnChanges {
         'orderDate': new Date().toISOString()
       };
     }else {
+      if (order.isServed === '') {
+        order.isServed = false;
+      }
+      if (order.isPayed === '') {
+        order.isPayed = false;
+      }
       ord = {'name': order.name, 'isServed': order.isServed, 'isPayed': order.isPayed, 'dishes': [], 'orderDate': new Date().toISOString()};
 
     } /*else if (order.isServed.value === undefined) {
