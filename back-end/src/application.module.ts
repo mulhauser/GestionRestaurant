@@ -33,6 +33,7 @@ import {DeleteOneOrderRoute} from './routes/order/delete/one.route';
 import {PutUpdateOrderRoute} from './routes/order/put/update.route';
 import {OrderModel} from './models/order/order.model';
 import {OrderService} from './services/order/order.service';
+import {GetOneByNameDishRoute} from './routes/dish/get/one-by-name.route';
 
 
 const ingredientDocumentFactory = (mongoClientService: MongoClientService) => new IngredientDocumentService(mongoClientService);
@@ -48,7 +49,7 @@ const orderDocumentFactory = (mongoClientService: MongoClientService) => new Ord
     ],
     declarations: [
         IngredientModel, GetAllIngredientRoute, GetOneIngredientRoute, PostCreateIngredientRoute, DeleteOneIngredientRoute,
-        PutUpdateIngredientRoute, GetOneByNameIngredientRoute,
+        PutUpdateIngredientRoute, GetOneByNameIngredientRoute, GetOneByNameDishRoute,
         DishModel, GetAllDishRoute, GetOneDishRoute, PostCreateDishRoute, DeleteOneDishRoute, PutUpdateDishRoute,
         OrderModel, GetAllOrderRoute, GetOneOrderRoute, PostCreateOrderRoute, DeleteOneOrderRoute, PutUpdateOrderRoute
     ],

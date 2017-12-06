@@ -157,7 +157,6 @@ export class FormOrderComponent implements OnInit, OnChanges {
         .findByName(plat)
         .subscribe((pl: any) => ord['dishes'].push({'ref': pl.id, 'name': pl.name}));
     }
-    console.log(ord);
     this._submit$.emit(ord);
   }
 
