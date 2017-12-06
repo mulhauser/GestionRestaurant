@@ -1,10 +1,71 @@
 .container {
+  white-space: nowrap;
+  margin-top: 10vh;
+  transform: translateY(-30%);
+}
+.column {
+  margin: 15px 15px 0;
+  padding: 0;
+}
+.column:last-child {
+  padding-bottom: 60px;
+}
+.column::after {
+  content: '';
+  clear: both;
+}
+.column div {
+  position: relative;
+  float: left;
+  width: 338px;
+  height: 338px;
+  margin: 0 0 0 25px;
+  padding: 0;
+}
+.column div:first-child {
+  margin-left: 50vh;
+}
+.column div span {
+  position: absolute;
+  bottom: -20px;
+  left: 0;
+  z-index: -1;
+  display: block;
+  width: 338px;
+  margin: 0;
+  padding: 0;
+  color: #444;
+  font-size: 18px;
+  text-decoration: none;
   text-align: center;
-  width: auto;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+  opacity: 0;
+}
+figure {
+  width: 338px;
+  height: 338px;
+  margin: 0;
+  padding: 0;
+  background: #fff;
+  overflow: hidden;
+}
+figure:hover+span {
+  bottom: -36px;
+  opacity: 1;
 }
 
-.container img {
-  display: inline-table;
-  width: 25%;
-  margin: 0 1% 0 1%;
+
+
+
+.hover12 figure {
+  background: #1abc9c;
+}
+.hover12 figure img {
+  opacity: 1;
+  -webkit-transition: .3s ease-in-out;
+  transition: .3s ease-in-out;
+}
+.hover12 figure:hover img {
+  opacity: .5;
 }
