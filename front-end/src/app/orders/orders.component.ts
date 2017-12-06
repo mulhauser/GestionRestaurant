@@ -16,7 +16,7 @@ import 'rxjs/add/operator/filter';
 })
 export class OrdersComponent implements OnInit {
 
-  // private property to store ingredients value
+  // private property to store orders value
   private _orders: any[];
   // private property to store dialogStatus value
   private _dialogStatus: string;
@@ -35,7 +35,7 @@ export class OrdersComponent implements OnInit {
   }
 
   /**
-   * Returns private property _people
+   * Returns private property _orders
    *
    * @returns {any[]}
    */
@@ -71,9 +71,9 @@ export class OrdersComponent implements OnInit {
   }
 
   /**
-   * Function to delete one ingredient
+   * Function to delete one order
    *
-   * @param ingredient
+   * @param order
    */
   delete(order: any) {
     this._orderService
@@ -107,9 +107,9 @@ export class OrdersComponent implements OnInit {
   }
 
   /**
-   * Add new ingredient and fetch all ingredients to refresh the list
+   * Add new order and fetch all orders to refresh the list
    *
-   * @param ingredient to add
+   * @param order to add
    *
    * @returns {Observable<any[]>}
    *

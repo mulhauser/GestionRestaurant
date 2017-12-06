@@ -34,7 +34,7 @@ export class IngredientsComponent implements OnInit {
   }
 
   /**
-   * Returns private property _people
+   * Returns private property _ingredients
    *
    * @returns {any[]}
    */

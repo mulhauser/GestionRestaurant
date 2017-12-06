@@ -11,7 +11,7 @@ import {Observable} from 'rxjs/Observable';
 })
 export class PlatsComponent implements OnInit {
 
-  // private property to store ingredients value
+  // private property to store plats value
   private _plats: any[];
   // private property to store dialogStatus value
   private _dialogStatus: string;
@@ -30,7 +30,7 @@ export class PlatsComponent implements OnInit {
   }
 
   /**
-   * Returns private property _people
+   * Returns private property _plats
    *
    * @returns {any[]}
    */
@@ -66,9 +66,9 @@ export class PlatsComponent implements OnInit {
   }
 
   /**
-   * Function to delete one ingredient
+   * Function to delete one plat
    *
-   * @param ingredient
+   * @param plat
    */
   delete(plat: any) {
     this._platService
@@ -103,9 +103,9 @@ export class PlatsComponent implements OnInit {
 
 
   /**
-   * Add new ingredient and fetch all ingredients to refresh the list
+   * Add new plat and fetch all plats to refresh the list
    *
-   * @param ingredient to add
+   * @param plat to add
    *
    * @returns {Observable<any[]>}
    *

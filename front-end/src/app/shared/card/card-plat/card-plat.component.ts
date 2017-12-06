@@ -8,7 +8,7 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./card-plat.component.css']
 })
 export class CardPlatComponent implements OnInit {
-  // private property to store ingredient value
+  // private property to store plat value
   private _plat: any;
   // private property to store delete$ value
   private _delete$: EventEmitter<any>;
@@ -22,7 +22,7 @@ export class CardPlatComponent implements OnInit {
   }
 
   /**
-   * Returns private property _person
+   * Returns private property _plat
    *
    * @returns {any}
    */
@@ -31,9 +31,9 @@ export class CardPlatComponent implements OnInit {
   }
 
   /**
-   * Sets private property _person
+   * Sets private property _plat
    *
-   * @param person
+   * @param plat
    */
   @Input()
   set plat(plat: any) {

@@ -46,6 +46,13 @@ export class IngredientService {
     return this._http.get(this._backendURL.oneIngredient.replace(':id', id), this._options());
   }
 
+  /**
+   * Function to return one ingredient for current name
+   *
+   * @param {string} name
+   *
+   * @returns {Observable<any>}
+   */
   findByName(name: string): Observable<any> {
     return this._http.get(this._backendURL.oneIngredientByName.replace(':name', name), this._options());
   }

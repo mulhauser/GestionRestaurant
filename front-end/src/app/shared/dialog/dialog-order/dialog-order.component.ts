@@ -11,7 +11,7 @@ export class DialogOrderComponent implements OnInit {
   /**
    * Component constructor
    *
-   * @param {MatDialogRef<DialogComponent>} _dialogRef
+   * @param {MatDialogRef<DialogOrderComponent>} _dialogRef
    * @param _data
    */
   constructor(private _dialogRef: MatDialogRef<DialogOrderComponent>, @Inject(MAT_DIALOG_DATA) private _data: any) {
@@ -40,9 +40,9 @@ export class DialogOrderComponent implements OnInit {
   }
 
   /**
-   * Function to close the modal and send ingredient to parent
+   * Function to close the modal and send order to parent
    *
-   * @param ingredient
+   * @param order
    */
   onSave(order: any) {
     this._dialogRef.close(order);

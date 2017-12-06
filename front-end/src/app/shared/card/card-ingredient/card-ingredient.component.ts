@@ -22,7 +22,7 @@ export class CardIngredientComponent implements OnInit {
   }
 
   /**
-   * Returns private property _person
+   * Returns private property _ingredient
    *
    * @returns {any}
    */
@@ -31,9 +31,9 @@ export class CardIngredientComponent implements OnInit {
   }
 
   /**
-   * Sets private property _person
+   * Sets private property _ingredient
    *
-   * @param person
+   * @param ingredient
    */
   @Input()
   set ingredient(ingredient: any) {

@@ -125,7 +125,7 @@ export class FormOrderComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Function to emit event to submit form and ingredient
+   * Function to emit event to submit form and order
    */
   submit(order: any) {
     let ord = null;
@@ -146,12 +146,7 @@ export class FormOrderComponent implements OnInit, OnChanges {
         order.isPayed = false;
       }
       ord = {'name': order.name, 'isServed': order.isServed, 'isPayed': order.isPayed, 'dishes': [], 'orderDate': new Date().toISOString()};
-
-    } /*else if (order.isServed.value === undefined) {
-      ord = {'name': order.name, 'isServed': false, 'isPayed': false, 'dishes': [], 'orderDate': new Date().toISOString()};
-    } else {
-      ord = {'name': order.name, 'isServed': order.isServed, 'isPayed': false, 'dishes': [], 'orderDate': new Date().toISOString()};
-    }*/
+    }
     for (const plat of order.plats) {
       this._platService
         .findByName(plat)
@@ -184,12 +179,6 @@ export class FormOrderComponent implements OnInit, OnChanges {
         Validators.required
       ]))
     });
-    /*return new FormGroup({
-      id: new FormControl(''),
-      name: new FormControl(''),
-      price: new FormControl(''),
-      ingredients: new FormControl('')
-    });*/
   }
 
 

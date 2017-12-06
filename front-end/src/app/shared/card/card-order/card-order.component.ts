@@ -8,7 +8,7 @@ import 'rxjs/add/observable/of';
   styleUrls: ['./card-order.component.css']
 })
 export class CardOrderComponent implements OnInit {
-  // private property to store ingredient value
+  // private property to store order value
   private _order: any;
   // private property to store delete$ value
   private _delete$: EventEmitter<any>;
@@ -22,7 +22,7 @@ export class CardOrderComponent implements OnInit {
   }
 
   /**
-   * Returns private property _person
+   * Returns private property _order
    *
    * @returns {any}
    */
@@ -31,9 +31,9 @@ export class CardOrderComponent implements OnInit {
   }
 
   /**
-   * Sets private property _person
+   * Sets private property _order
    *
-   * @param person
+   * @param order
    */
   @Input()
   set order(order: any) {
@@ -57,9 +57,9 @@ export class CardOrderComponent implements OnInit {
   }
 
   /**
-   * Function to emit event to delete current plat
+   * Function to emit event to delete current order
    *
-   * @param plat
+   * @param order
    */
   delete(order: any) {
     this._delete$.emit(order);
