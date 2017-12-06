@@ -99,3 +99,16 @@ button[mat-fab], a[mat-fab] {
     stroke: #ffa700;
   }
 }
+
+.bg {
+  /* The image used */
+  background-image: url("assets/images/bg.png");
+
+  /* Full height */
+  height: 100%;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: repeat-y;
+  background-size: cover;
+}

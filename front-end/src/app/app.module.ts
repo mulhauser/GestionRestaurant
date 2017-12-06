@@ -42,13 +42,14 @@ import {CardOrderComponent} from './shared/card/card-order/card-order.component'
 import {FormOrderComponent} from './shared/form/form-order/form-order.component';
 import {UpdateOrderComponent} from './update/update-order/update-order.component';
 import {OrderService} from './shared/order-service/order.service';
+import { BackgroundDirective } from './shared/background/background.directive';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent,
     IngredientComponent, IngredientsComponent, CardIngredientComponent, DialogIngredientComponent, FormIngredientComponent,
     UpdateIngredientComponent,
     PlatsComponent, PlatComponent, DialogPlatComponent, UpdatePlatComponent, CardPlatComponent, FormPlatComponent,
-    DialogOrderComponent, OrdersComponent, OrderComponent, CardOrderComponent, FormOrderComponent, UpdateOrderComponent
+    DialogOrderComponent, OrdersComponent, OrderComponent, CardOrderComponent, FormOrderComponent, UpdateOrderComponent, BackgroundDirective
   ],
   entryComponents: [DialogIngredientComponent, DialogPlatComponent, DialogOrderComponent],
   imports: [
