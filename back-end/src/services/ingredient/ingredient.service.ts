@@ -19,7 +19,7 @@ export class IngredientService {
     /**
      * Returns all existing ingredients in the list
      *
-     * @returns {Observable<Ingredients[]>}
+     * @returns {Observable<Ingredient[]>}
      */
     listAll(): Observable<Ingredient[] | void> {
         return this._ingredientDocumentService.find();
@@ -30,7 +30,7 @@ export class IngredientService {
      *
      * @param {string} id of the ingredients
      *
-     * @returns {Observable<Ingredients>}
+     * @returns {Observable<Ingredient>}
      */
     one(id: string): Observable<Ingredient> {
         return this._ingredientDocumentService.findById(id)
@@ -77,7 +77,7 @@ export class IngredientService {
      * @param {string} id of the ingredient to update
      * @param ingredient data to update
      *
-     * @returns {Observable<Ingredients>}
+     * @returns {Observable<Ingredient>}
      */
     update(id: string, ingredient: Ingredient): Observable<Ingredient> {
         return this._ingredientDocumentService.findByIdAndUpdate(id, ingredient)

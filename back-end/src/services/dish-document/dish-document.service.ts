@@ -169,26 +169,4 @@ export class DishDocumentService {
                 )
             )
     }
-
-
-    updateByIngredient(id: string, name: string): Observable<Dish> {
-        this._document.findAndModify(
-            {ingredients: {$elemMatch: {ref: id}}},
-            {$set: {'events.name$': name}}
-        )
-        return null;
-    }
-
-
-    /*findByIdAndUpdateEvent(event: Event, idEvent: string): Observable<Dishes> {
-        return fromPromise(this._document.findOneAndUpdate(
-            {events: {$elemMatch: {_id: idEvent}}},
-            {$set: {'events.$': event}}))
-            .pipe(
-                flatMap((doc: MongooseDocument) =>
-                    !!doc ? of(doc.toJSON() as Dishes) :
-                        of(undefined)
-                )
-            )
-    }*/
 }

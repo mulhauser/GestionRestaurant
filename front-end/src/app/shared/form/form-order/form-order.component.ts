@@ -146,13 +146,17 @@ export class FormOrderComponent implements OnInit, OnChanges {
         order.isPayed = false;
       }
       ord = {'name': order.name, 'isServed': order.isServed, 'isPayed': order.isPayed, 'dishes': [], 'orderDate': new Date().toISOString()};
-    }
+
+    } /*else if (order.isServed.value === undefined) {
+      ord = {'name': order.name, 'isServed': false, 'isPayed': false, 'dishes': [], 'orderDate': new Date().toISOString()};
+    } else {
+      ord = {'name': order.name, 'isServed': order.isServed, 'isPayed': false, 'dishes': [], 'orderDate': new Date().toISOString()};
+    }*/
     for (const plat of order.plats) {
       this._platService
         .findByName(plat)
         .subscribe((pl: any) => ord['dishes'].push({'ref': pl.id, 'name': pl.name}));
     }
-    console.log(ord);
     this._submit$.emit(ord);
   }
 

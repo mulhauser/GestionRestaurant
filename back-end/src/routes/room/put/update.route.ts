@@ -42,7 +42,7 @@ import {Room} from '../../../interfaces/room';
 export class PutUpdateRoomRoute implements OnPut {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _roomService
      */
     constructor(private _roomService: RoomService) {
     }

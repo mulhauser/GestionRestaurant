@@ -42,7 +42,7 @@ import {Ingredient} from '../../../interfaces/ingredient';
 export class PutUpdateIngredientRoute implements OnPut {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _ingredientService
      */
     constructor(private _ingredientService: IngredientService) {
     }

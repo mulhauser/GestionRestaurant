@@ -55,7 +55,7 @@ import {Order} from '../../../interfaces/order';
 export class PostCreateOrderRoute implements OnPost {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _orderService
      */
     constructor(private _orderService: OrderService) {
     }

@@ -42,7 +42,7 @@ import {Table} from '../../../interfaces/table';
 export class PostCreateTableRoute implements OnPost {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _tableService
      */
     constructor(private _tableService: TableService) {
     }
