@@ -11,7 +11,7 @@ export class DialogIngredientComponent implements OnInit {
   /**
    * Component constructor
    *
-   * @param {MatDialogRef<DialogComponent>} _dialogRef
+   * @param {MatDialogRef<DialogIngredientComponent>} _dialogRef
    * @param _data
    */
   constructor(private _dialogRef: MatDialogRef<DialogIngredientComponent>, @Inject(MAT_DIALOG_DATA) private _data: any) {

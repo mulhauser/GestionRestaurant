@@ -28,7 +28,7 @@ export class IngredientComponent implements OnInit {
   }
 
   /**
-   * Returns private property _person
+   * Returns private property _ingredient
    *
    * @returns {any}
    */
@@ -63,12 +63,4 @@ export class IngredientComponent implements OnInit {
       .subscribe((ingredient: any[]) => this._ingredient = ingredient.shift);
   }
 
-  /**
-   * Returns random ingredients
-   */
-  /*random() {
-    this._ingredientService
-      .fetchRandom()
-      .subscribe((ingredient: any) => this._ingredient = ingredient);
-  }*/
 }

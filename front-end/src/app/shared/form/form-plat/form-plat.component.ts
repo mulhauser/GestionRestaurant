@@ -126,7 +126,7 @@ export class FormPlatComponent implements OnInit, OnChanges {
   }
 
   /**
-   * Function to emit event to submit form and ingredient
+   * Function to emit event to submit form and plat
    */
   submit(plat: any) {
     let plt = null;
@@ -163,12 +163,6 @@ export class FormPlatComponent implements OnInit, OnChanges {
           Validators.required
         ]))
     });
-    /*return new FormGroup({
-      id: new FormControl(''),
-      name: new FormControl(''),
-      price: new FormControl(''),
-      ingredients: new FormControl('')
-    });*/
   }
 
 

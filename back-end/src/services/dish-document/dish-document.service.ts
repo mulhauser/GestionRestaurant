@@ -171,12 +171,12 @@ export class DishDocumentService {
     }
 
 
-    updateByIngredient(id: string, name: string) {
+    updateByIngredient(id: string, name: string): Observable<Dish> {
         this._document.findAndModify(
             {ingredients: {$elemMatch: {ref: id}}},
             {$set: {'events.name$': name}}
         )
-
+        return null;
     }
 
 

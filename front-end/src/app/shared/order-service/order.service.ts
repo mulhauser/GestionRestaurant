@@ -25,7 +25,7 @@ export class OrderService {
   }
 
   /**
-   * Function to return list of ingredients
+   * Function to return list of orders
    *
    * @returns {Observable<any[]>}
    */
@@ -36,7 +36,7 @@ export class OrderService {
   }
 
   /**
-   * Function to return one ingredient for current id
+   * Function to return one order for current id
    *
    * @param id
    *
@@ -47,9 +47,9 @@ export class OrderService {
   }
 
   /**
-   * Function to create a new ingredient
+   * Function to create a new order
    *
-   * @param ingredient
+   * @param order
    *
    * @returns {Observable<any>}
    */
@@ -58,9 +58,9 @@ export class OrderService {
   }
 
   /**
-   * Function to update one ingredient
+   * Function to update one order
    *
-   * @param ingredient
+   * @param order
    *
    * @returns {Observable<any>}
    */
@@ -72,7 +72,7 @@ export class OrderService {
   }
 
   /**
-   * Function to delete one ingredient for current id
+   * Function to delete one order for current id
    *
    * @param id
    *

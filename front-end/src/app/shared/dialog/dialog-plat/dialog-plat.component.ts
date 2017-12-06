@@ -11,7 +11,7 @@ export class DialogPlatComponent implements OnInit {
   /**
    * Component constructor
    *
-   * @param {MatDialogRef<DialogComponent>} _dialogRef
+   * @param {MatDialogRef<DialogPlatComponent>} _dialogRef
    * @param _data
    */
   constructor(private _dialogRef: MatDialogRef<DialogPlatComponent>, @Inject(MAT_DIALOG_DATA) private _data: any) {
@@ -40,9 +40,9 @@ export class DialogPlatComponent implements OnInit {
   }
 
   /**
-   * Function to close the modal and send ingredient to parent
+   * Function to close the modal and send plat to parent
    *
-   * @param ingredient
+   * @param plat
    */
   onSave(plat: any) {
     this._dialogRef.close(plat);

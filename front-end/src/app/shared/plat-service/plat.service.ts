@@ -25,7 +25,7 @@ export class PlatService {
   }
 
   /**
-   * Function to return list of ingredients
+   * Function to return list of plats
    *
    * @returns {Observable<any[]>}
    */
@@ -36,7 +36,7 @@ export class PlatService {
   }
 
   /**
-   * Function to return one ingredient for current id
+   * Function to return one plat for current id
    *
    * @param id
    *
@@ -51,9 +51,9 @@ export class PlatService {
   }
 
   /**
-   * Function to create a new ingredient
+   * Function to create a new plat
    *
-   * @param ingredient
+   * @param plat
    *
    * @returns {Observable<any>}
    */
@@ -62,9 +62,9 @@ export class PlatService {
   }
 
   /**
-   * Function to update one ingredient
+   * Function to update one plat
    *
-   * @param ingredient
+   * @param plat
    *
    * @returns {Observable<any>}
    */
@@ -76,7 +76,7 @@ export class PlatService {
   }
 
   /**
-   * Function to delete one ingredient for current id
+   * Function to delete one plat for current id
    *
    * @param id
    *

@@ -10,9 +10,9 @@ import {OrderService} from '../shared/order-service/order.service';
 })
 export class OrderComponent implements OnInit {
 
-  // private property to store ingredient value
+  // private property to store order value
   private _order: any;
-  // private property to store flag to know if it's a ingredient
+  // private property to store flag to know if it's a order
   private _isOrder: boolean;
 
   /**
@@ -24,7 +24,7 @@ export class OrderComponent implements OnInit {
   }
 
   /**
-   * Returns private property _person
+   * Returns private property _order
    *
    * @returns {any}
    */

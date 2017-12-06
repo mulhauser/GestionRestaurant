@@ -44,7 +44,7 @@ export class UpdateIngredientComponent implements OnInit {
         this._peopleDialog.afterClosed()
           .filter(_ => !!_)
           .flatMap(_ => this._ingredientService.update(_))
-          .subscribe(null, null, () => this._router.navigate(['/ingredients'])); // ICI UPDATE PLAT
+          .subscribe(null, null, () => this._router.navigate(['/ingredients']));
       });
   }
 }

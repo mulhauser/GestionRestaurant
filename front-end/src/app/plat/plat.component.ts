@@ -10,9 +10,9 @@ import {PlatService} from '../shared/plat-service/plat.service';
 })
 export class PlatComponent implements OnInit {
 
-  // private property to store ingredient value
+  // private property to store plat value
   private _plat: any;
-  // private property to store flag to know if it's a ingredient
+  // private property to store flag to know if it's a plat
   private _isPlat: boolean;
 
   /**
@@ -24,7 +24,7 @@ export class PlatComponent implements OnInit {
   }
 
   /**
-   * Returns private property _person
+   * Returns private property _plat
    *
    * @returns {any}
    */
