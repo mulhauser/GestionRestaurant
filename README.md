@@ -6,6 +6,9 @@ Application de gestion des stocks d'un restaurant et de la prise de commandes.
 * MongoDB
 * Angular 4
 
+# Clone du repository
+git clone https://github.com/mulhauser/GestionRestaurant.git
+
 ## Lancer le script dans Robo3T
 Lancer le scriptMongo.js dans le shell de Robo3T
 
