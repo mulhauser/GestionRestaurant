@@ -7,7 +7,7 @@ Application de gestion des stocks d'un restaurant et de la prise de commandes.
 * Angular 4
 
 ## Lancer le script dans Robo3T
-Lancer le scriptMongo.txt dans le shell de Robo3T
+Lancer le scriptMongo.js dans le shell de Robo3T
 
 ## Commandes principales
 A partir du dossier GestionRestaurant :
