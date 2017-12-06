@@ -39,7 +39,7 @@ import {Ingredient} from '../../../interfaces/ingredient';
 export class PostCreateIngredientRoute implements OnPost {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _ingredientService
      */
     constructor(private _ingredientService: IngredientService) {
     }

@@ -40,7 +40,7 @@ import { Order } from '../../../interfaces/order';
 export class GetOneOrderRoute implements OnGet {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _orderService
      */
     constructor(private _orderService: OrderService) {}
 

@@ -17,20 +17,20 @@ export class OrderService {
     constructor(private _orderDocumentService: OrderDocumentService) {}
 
     /**
-     * Returns all existing people in the list
+     * Returns all existing orders in the list
      *
-     * @returns {Observable<People[]>}
+     * @returns {Observable<Orders[]>}
      */
     listAll(): Observable<Order[] | void> {
         return this._orderDocumentService.find();
     }
 
     /**
-     * Returns one people of the list matching id in parameter
+     * Returns one orders of the list matching id in parameter
      *
-     * @param {string} id of the people
+     * @param {string} id of the orders
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Orders>}
      */
     one(id: string): Observable<Order> {
         return this._orderDocumentService.findById(id)
@@ -45,9 +45,9 @@ export class OrderService {
     }
 
     /**
-     * Check if person already exists and add it in people list
+     * Check if order already exists and add it in orders list
      *
-     * @param person to create
+     * @param order to create
      *
      * @returns {Observable<HapinessHTTPHandlerResponse>}
      */
@@ -60,12 +60,12 @@ export class OrderService {
     }
 
     /**
-     * Update a person in people list
+     * Update a order in orders list
      *
-     * @param {string} id of the person to update
-     * @param person data to update
+     * @param {string} id of the order to update
+     * @param order data to update
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Orders>}
      */
     update(id: string, order: Order): Observable<Order> {
         return this._orderDocumentService.findByIdAndUpdate(id, order)
@@ -80,9 +80,9 @@ export class OrderService {
     }
 
     /**
-     * Deletes on person in people list
+     * Deletes on order in orders list
      *
-     * @param {string} id of the person to delete
+     * @param {string} id of the order to delete
      *
      * @returns {Observable<any>}
      */

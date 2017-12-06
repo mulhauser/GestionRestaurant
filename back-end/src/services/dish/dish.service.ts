@@ -17,20 +17,20 @@ export class DishService {
     constructor(private _dishDocumentService: DishDocumentService) {}
 
     /**
-     * Returns all existing people in the list
+     * Returns all existing dishes in the list
      *
-     * @returns {Observable<People[]>}
+     * @returns {Observable<Dishes[]>}
      */
     listAll(): Observable<Dish[] | void> {
         return this._dishDocumentService.find();
     }
 
     /**
-     * Returns one people of the list matching id in parameter
+     * Returns one dishes of the list matching id in parameter
      *
-     * @param {string} id of the people
+     * @param {string} id of the dishes
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Dishes>}
      */
     one(id: string): Observable<Dish> {
         return this._dishDocumentService.findById(id)
@@ -57,9 +57,9 @@ export class DishService {
     }
 
     /**
-     * Check if person already exists and add it in people list
+     * Check if person already exists and add it in dishes list
      *
-     * @param person to create
+     * @param dishes to create
      *
      * @returns {Observable<HapinessHTTPHandlerResponse>}
      */
@@ -72,12 +72,12 @@ export class DishService {
     }
 
     /**
-     * Update a person in people list
+     * Update a person in dishes list
      *
      * @param {string} id of the person to update
-     * @param person data to update
+     * @param dishes data to update
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Dishes>}
      */
     update(id: string, dish: Dish): Observable<Dish> {
         return this._dishDocumentService.findByIdAndUpdate(id, dish)
@@ -92,7 +92,7 @@ export class DishService {
     }
 
     /**
-     * Deletes on person in people list
+     * Deletes on person in dishes list
      *
      * @param {string} id of the person to delete
      *

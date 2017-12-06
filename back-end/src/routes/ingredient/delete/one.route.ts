@@ -21,7 +21,7 @@ import {IngredientService} from '../../../services/ingredient/ingredient.service
 export class DeleteOneIngredientRoute implements OnDelete {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _ingredientService
      */
     constructor(private _ingredientService: IngredientService) {
     }

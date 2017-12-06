@@ -30,7 +30,7 @@ export class RoomDocumentService {
     }
 
     /**
-     * Call mongoose method, call toJSON on each result and returns People[] or undefined
+     * Call mongoose method, call toJSON on each result and returns Rooms[] or undefined
      *
      * @return {Observable<Room[] | void>}
      */
@@ -58,9 +58,9 @@ export class RoomDocumentService {
     }
 
     /**
-     * Returns one people of the list matching id in parameter
+     * Returns one rooms of the list matching id in parameter
      *
-     * @param {string} id of the people in the db
+     * @param {string} id of the rooms in the db
      *
      * @return {Observable<Room | void>}
      */
@@ -76,7 +76,7 @@ export class RoomDocumentService {
     }
 
     /**
-     * Check if person already exists and add it in people list
+     * Check if room already exists and add it in rooms list
      *
      * @param {Room} room to create
      *
@@ -98,7 +98,7 @@ export class RoomDocumentService {
     }
 
     /**
-     * Update a person in people list
+     * Update a room in rooms list
      *
      * @param {string} id
      * @param {Room} room
@@ -117,7 +117,7 @@ export class RoomDocumentService {
     }
 
     /**
-     * Delete a person in people list
+     * Delete a room in rooms list
      *
      * @param {string} id
      *

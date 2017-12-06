@@ -35,7 +35,7 @@ import {Dish} from '../../../interfaces/dish';
 export class GetAllDishRoute implements OnGet {
     /**
      * Class constructor
-     * @param _peopleService
+     * @param _dishService
      */
     constructor(private _dishService: DishService) {
     }

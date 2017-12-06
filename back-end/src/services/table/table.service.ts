@@ -17,20 +17,20 @@ export class TableService {
     constructor(private _tableDocumentService: TableDocumentService) {}
 
     /**
-     * Returns all existing people in the list
+     * Returns all existing tables in the list
      *
-     * @returns {Observable<People[]>}
+     * @returns {Observable<Tables[]>}
      */
     listAll(): Observable<Table[] | void> {
         return this._tableDocumentService.find();
     }
 
     /**
-     * Returns one people of the list matching id in parameter
+     * Returns one tables of the list matching id in parameter
      *
-     * @param {string} id of the people
+     * @param {string} id of the tables
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Tables>}
      */
     one(id: string): Observable<Table> {
         return this._tableDocumentService.findById(id)
@@ -45,9 +45,9 @@ export class TableService {
     }
 
     /**
-     * Check if person already exists and add it in people list
+     * Check if table already exists and add it in tables list
      *
-     * @param person to create
+     * @param table to create
      *
      * @returns {Observable<HapinessHTTPHandlerResponse>}
      */
@@ -60,12 +60,12 @@ export class TableService {
     }
 
     /**
-     * Update a person in people list
+     * Update a table in tables list
      *
-     * @param {string} id of the person to update
-     * @param person data to update
+     * @param {string} id of the table to update
+     * @param table data to update
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Tables>}
      */
     update(id: string, table: Table): Observable<Table> {
         return this._tableDocumentService.findByIdAndUpdate(id, table)
@@ -80,9 +80,9 @@ export class TableService {
     }
 
     /**
-     * Deletes on person in people list
+     * Deletes on table in tables list
      *
-     * @param {string} id of the person to delete
+     * @param {string} id of the table to delete
      *
      * @returns {Observable<any>}
      */

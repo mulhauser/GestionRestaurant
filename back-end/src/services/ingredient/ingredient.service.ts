@@ -17,20 +17,20 @@ export class IngredientService {
     constructor(private _ingredientDocumentService: IngredientDocumentService) {}
 
     /**
-     * Returns all existing people in the list
+     * Returns all existing ingredients in the list
      *
-     * @returns {Observable<People[]>}
+     * @returns {Observable<Ingredients[]>}
      */
     listAll(): Observable<Ingredient[] | void> {
         return this._ingredientDocumentService.find();
     }
 
     /**
-     * Returns one people of the list matching id in parameter
+     * Returns one ingredients of the list matching id in parameter
      *
-     * @param {string} id of the people
+     * @param {string} id of the ingredients
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Ingredients>}
      */
     one(id: string): Observable<Ingredient> {
         return this._ingredientDocumentService.findById(id)
@@ -57,9 +57,9 @@ export class IngredientService {
     }
 
     /**
-     * Check if person already exists and add it in people list
+     * Check if ingredient already exists and add it in ingredients list
      *
-     * @param person to create
+     * @param ingredient to create
      *
      * @returns {Observable<HapinessHTTPHandlerResponse>}
      */
@@ -72,12 +72,12 @@ export class IngredientService {
     }
 
     /**
-     * Update a person in people list
+     * Update a ingredient in ingredients list
      *
-     * @param {string} id of the person to update
-     * @param person data to update
+     * @param {string} id of the ingredient to update
+     * @param ingredient data to update
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Ingredients>}
      */
     update(id: string, ingredient: Ingredient): Observable<Ingredient> {
         return this._ingredientDocumentService.findByIdAndUpdate(id, ingredient)
@@ -92,9 +92,9 @@ export class IngredientService {
     }
 
     /**
-     * Deletes on person in people list
+     * Deletes on ingredient in ingredients list
      *
-     * @param {string} id of the person to delete
+     * @param {string} id of the ingredient to delete
      *
      * @returns {Observable<any>}
      */

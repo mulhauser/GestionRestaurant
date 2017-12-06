@@ -30,7 +30,7 @@ export class DishDocumentService {
     }
 
     /**
-     * Call mongoose method, call toJSON on each result and returns People[] or undefined
+     * Call mongoose method, call toJSON on each result and returns Dishes[] or undefined
      *
      * @return {Observable<Room[] | void>}
      */
@@ -58,9 +58,9 @@ export class DishDocumentService {
     }
 
     /**
-     * Returns one people of the list matching id in parameter
+     * Returns one dishes of the list matching id in parameter
      *
-     * @param {string} id of the people in the db
+     * @param {string} id of the dishes in the db
      *
      * @return {Observable<Room | void>}
      */
@@ -87,7 +87,7 @@ export class DishDocumentService {
     }
 
     /**
-     * Check if person already exists and add it in people list
+     * Check if dish already exists and add it in dishes list
      *
      * @param {Room} room to create
      *
@@ -134,7 +134,7 @@ export class DishDocumentService {
     }
 
     /**
-     * Update a person in people list
+     * Update a dish in dishes list
      *
      * @param {string} id
      * @param {Room} room
@@ -153,7 +153,7 @@ export class DishDocumentService {
     }
 
     /**
-     * Delete a person in people list
+     * Delete a dish in dishes list
      *
      * @param {string} id
      *
@@ -180,13 +180,13 @@ export class DishDocumentService {
     }
 
 
-    /*findByIdAndUpdateEvent(event: Event, idEvent: string): Observable<People> {
+    /*findByIdAndUpdateEvent(event: Event, idEvent: string): Observable<Dishes> {
         return fromPromise(this._document.findOneAndUpdate(
             {events: {$elemMatch: {_id: idEvent}}},
             {$set: {'events.$': event}}))
             .pipe(
                 flatMap((doc: MongooseDocument) =>
-                    !!doc ? of(doc.toJSON() as People) :
+                    !!doc ? of(doc.toJSON() as Dishes) :
                         of(undefined)
                 )
             )

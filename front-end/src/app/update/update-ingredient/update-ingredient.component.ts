@@ -18,7 +18,7 @@ import 'rxjs/add/operator/filter';
 })
 export class UpdateIngredientComponent implements OnInit {
   // private property to store dialog reference
-  private _peopleDialog: MatDialogRef<DialogIngredientComponent>;
+  private _ingredientDialog: MatDialogRef<DialogIngredientComponent>;
 
   /**
    * Component constructor
@@ -34,14 +34,14 @@ export class UpdateIngredientComponent implements OnInit {
       .map((params: any) => params.id)
       .flatMap((id: string) => this._ingredientService.fetchOne(id))
       .subscribe((ingredient: any) => {
-        this._peopleDialog = this._dialog.open(DialogIngredientComponent, {
+        this._ingredientDialog = this._dialog.open(DialogIngredientComponent, {
           width: '500px',
           disableClose: true,
           data: ingredient
         });
 
         // subscribe to afterClosed observable to set dialog status and do process
-        this._peopleDialog.afterClosed()
+        this._ingredientDialog.afterClosed()
           .filter(_ => !!_)
           .flatMap(_ => this._ingredientService.update(_))
           .subscribe(null, null, () => this._router.navigate(['/ingredients']));

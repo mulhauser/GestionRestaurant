@@ -30,7 +30,7 @@ export class OrderDocumentService {
     }
 
     /**
-     * Call mongoose method, call toJSON on each result and returns People[] or undefined
+     * Call mongoose method, call toJSON on each result and returns Orders[] or undefined
      *
      * @return {Observable<Order[] | void>}
      */
@@ -58,9 +58,9 @@ export class OrderDocumentService {
     }
 
     /**
-     * Returns one people of the list matching id in parameter
+     * Returns one orders of the list matching id in parameter
      *
-     * @param {string} id of the people in the db
+     * @param {string} id of the orders in the db
      *
      * @return {Observable<Order | void>}
      */
@@ -98,7 +98,7 @@ export class OrderDocumentService {
     }
 
     /**
-     * Update a person in people list
+     * Update a order in orders list
      *
      * @param {string} id
      * @param {Order} order
@@ -117,7 +117,7 @@ export class OrderDocumentService {
     }
 
     /**
-     * Delete a person in people list
+     * Delete a order in orders list
      *
      * @param {string} id
      *

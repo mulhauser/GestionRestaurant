@@ -18,20 +18,20 @@ export class RoomService {
     constructor(private _roomDocumentService: RoomDocumentService) {}
 
     /**
-     * Returns all existing people in the list
+     * Returns all existing rooms in the list
      *
-     * @returns {Observable<People[]>}
+     * @returns {Observable<Rooms[]>}
      */
     listAll(): Observable<Room[] | void> {
         return this._roomDocumentService.find();
     }
 
     /**
-     * Returns one people of the list matching id in parameter
+     * Returns one rooms of the list matching id in parameter
      *
-     * @param {string} id of the people
+     * @param {string} id of the rooms
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Rooms>}
      */
     one(id: string): Observable<Room> {
         return this._roomDocumentService.findById(id)
@@ -46,9 +46,9 @@ export class RoomService {
     }
 
     /**
-     * Check if person already exists and add it in people list
+     * Check if room already exists and add it in rooms list
      *
-     * @param person to create
+     * @param room to create
      *
      * @returns {Observable<HapinessHTTPHandlerResponse>}
      */
@@ -61,12 +61,12 @@ export class RoomService {
     }
 
     /**
-     * Update a person in people list
+     * Update a person in rooms list
      *
      * @param {string} id of the person to update
-     * @param person data to update
+     * @param room data to update
      *
-     * @returns {Observable<People>}
+     * @returns {Observable<Rooms>}
      */
     update(id: string, room: Room): Observable<Room> {
         return this._roomDocumentService.findByIdAndUpdate(id, room)
@@ -81,7 +81,7 @@ export class RoomService {
     }
 
     /**
-     * Deletes on person in people list
+     * Deletes on person in rooms list
      *
      * @param {string} id of the person to delete
      *
