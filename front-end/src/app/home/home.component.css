@@ -1,71 +1,67 @@
-.container {
-  white-space: nowrap;
-  margin-top: 10vh;
-  transform: translateY(-30%);
+body{
+  font-family: 'Raleway';
 }
-.column {
-  margin: 15px 15px 0;
-  padding: 0;
+
+main{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
-.column:last-child {
-  padding-bottom: 60px;
-}
-.column::after {
-  content: '';
-  clear: both;
-}
-.column div {
+
+figure{
   position: relative;
-  float: left;
-  width: 338px;
-  height: 338px;
-  margin: 0 0 0 25px;
-  padding: 0;
+  height: 300px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
-.column div:first-child {
-  margin-left: 50vh;
-}
-.column div span {
-  position: absolute;
-  bottom: -20px;
-  left: 0;
-  z-index: -1;
-  display: block;
-  width: 338px;
-  margin: 0;
-  padding: 0;
-  color: #444;
-  font-size: 18px;
-  text-decoration: none;
+
+figcaption{
   text-align: center;
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
-  opacity: 0;
+  position: absolute;
+  width: 100%;
+  bottom: -30px;
 }
-figure {
-  width: 338px;
-  height: 338px;
-  margin: 0;
-  padding: 0;
-  background: #fff;
+
+figure:hover figcaption{
+  visibility: visible;
+}
+
+.menu{
   overflow: hidden;
 }
-figure:hover+span {
-  bottom: -36px;
-  opacity: 1;
+
+.menu img{
+  transition: 0.8s;
+  filter: grayscale(100%);}
+
+.menu img:hover{
+  transform: scale(1.15);
+  filter: grayscale(0%);}
+
+.ingredients{
+  overflow: hidden;
 }
 
-
-
-
-.hover12 figure {
-  background: #1abc9c;
+.ingredients img{
+  transition: 0.8s;
+  filter: grayscale(100%);
 }
-.hover12 figure img {
-  opacity: 1;
-  -webkit-transition: .3s ease-in-out;
-  transition: .3s ease-in-out;
+
+.ingredients img:hover{
+  transform: scale(1.15);
+  filter: grayscale(0%);
 }
-.hover12 figure:hover img {
-  opacity: .5;
+
+.commandes{
+  overflow: hidden;
+}
+
+.commandes img{
+  transition: 0.8s;
+  filter: grayscale(100%);
+}
+
+.commandes img:hover{
+  transform: scale(1.15);
+  filter: grayscale(0%);
 }

@@ -1,28 +1,26 @@
-<div class="container">
-  <div class="hover12 column">
-    <div>
-      <figure>
-        <a [routerLink]="['/plats']">
-          <img src="assets/images/menu.jpg" aria-label="nwt" alt="NWT"/>
-        </a>
-      </figure>
-      <span>Menu</span>
-    </div>
-    <div>
-      <figure>
-        <a [routerLink]="['/ingredients']">
-          <img src="assets/images/ingredients.jpg" aria-label="nwt" alt="NWT"/>
-        </a>
-      </figure>
-      <span>Ingrédients</span>
-    </div>
-    <div>
-      <figure>
-        <a [routerLink]="['/orders']">
-          <img src="assets/images/orders.jpg" aria-label="nwt" alt="NWT"/>
-        </a>
-      </figure>
-      <span>Commande</span>
-    </div>
-  </div>
-</div>
+<main>
+  <figure class="menu">
+    <a [routerLink]="['/plats']">
+      <img src="assets/images/menu.jpg" aria-label="nwt" alt="NWT"/>
+    </a>
+    <figcaption>
+      Menu
+    </figcaption>
+  </figure>
+  <figure class="ingredients">
+    <a [routerLink]="['/ingredients']">
+      <img src="assets/images/ingredients.jpg" aria-label="nwt" alt="NWT"/>
+    </a>
+    <figcaption>
+      Ingredients
+    </figcaption>
+  </figure>
+  <figure class="commandes">
+    <a [routerLink]="['/orders']">
+      <img src="assets/images/orders.jpg" aria-label="nwt" alt="NWT"/>
+    </a>
+    <figcaption>
+      Commandes
+    </figcaption>
+  </figure>
+</main>
